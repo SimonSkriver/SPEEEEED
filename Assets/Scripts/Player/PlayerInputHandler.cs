@@ -36,7 +36,5 @@ public class PlayerInputHandler : MonoBehaviour
         accelerateValue = accelerateAction.ReadValue<float>();
         brakeValue = brakeAction.ReadValue<float>();
         steerValue = steerAction.ReadValue<Vector2>();
-
-        if (brakeAction.WasCompletedThisFrame()) Debug.Log("Yo");
     }
 }
