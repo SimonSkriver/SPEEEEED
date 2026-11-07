@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerCarController : MonoBehaviour
+public class WheelColliderRB : MonoBehaviour
 {
 
     [Header("Wheels (set automatically, visible for debugging purposes)")]
