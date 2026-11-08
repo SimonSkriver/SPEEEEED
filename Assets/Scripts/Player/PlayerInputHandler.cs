@@ -11,7 +11,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction brakeAction;
     private InputAction steerAction;
 
-    [Header("Values")]
+    [Header("Values (visible for debugging purposes)")]
     // Private fields so as not to be read or written from elsewhere (serialized for debugging purposes)
     [SerializeField] private float accelerateValue;
     [SerializeField] private float brakeValue;
