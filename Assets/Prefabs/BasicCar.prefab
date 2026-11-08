@@ -240,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 2508832812948225674}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.257, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -406,7 +406,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2b08ced2eb5115d4ab99c231b36a8f17, type: 2}
-  - {fileID: 2100000, guid: f9157e6381318704f9fa1f8b722a82a4, type: 2}
+  - {fileID: 2100000, guid: f9536266dc8360745b4dc6e2def6548e, type: 2}
   - {fileID: 2100000, guid: 2b08ced2eb5115d4ab99c231b36a8f17, type: 2}
   - {fileID: 2100000, guid: 9c30530f55e55a140b3099d88a3d6fab, type: 2}
   - {fileID: 2100000, guid: 9c30530f55e55a140b3099d88a3d6fab, type: 2}
@@ -1175,8 +1175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d081fa41056c64395bf8323d638c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicController
-  MoveSpeed: 50
-  MaxSpeed: 15
+  MoveSpeed: 70
+  MaxSpeed: 30
   Drag: 0.98
   SteerAngle: 20
-  Traction: 1
+  Traction: 10

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b12abbe9c4fe548a19f7990c0fd7cc, type: 3}
   m_Name: SphereCar
   m_EditorClassIdentifier: Assembly-CSharp::TestCarData
-  EnginePower: 100
-  SteeringRange: 50
+  EnginePower: 20
+  SteeringRange: 30
