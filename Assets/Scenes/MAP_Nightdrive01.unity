@@ -400,7 +400,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b57cdcee9d988f8479e835b959745789, type: 2}
+  - {fileID: 2100000, guid: 8a22eafec4977784d92e2b76f2ce3636, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
       TangentOut:
         x: 0
         y: 0
-        z: 0
+        z: 4
       Rotation:
         value:
           x: 0
