@@ -7,8 +7,8 @@ public class CarWheel : MonoBehaviour
 
     [Header("Suspension settings (can be tweaked)")]
     [SerializeField] private float springRestLength = 1f;
-    [SerializeField] private float springStrength = 8.175f;
-    [SerializeField] private float damperStrength = 3;
+    [SerializeField] private float springStrength = 8175f;
+    [SerializeField] private float damperStrength = 3000;
 
     [Header("Steering")]
 
@@ -25,6 +25,8 @@ public class CarWheel : MonoBehaviour
     private Rigidbody rb;
     private PlayerInputHandler playerInput;
 
+    public float currentSpeed;
+
     void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
@@ -34,12 +36,9 @@ public class CarWheel : MonoBehaviour
     void FixedUpdate()
     {
         HandleSuspension();
-
-        if (isSteering)
-        {
-            HandleSteering();
-            Debug.DrawRay(transform.position, transform.forward);
-        }
+        HandleTurningWheel();
+        HandleAcceleration();
+        HandleTracktion();
     }
 
     void HandleSuspension()
@@ -56,10 +55,34 @@ public class CarWheel : MonoBehaviour
         }
     }
 
-    void HandleSteering()
+    void HandleTurningWheel()
     {
-        float angle = playerInput.SteerValue.x * CarData.SteeringRange;
-        Quaternion targetRotation = Quaternion.Euler(transform.localRotation.x, angle, transform.localRotation.z);
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * 10f);
+        if (isSteering) // Only turn the wheels that are steering
+        {
+            float wheelAngle = playerInput.SteerValue.x * CarData.SteeringRange; // Calculate wheel angle based on user input
+            Quaternion targetRotation = Quaternion.Euler(transform.localRotation.x, wheelAngle, transform.localRotation.z); // Calcalate rotation based on wheelAngle
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * 10f); // Lerp between curretn
+            Debug.DrawRay(transform.position, transform.forward); // Debug
+        }
+            
+    }
+
+    void HandleAcceleration()
+    {
+        if (!isMotorized) return;
+        currentSpeed = Vector3.Dot(rb.transform.forward, rb.linearVelocity);
+        if (currentSpeed >= CarData.TopSpeed) return;
+
+        if (playerInput.AccelerationValue > 0f)
+        {
+            float accelerationAmount = playerInput.AccelerationValue * CarData.EnginePower;
+            rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
+        }
+    }
+
+    void HandleTracktion()
+    {
+        float lateralVelocity = Vector3.Dot(transform.right, rb.GetPointVelocity(transform.position));
+        rb.AddForceAtPosition(-transform.right * lateralVelocity * CarData.TireGrip, transform.position);
     }
 }

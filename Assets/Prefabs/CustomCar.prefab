@@ -43,13 +43,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51053279d8b4d074db44932008358d4b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Suspension
+  m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
   springRestLength: 1
-  springStrength: 8.175
-  damperStrength: 3
+  springStrength: 8500
+  damperStrength: 1500
   isSteering: 0
-  isMotorized: 0
+  isMotorized: 1
+  currentSpeed: 0
 --- !u!1 &2071963803509806906
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,13 +94,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51053279d8b4d074db44932008358d4b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Suspension
+  m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
   springRestLength: 1
-  springStrength: 8.175
-  damperStrength: 3
+  springStrength: 8500
+  damperStrength: 1500
   isSteering: 1
-  isMotorized: 0
+  isMotorized: 1
+  currentSpeed: 0
 --- !u!1 &3126622577053804458
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,13 +145,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51053279d8b4d074db44932008358d4b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Suspension
+  m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
   springRestLength: 1
-  springStrength: 8.175
-  damperStrength: 3
+  springStrength: 8500
+  damperStrength: 1500
   isSteering: 1
-  isMotorized: 0
+  isMotorized: 1
+  currentSpeed: 0
 --- !u!1 &3418904541866990425
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,13 +196,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51053279d8b4d074db44932008358d4b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Suspension
+  m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
   springRestLength: 1
-  springStrength: 8.175
-  damperStrength: 3
+  springStrength: 8500
+  damperStrength: 1500
   isSteering: 0
-  isMotorized: 0
+  isMotorized: 1
+  currentSpeed: 0
 --- !u!1 &7519353613238903959
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,11 +239,11 @@ Transform:
   m_LocalScale: {x: 1.8, y: 1, z: 4.5}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7844004844728095010}
   - {fileID: 4267326721812211182}
   - {fileID: 4149106423447841116}
   - {fileID: 4500988272330635623}
   - {fileID: 9049415047130425338}
-  - {fileID: 6155960674132348396}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8478308853312029125
@@ -328,8 +332,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7519353613238903959}
   serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 1000
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -344,7 +348,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &430435617244834431
@@ -408,7 +412,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!1 &9052987689112810351
+--- !u!1 &9186314019446434183
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -416,10 +420,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6155960674132348396}
-  - component: {fileID: 8702665024626807047}
-  - component: {fileID: 1674767555616229009}
-  - component: {fileID: 4127910638077818397}
+  - component: {fileID: 7844004844728095010}
+  - component: {fileID: 5704081327348148301}
+  - component: {fileID: 6263355915353071099}
+  - component: {fileID: 4389753774994508316}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -427,28 +431,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6155960674132348396
+--- !u!4 &7844004844728095010
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9052987689112810351}
+  m_GameObject: {fileID: 9186314019446434183}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27795967, y: 0.6240484, z: -0.2532419, w: 0.6849603}
-  m_LocalPosition: {x: -1.9704307, y: 3.3949158, z: 0.42872947}
-  m_LocalScale: {x: 0.22337805, y: 0.7143929, z: 0.7024968}
+  m_LocalRotation: {x: 0.10333899, y: -0, z: -0, w: 0.9946462}
+  m_LocalPosition: {x: 0, y: 2.99, z: -1.4607267}
+  m_LocalScale: {x: 1, y: 0.8711495, z: 1.0339856}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5020616551836517695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &8702665024626807047
+  m_LocalEulerAnglesHint: {x: 11.863, y: 0, z: 0}
+--- !u!20 &5704081327348148301
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9052987689112810351}
+  m_GameObject: {fileID: 9186314019446434183}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -493,21 +497,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1674767555616229009
+--- !u!81 &6263355915353071099
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9052987689112810351}
+  m_GameObject: {fileID: 9186314019446434183}
   m_Enabled: 1
---- !u!114 &4127910638077818397
+--- !u!114 &4389753774994508316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9052987689112810351}
+  m_GameObject: {fileID: 9186314019446434183}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
