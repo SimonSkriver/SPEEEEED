@@ -71,11 +71,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Is_wet: 1
     - _Metalness_Value: 0
+    - _Noise_Scale: 0
+    - _Normal_Strength: 1
+    - _Puddle_Size: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Roughness_Value: 0.5
+    - _Roughness_Value: 1
     - _UV_Rotation: 90
+    - _Use_Texture_Map: 1
+    - _Wetness: 1.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Emission_Color: {r: 0, g: 0, b: 0, a: 1}
