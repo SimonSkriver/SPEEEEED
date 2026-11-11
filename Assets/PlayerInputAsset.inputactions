@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "name": "PlayerInputAsset",
+    "maps": [
+        {
+            "name": "InGame",
+            "id": "a4fe9336-929c-4c07-b9f5-6fd350e6fdcb",
+            "actions": [
+                {
+                    "name": "Accelerate",
+                    "type": "Value",
+                    "id": "b580a526-b0ff-4a97-ada0-fa1ebc93349d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "577fe9d3-7a0c-46f9-9cf0-55c4da6a57b9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
