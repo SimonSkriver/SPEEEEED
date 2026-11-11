@@ -50,7 +50,6 @@ MonoBehaviour:
   damperStrength: 1500
   isSteering: 0
   isMotorized: 1
-  currentSpeed: 0
 --- !u!1 &2071963803509806906
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +100,6 @@ MonoBehaviour:
   damperStrength: 1500
   isSteering: 1
   isMotorized: 1
-  currentSpeed: 0
 --- !u!1 &3126622577053804458
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +150,6 @@ MonoBehaviour:
   damperStrength: 1500
   isSteering: 1
   isMotorized: 1
-  currentSpeed: 0
 --- !u!1 &3418904541866990425
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +200,6 @@ MonoBehaviour:
   damperStrength: 1500
   isSteering: 0
   isMotorized: 1
-  currentSpeed: 0
 --- !u!1 &7519353613238903959
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,9 +329,9 @@ Rigidbody:
   m_GameObject: {fileID: 7519353613238903959}
   serializedVersion: 5
   m_Mass: 1000
-  m_LinearDamping: 1
+  m_LinearDamping: 0.5
   m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -0.3, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -344,7 +340,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
