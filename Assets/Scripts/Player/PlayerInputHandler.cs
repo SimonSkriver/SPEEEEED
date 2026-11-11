@@ -10,6 +10,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction accelerateAction;
     private InputAction brakeAction;
     private InputAction steerAction;
+    private InputAction lookAction;
 
     [Header("Values (visible for debugging purposes)")]
     // Private fields so as not to be read or written from elsewhere (serialized for debugging purposes)
@@ -29,6 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
         accelerateAction = playerInput.actions.FindAction("Accelerate");
         brakeAction = playerInput.actions.FindAction("Brake");
         steerAction = playerInput.actions.FindAction("Steer");
+        lookAction = playerInput.actions.FindAction("Look");
     }
 
     void Update()
