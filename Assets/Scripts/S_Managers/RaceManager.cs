@@ -29,6 +29,12 @@ public class RaceManager : MonoBehaviour
             RegisterRacer(testCar);
         }
 
+        GameObject testCar2 = GameObject.FindGameObjectWithTag("Player2");
+        if (testCar2 != null)
+        {
+            RegisterRacer(testCar2);
+        }
+
         StartRace();
     }
 
@@ -36,13 +42,11 @@ public class RaceManager : MonoBehaviour
     {
         if (car == null)
         {
-            Debug.LogError("Cannot register a missing car.", this);
             return;
         }
 
         if (RaceStarted || Winner != null)
         {
-            Debug.LogWarning("Register racers before starting the race.", this);
             return;
         }
 
@@ -56,13 +60,11 @@ public class RaceManager : MonoBehaviour
     {
         if (RaceStarted || Winner != null)
         {
-            Debug.LogWarning("The race has already started or finished.", this);
             return;
         }
 
         if (racers.Count == 0 || checkpoints == null || checkpoints.Length < 2)
         {
-            Debug.LogError("Add a racer, at least one checkpoint, and a finish line before starting.", this);
             return;
         }
 
@@ -71,7 +73,6 @@ public class RaceManager : MonoBehaviour
             if (checkpoints[i] == null || !checkpoints[i].enabled ||
                 !checkpoints[i].gameObject.activeInHierarchy || !checkpoints[i].isTrigger)
             {
-                Debug.LogError("Each checkpoint must be an active trigger collider.", this);
                 return;
             }
 
@@ -79,7 +80,6 @@ public class RaceManager : MonoBehaviour
             {
                 if (checkpoints[i] == checkpoints[j])
                 {
-                    Debug.LogError("Each checkpoint must be assigned only once.", this);
                     return;
                 }
             }
@@ -89,7 +89,6 @@ public class RaceManager : MonoBehaviour
         {
             if (racer.car == null)
             {
-                Debug.LogError("Every racer needs a car.", this);
                 return;
             }
 
@@ -108,7 +107,6 @@ public class RaceManager : MonoBehaviour
         {
             if (racer.car == null)
             {
-                Debug.LogError("A racer car is missing; the race has stopped.", this);
                 RaceStarted = false;
                 return;
             }

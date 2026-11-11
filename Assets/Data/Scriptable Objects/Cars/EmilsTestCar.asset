@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b12abbe9c4fe548a19f7990c0fd7cc, type: 3}
   m_Name: EmilsTestCar
   m_EditorClassIdentifier: Assembly-CSharp::TestCarData
-  EnginePower: 1700
+  EnginePower: 10000
+  SteeringRange: 5
+  TopSpeed: 100
+  TireGrip: 500
