@@ -267,7 +267,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a00d13708dae4d478f40a1392cd5a40, type: 2}
+  - {fileID: 2100000, guid: 67bcedc73ca397f4c8ac485d237af315, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -359,9 +359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4752a420db6465c488cb2dceb2fd0aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
-  accelerateValue: 0
-  brakeValue: 0
-  steerValue: {x: 0, y: 0}
+  accelerateInputValue: 0
+  brakeInputValue: 0
+  steerInputValue: 0
 --- !u!114 &5128780869064053456
 MonoBehaviour:
   m_ObjectHideFlags: 0
