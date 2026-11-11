@@ -137,17 +137,17 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Is_wet: 0
+    - _Is_wet: 1
     - _Metallic: 0
     - _Metalness_Value: 0
     - _Noise_Scale: 0
     - _Normal_Strength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Puddle_Size: 0.1
+    - _Puddle_Size: 0.089
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rain_Intensity: 0
+    - _Rain_Intensity: 0.05
     - _ReceiveShadows: 1
     - _Roughness_Value: 0.3
     - _Rougness: 0.1
@@ -161,7 +161,7 @@ Material:
     - _Use_Texture_Map: 0
     - _Warble_Size: 10
     - _Warble_Strength: 0
-    - _Wetness: 0
+    - _Wetness: 0.2
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1

@@ -144,6 +144,7 @@ Material:
     - _Puddle_Size: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Rain_Intensity: 0
     - _ReceiveShadows: 1
     - _Roughness_Value: 0.5
     - _Smoothness: 0.666
