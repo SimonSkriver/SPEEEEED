@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class CarWheel : MonoBehaviour
 {
-    [Header("Car Data (IMPORTANT!)")]
+    [Header("Car Data (set manually, critical for functionality)")]
+    [Tooltip("The specific ScriptableObject from which the data is read to calculate car behaviour")]
     public TestCarData CarData;
 
     [Header("Suspension settings (can be tweaked)")]
@@ -10,12 +11,7 @@ public class CarWheel : MonoBehaviour
     [SerializeField] private float springStrength = 8175f;
     [SerializeField] private float damperStrength = 3000;
 
-    [Header("Steering")]
-
-
-    [Header("Acceleration, breaking and tracktion")]
-
-
+    [Header("Wheel settings")]
     [Tooltip("Is this wheel steering the car (is it a front wheel?)")]
     [SerializeField] bool isSteering;
     [Tooltip("Does this wheel recieve engine torque")]
@@ -25,12 +21,14 @@ public class CarWheel : MonoBehaviour
     private Rigidbody rb;
     private PlayerInputHandler playerInput;
 
-    public float currentSpeed;
-
     void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
         playerInput = GetComponentInParent<PlayerInputHandler>();
+
+        if (CarData == null) Debug.LogWarning("No CarData set, no data is available");
+        if (rb == null) Debug.LogWarning("No Rigidbody found, check parent");
+        if (playerInput == null) Debug.LogWarning("No PlayerInputHandler found, check parent");
     }
 
     void FixedUpdate()
@@ -38,6 +36,7 @@ public class CarWheel : MonoBehaviour
         HandleSuspension();
         HandleTurningWheel();
         HandleAcceleration();
+        HandleBrakingAndReversing();
         HandleTracktion();
     }
 
@@ -59,24 +58,42 @@ public class CarWheel : MonoBehaviour
     {
         if (isSteering) // Only turn the wheels that are steering
         {
-            float wheelAngle = playerInput.SteerValue.x * CarData.SteeringRange; // Calculate wheel angle based on user input
-            Quaternion targetRotation = Quaternion.Euler(transform.localRotation.x, wheelAngle, transform.localRotation.z); // Calcalate rotation based on wheelAngle
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * 10f); // Lerp between curretn
+            float wheelAngle = playerInput.SteerInputValue * CarData.SteeringRange; // Calculate wheel angle based on user input
+            Quaternion targetRotation = Quaternion.Euler(0, wheelAngle, 0); // Calcalate rotation based on wheelAngle
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * 10f); // Lerp between current
             Debug.DrawRay(transform.position, transform.forward); // Debug
         }
-            
     }
 
     void HandleAcceleration()
     {
         if (!isMotorized) return;
-        currentSpeed = Vector3.Dot(rb.transform.forward, rb.linearVelocity);
-        if (currentSpeed >= CarData.TopSpeed) return;
+        if (Vector3.Dot(rb.transform.forward, rb.linearVelocity) >= CarData.TopSpeed) return; // If car speed is higher than car's top speed
 
-        if (playerInput.AccelerationValue > 0f)
+        if (playerInput.AccelerationInputValue > 0)
         {
-            float accelerationAmount = playerInput.AccelerationValue * CarData.EnginePower;
+            float accelerationAmount = playerInput.AccelerationInputValue * CarData.EnginePower;
             rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
+        }
+    }
+
+    void HandleBrakingAndReversing()
+    {
+        if (playerInput.BrakeInputValue < 0.1f) return; // If no user input
+
+        if (Vector3.Dot(rb.transform.forward, rb.linearVelocity) > 0.1f) // If the car has forward velocity apply brakes, if 0 velocity apply reversing
+        {
+            float brakeAmount = playerInput.BrakeInputValue * CarData.BrakeForce;
+            rb.AddForceAtPosition(-transform.forward * brakeAmount, transform.position);
+        }
+        else
+        {
+            if (Vector3.Dot(rb.transform.forward, rb.linearVelocity) >= CarData.ReversingMaxSpeed) return; // Only reverse when slower than max reverse speed
+            if (isMotorized) // Only apply the reversing force on motorized wheels
+            {
+                float reverseAmount = CarData.EnginePower * playerInput.BrakeInputValue;
+                rb.AddForceAtPosition(-transform.forward * reverseAmount, transform.position);
+            }
         }
     }
 
