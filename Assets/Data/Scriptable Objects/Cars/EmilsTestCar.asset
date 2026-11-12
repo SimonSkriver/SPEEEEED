@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: EmilsTestCar
   m_EditorClassIdentifier: Assembly-CSharp::TestCarData
   EnginePower: 20000
-  SteeringRange: 5
   TopSpeed: 100
+  SteeringRange: 5
   TireGrip: 1000
+  BrakeForce: 5000
+  ReversingMaxSpeed: 10
