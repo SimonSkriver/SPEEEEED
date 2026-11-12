@@ -93,29 +93,33 @@ public class CarWheel : MonoBehaviour
 
     void HandleAcceleration()
     {
-        if (!isMotorized || !grounded) return;
-        if (speedFactor >= 1) return; // If car speed is higher than car's top speed
-        if (playerInput.AccelerationInputValue > 0)
+        if (!isMotorized) return;
+        if (!grounded) return;
+        if (speedFactor == 1) return; // If car speed is higher than car's top speed
 
-        switch (enginePowerMode)
+        if (playerInput.AccelerationInputValue > 0)
         {
+            switch (enginePowerMode)
+            {
             case EnginePowerMode.Lerp:
                 float availablePower = Mathf.Lerp(CarData.EnginePower, 0, speedFactor);
                 float accelerationAmount = availablePower * playerInput.AccelerationInputValue;
                 rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
                 break;
             
-        case EnginePowerMode.Curve:
-            availablePower = powerCurve.Evaluate(speedFactor);
-            accelerationAmount = availablePower * playerInput.AccelerationInputValue;
-            rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
-            break;
+            case EnginePowerMode.Curve:
+                availablePower = powerCurve.Evaluate(speedFactor);
+                accelerationAmount = availablePower * playerInput.AccelerationInputValue;
+                rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
+                break;
+            }
         }
     }
 
     void HandleBrakingAndReversing()
     {
-        if (playerInput.BrakeInputValue < 0.1f || !grounded) return; // If no user input or not grounded
+        if (!grounded) return;
+        if (playerInput.BrakeInputValue < 0.1f) return; // If no user input
 
         if (forwardSpeed > 0.1f) // If the car has forward velocity apply brakes, if 0 velocity apply reversing
         {
