@@ -145,7 +145,7 @@ Material:
     - _Metallic: 0
     - _Metalness_Value: 0
     - _Noise_Scale: 0
-    - _Normal_Strength: 0.5
+    - _Normal_Strength: 0.999
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Puddle_Size: 0.1
@@ -153,7 +153,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Roughness_Value: 0.5
-    - _Rougness: 0.2
+    - _Rougness: 0.8
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
