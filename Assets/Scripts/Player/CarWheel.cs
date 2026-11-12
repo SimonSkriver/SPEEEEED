@@ -108,7 +108,7 @@ public class CarWheel : MonoBehaviour
                 break;
             
             case EnginePowerMode.Curve:
-                availablePower = powerCurve.Evaluate(speedFactor);
+                availablePower = CarData.EnginePower * powerCurve.Evaluate(speedFactor);
                 accelerationAmount = availablePower * playerInput.AccelerationInputValue;
                 rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
                 break;
