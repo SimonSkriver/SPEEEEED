@@ -1328,6 +1328,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParkingGarage_CarSelect
       objectReference: {fileID: 0}
+    - target: {fileID: 7436569524607841017, guid: 9cf70878ed039d94eac6194c2c9f4a07, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101910081714449667, guid: 9cf70878ed039d94eac6194c2c9f4a07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101910081714449667, guid: 9cf70878ed039d94eac6194c2c9f4a07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101910081714449667, guid: 9cf70878ed039d94eac6194c2c9f4a07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.97
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
