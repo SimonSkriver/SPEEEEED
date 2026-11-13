@@ -10,6 +10,7 @@ public class TestCarData : ScriptableObject
     [Header("Maneuvering")]
     [Tooltip("How sharply the car can turn, measured in degrees to each side")]
     public float SteeringRange;
+    public float SteeringRangeAtTopSpeed;
     public float TireGrip;
 
     [Header("Braking and reversing")]
