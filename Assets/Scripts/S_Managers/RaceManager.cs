@@ -11,6 +11,9 @@ public class RaceManager : MonoBehaviour
         public int laps;
         public int position;
         [HideInInspector] public int nextCheckpoint;
+        [HideInInspector] public float lapStartTime;
+        [HideInInspector] public float finalLapTime;
+        [HideInInspector] public bool lapTimerStarted;
     }
 
     [Tooltip("Place these in driving order, with the finish line last.")]
@@ -94,6 +97,8 @@ public class RaceManager : MonoBehaviour
 
             racer.laps = 0;
             racer.nextCheckpoint = 0;
+            racer.lapTimerStarted = false;
+            racer.finalLapTime = 0f;
         }
 
         RaceStarted = true;
@@ -120,6 +125,22 @@ public class RaceManager : MonoBehaviour
 
             racer.nextCheckpoint = 0;
             racer.laps++;
+
+            // Handle lap timing
+            if (!racer.lapTimerStarted)
+            {
+                // Starting lap 1 - start the timer
+                racer.lapStartTime = Time.time;
+                racer.lapTimerStarted = true;
+                Debug.Log($"{racer.car.name} started lap timer at {racer.lapStartTime}");
+            }
+            else if (racer.laps == 3)
+            {
+                // Finished lap 3 - stop timer and print final time
+                racer.finalLapTime = Time.time - racer.lapStartTime;
+                Debug.Log($"{racer.car.name} finished in {racer.finalLapTime:F2} seconds");
+            }
+
             if (racer.laps >= 3)
             {
                 Winner = racer.car;
