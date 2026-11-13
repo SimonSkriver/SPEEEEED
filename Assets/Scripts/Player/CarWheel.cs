@@ -64,6 +64,7 @@ public class CarWheel : MonoBehaviour
         HandleAcceleration();
         HandleBrakingAndReversing();
         HandleTraction();
+        DebugRays();
     }
 
     void HandleSuspension()
@@ -76,7 +77,6 @@ public class CarWheel : MonoBehaviour
         float damperForce = springVelocity * -damperStrength; // Calculate damping amount
         float totalForce = springForce + damperForce; // Calculate total force
         rb.AddForceAtPosition(transform.up * totalForce, transform.position); // Apply force
-        Debug.DrawRay(transform.position, -transform.up * hit.distance, Color.yellow); // Debug
     }
 
     void HandleTurningWheel()
@@ -87,7 +87,6 @@ public class CarWheel : MonoBehaviour
             float wheelAngle = playerInput.SteerInputValue * currentSteeringRange; // Calculate wheel angle based on user input and speed
             Quaternion targetRotation = Quaternion.Euler(0, wheelAngle, 0); // Calcalate rotation based on wheelAngle
             transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * 10f); // Lerp between current
-            Debug.DrawRay(transform.position, transform.forward); // Debug
         }
     }
 
@@ -118,23 +117,33 @@ public class CarWheel : MonoBehaviour
 
     void HandleBrakingAndReversing()
     {
-        if (!grounded) return;
         if (playerInput.BrakeInputValue < 0.1f) return; // If no user input
+        if (!grounded) return;
 
         if (forwardSpeed > 0.1f) // If the car has forward velocity apply brakes, if 0 velocity apply reversing
         {
-            float brakeAmount = playerInput.BrakeInputValue * CarData.BrakeForce;
-            rb.AddForceAtPosition(-transform.forward * brakeAmount, transform.position);
+            Brake();
         }
         else
         {
-            float reverseSpeed = Mathf.Abs(forwardSpeed);
-            if (reverseSpeed >= CarData.ReversingMaxSpeed) return; // Only reverse when slower than max reverse speed
-            if (isMotorized) // Only apply the reversing force on motorized wheels
-            {
-                float reverseAmount = CarData.EnginePower * playerInput.BrakeInputValue;
-                rb.AddForceAtPosition(-transform.forward * reverseAmount, transform.position);
-            }
+            Reverse();
+        }
+    }
+
+    void Brake()
+    {
+        float brakeAmount = playerInput.BrakeInputValue * CarData.BrakeForce;
+        rb.AddForceAtPosition(-rb.transform.forward * brakeAmount, transform.position);
+    }
+
+    void Reverse()
+    {
+        float reverseSpeed = Mathf.Abs(forwardSpeed);
+        if (reverseSpeed >= CarData.ReversingTopSpeed) return; // Only reverse when slower than max reverse speed
+        if (isMotorized)
+        {
+            float reverseAmount = CarData.EnginePower * playerInput.BrakeInputValue;
+            rb.AddForceAtPosition(-transform.forward * reverseAmount, transform.position);
         }
     }
 
@@ -142,5 +151,12 @@ public class CarWheel : MonoBehaviour
     {
         float lateralVelocity = Vector3.Dot(transform.right, rb.GetPointVelocity(transform.position));
         rb.AddForceAtPosition(-transform.right * lateralVelocity * CarData.TireGrip, transform.position);
+        Debug.DrawRay(transform.position, transform.right * lateralVelocity, Color.red);
+    }
+
+    void DebugRays()
+    {
+        Color suspensionDebugRayColor = grounded ? Color.green : Color.yellow;
+        Debug.DrawRay(transform.position, -transform.up * springRestLength, suspensionDebugRayColor); // Suspension debug
     }
 }
