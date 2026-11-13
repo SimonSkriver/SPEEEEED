@@ -12,11 +12,13 @@ public class RaceManager : MonoBehaviour
         public int position;
         [HideInInspector] public int nextCheckpoint;
         [HideInInspector] public float lapStartTime;
-        [HideInInspector] public float finalLapTime;
         [HideInInspector] public bool lapTimerStarted;
+        public string lapTime = "00:00:00";
     }
 
-    [Tooltip("Place these in driving order, with the finish line last.")]
+    private const int LapsToFinish = 1;
+
+    [Tooltip("Place these in driving order, with the finish line first.")]
     [SerializeField] private Collider[] checkpoints;
     [SerializeField] private List<Racer> racers = new List<Racer>();
 
@@ -68,6 +70,7 @@ public class RaceManager : MonoBehaviour
 
         if (racers.Count == 0 || checkpoints == null || checkpoints.Length < 2)
         {
+            Debug.LogWarning("RaceManager: race not started - needs at least 1 racer and 2 checkpoints.");
             return;
         }
 
@@ -76,6 +79,7 @@ public class RaceManager : MonoBehaviour
             if (checkpoints[i] == null || !checkpoints[i].enabled ||
                 !checkpoints[i].gameObject.activeInHierarchy || !checkpoints[i].isTrigger)
             {
+                Debug.LogWarning($"RaceManager: race not started - checkpoint at index {i} is missing, disabled, inactive or not a trigger.");
                 return;
             }
 
@@ -83,6 +87,7 @@ public class RaceManager : MonoBehaviour
             {
                 if (checkpoints[i] == checkpoints[j])
                 {
+                    Debug.LogWarning($"RaceManager: race not started - checkpoint index {i} is a duplicate of index {j}.");
                     return;
                 }
             }
@@ -92,16 +97,23 @@ public class RaceManager : MonoBehaviour
         {
             if (racer.car == null)
             {
+                Debug.LogWarning("RaceManager: race not started - a racer has no car assigned.");
                 return;
             }
 
             racer.laps = 0;
             racer.nextCheckpoint = 0;
             racer.lapTimerStarted = false;
-            racer.finalLapTime = 0f;
+            racer.lapTime = FormatTime(0f);
         }
 
         RaceStarted = true;
+    }
+
+    private static string FormatTime(float seconds)
+    {
+        TimeSpan time = TimeSpan.FromSeconds(seconds);
+        return $"{time.Minutes:D2}:{time.Seconds:D2}:{time.Milliseconds / 10:D2}";
     }
 
     private void Update()
@@ -116,37 +128,38 @@ public class RaceManager : MonoBehaviour
                 return;
             }
 
+            if (racer.lapTimerStarted)
+            {
+                racer.lapTime = FormatTime(Time.time - racer.lapStartTime);
+            }
+
             Collider next = checkpoints[racer.nextCheckpoint];
             Vector3 carPosition = racer.car.transform.position;
             if (next.ClosestPoint(carPosition) != carPosition) continue;
 
-            racer.nextCheckpoint++;
-            if (racer.nextCheckpoint < checkpoints.Length) continue;
+            // The finish line is checkpoint 0: it starts the lap, and is also the last one hit to end it
+            bool crossedFinish = racer.nextCheckpoint == 0;
+            racer.nextCheckpoint = (racer.nextCheckpoint + 1) % checkpoints.Length;
+            if (!crossedFinish) continue;
 
-            racer.nextCheckpoint = 0;
-            racer.laps++;
-
-            // Handle lap timing
             if (!racer.lapTimerStarted)
             {
-                // Starting lap 1 - start the timer
                 racer.lapStartTime = Time.time;
                 racer.lapTimerStarted = true;
-                Debug.Log($"{racer.car.name} started lap timer at {racer.lapStartTime}");
-            }
-            else if (racer.laps == 3)
-            {
-                // Finished lap 3 - stop timer and print final time
-                racer.finalLapTime = Time.time - racer.lapStartTime;
-                Debug.Log($"{racer.car.name} finished in {racer.finalLapTime:F2} seconds");
+                Debug.Log($"<color=yellow>LAP 1 STARTED: {racer.car.name}</color>");
+                continue;
             }
 
-            if (racer.laps >= 3)
-            {
-                Winner = racer.car;
-                RaceStarted = false;
-                break;
-            }
+            racer.laps++;
+            if (racer.laps < LapsToFinish) continue;
+
+            racer.lapTimerStarted = false;
+            racer.lapTime = FormatTime(Time.time - racer.lapStartTime);
+            Debug.Log($"<color=green>LAP 1 COMPLETED: {racer.car.name} - Final Time: {racer.lapTime}</color>");
+
+            Winner = racer.car;
+            RaceStarted = false;
+            break;
         }
 
         racers.Sort((a, b) =>
