@@ -145,7 +145,7 @@ Material:
     - _Metallic: 0
     - _Metalness_Value: 0
     - _Noise_Scale: 0
-    - _Normal_Strength: 0.5
+    - _Normal_Strength: 0.999
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Puddle_Size: 0.1
@@ -153,7 +153,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Roughness_Value: 0.5
-    - _Rougness: 0.2
+    - _Rougness: 0.8
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -170,9 +170,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emission_Color: {r: 3.7735848, g: 3.290229, b: 1.0145959, a: 1}
+    - _Emission_Color: {r: 3.3962264, g: 2.5844507, b: 1.1053755, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UV_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _UV_Tiling: {r: 1, g: 1, b: 0, a: 0}
