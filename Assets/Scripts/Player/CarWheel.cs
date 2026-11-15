@@ -1,18 +1,10 @@
 using UnityEngine;
 
-#region Engine Torque Enum
-enum EnginePowerMode
-{
-    Lerp,
-    Curve,
-}
-#endregion
-
 public class CarWheel : MonoBehaviour
 {
     [Header("Car Data (set manually, critical for functionality)")]
     [Tooltip("The specific ScriptableObject from which the data is read to calculate car behaviour")]
-    public TestCarData CarData;
+    public CarData CarData;
 
     [Header("Suspension settings (can be tweaked)")]
     [SerializeField] private float springRestLength = 1f;
@@ -26,21 +18,18 @@ public class CarWheel : MonoBehaviour
     [Tooltip("Does this wheel recieve engine torque")]
     [SerializeField] bool isMotorized;
 
-    [Header("Engine power mode (note: the curve is only used when 'Curve' is selected as engine power mode)")]
-    [SerializeField] EnginePowerMode enginePowerMode;
-    [SerializeField] AnimationCurve powerCurve;
-
     [Header("Components (set automatically")]
     private Rigidbody rb;
     private PlayerInputHandler playerInput;
 
-    [Header("Internal values (are calculated by script)")]
+    [Header("Internal values (to be used within script)")]
     private RaycastHit hit;
-    [SerializeField] private bool grounded; // Exposed for debugging
+    private bool grounded;
     private float forwardSpeed;
     private Vector3 wheelVelocity;
     private float wheelMass;
     private float speedFactor; // Value of current speed against top speed (0-1)
+    private float currentTireGrip;
 
     void Awake()
     {
@@ -64,6 +53,7 @@ public class CarWheel : MonoBehaviour
         HandleSuspension();
         HandleAcceleration();
         HandleBrakingAndReversing();
+        HandleDrifting();
         HandleTraction();
         DebugRays();
     }
@@ -99,20 +89,9 @@ public class CarWheel : MonoBehaviour
 
         if (playerInput.AccelerationInputValue > 0)
         {
-            switch (enginePowerMode)
-            {
-                case EnginePowerMode.Lerp:
-                    float availablePower = Mathf.Lerp(CarData.EnginePower, 0, speedFactor);
-                    float accelerationAmount = availablePower * playerInput.AccelerationInputValue;
-                    rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
-                    break;
-
-                case EnginePowerMode.Curve:
-                    availablePower = CarData.EnginePower * powerCurve.Evaluate(speedFactor);
-                    accelerationAmount = availablePower * playerInput.AccelerationInputValue;
-                    rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
-                    break;
-            }
+            float availablePower = CarData.EnginePower * CarData.PowerCurve.Evaluate(speedFactor);
+            float accelerationAmount = availablePower * playerInput.AccelerationInputValue;
+            rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
         }
     }
 
@@ -153,9 +132,22 @@ public class CarWheel : MonoBehaviour
         if (!grounded) return;
 
         float lateralVelocity = Vector3.Dot(transform.right, wheelVelocity);
-        float targetVelocityChange = -lateralVelocity * CarData.TireGrip;
+        float targetVelocityChange = -lateralVelocity * currentTireGrip;
         float counterAcceleration = targetVelocityChange / Time.fixedDeltaTime;
         rb.AddForceAtPosition(transform.right * counterAcceleration * wheelMass, transform.position);
+    }
+
+    void HandleDrifting()
+    {
+        if (playerInput.DriftIsHeld)
+        {
+            if (!isSteering) currentTireGrip = CarData.RearWheelDriftingTireGrip; // Rear wheels
+            else currentTireGrip = CarData.FrontWheelDriftingTireGrip; // Front wheels
+        }
+        else
+        {
+            currentTireGrip = Mathf.Lerp(currentTireGrip, CarData.TireGrip, Time.fixedDeltaTime * 2);
+        }
     }
 
     void DebugRays()
