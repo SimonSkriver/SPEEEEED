@@ -35,11 +35,11 @@ public class CarWheel : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody>();
         playerInput = GetComponentInParent<PlayerInputHandler>();
-        wheelMass = rb.mass / 4;
 
         if (CarData == null) Debug.LogWarning("No CarData set, no data is available");
         if (rb == null) Debug.LogWarning("No Rigidbody found, check parent");
         if (playerInput == null) Debug.LogWarning("No PlayerInputHandler found, check parent");
+        wheelMass = rb.mass / 4;
     }
 
     void FixedUpdate()
@@ -48,6 +48,7 @@ public class CarWheel : MonoBehaviour
         forwardSpeed = Vector3.Dot(rb.transform.forward, rb.linearVelocity);
         wheelVelocity = rb.GetPointVelocity(transform.position);
         speedFactor = Mathf.InverseLerp(0, CarData.TopSpeed, forwardSpeed);
+        currentTireGrip = CarData.TireGrip;
 
         HandleTurningWheel();
         HandleSuspension();
@@ -85,7 +86,7 @@ public class CarWheel : MonoBehaviour
     {
         if (!isMotorized) return;
         if (!grounded) return;
-        if (speedFactor == 1) return; // If car speed is higher than car's top speed
+        //if (speedFactor == 1) return; // If car speed is higher than car's top speed
 
         if (playerInput.AccelerationInputValue > 0)
         {
