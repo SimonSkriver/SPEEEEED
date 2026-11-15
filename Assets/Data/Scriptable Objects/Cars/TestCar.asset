@@ -15,7 +15,7 @@ MonoBehaviour:
   EnginePower: 2000
   TopSpeed: 30
   SteeringRange: 30
-  SteeringRangeAtTopSpeed: 0
+  SteeringRangeAtTopSpeed: 10
   TireGrip: 1
   BrakeForce: 1000
-  ReversingTopSpeed: 0
+  ReversingTopSpeed: 5

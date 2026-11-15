@@ -26,13 +26,9 @@ public class CarWheel : MonoBehaviour
     [Tooltip("Does this wheel recieve engine torque")]
     [SerializeField] bool isMotorized;
 
-    [Header("Engine power mode")]
+    [Header("Engine power mode (note: the curve is only used when 'Curve' is selected as engine power mode)")]
     [SerializeField] EnginePowerMode enginePowerMode;
-    [Tooltip("Curve will only be used if mode 'Curve' is selected")]
     [SerializeField] AnimationCurve powerCurve;
-
-    [Header("Raycast hit?")]
-    [SerializeField] bool grounded;
 
     [Header("Components (set automatically")]
     private Rigidbody rb;
@@ -40,13 +36,17 @@ public class CarWheel : MonoBehaviour
 
     [Header("Internal values (are calculated by script)")]
     private RaycastHit hit;
+    [SerializeField] private bool grounded; // Exposed for debugging
     private float forwardSpeed;
+    private Vector3 wheelVelocity;
+    private float wheelMass;
     private float speedFactor; // Value of current speed against top speed (0-1)
 
     void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
         playerInput = GetComponentInParent<PlayerInputHandler>();
+        wheelMass = rb.mass / 4;
 
         if (CarData == null) Debug.LogWarning("No CarData set, no data is available");
         if (rb == null) Debug.LogWarning("No Rigidbody found, check parent");
@@ -57,6 +57,7 @@ public class CarWheel : MonoBehaviour
     {
         grounded = Physics.Raycast(transform.position, -transform.up, out hit, springRestLength);
         forwardSpeed = Vector3.Dot(rb.transform.forward, rb.linearVelocity);
+        wheelVelocity = rb.GetPointVelocity(transform.position);
         speedFactor = Mathf.InverseLerp(0, CarData.TopSpeed, forwardSpeed);
 
         HandleTurningWheel();
@@ -73,7 +74,7 @@ public class CarWheel : MonoBehaviour
 
         float offset = springRestLength - hit.distance; // Calculate offset
         float springForce = offset * springStrength; // Calculate spring force
-        float springVelocity = Vector3.Dot(transform.up, rb.GetPointVelocity(transform.position)); // Calculate spring velocity
+        float springVelocity = Vector3.Dot(transform.up, wheelVelocity); // Calculate spring velocity
         float damperForce = springVelocity * -damperStrength; // Calculate damping amount
         float totalForce = springForce + damperForce; // Calculate total force
         rb.AddForceAtPosition(transform.up * totalForce, transform.position); // Apply force
@@ -100,17 +101,17 @@ public class CarWheel : MonoBehaviour
         {
             switch (enginePowerMode)
             {
-            case EnginePowerMode.Lerp:
-                float availablePower = Mathf.Lerp(CarData.EnginePower, 0, speedFactor);
-                float accelerationAmount = availablePower * playerInput.AccelerationInputValue;
-                rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
-                break;
-            
-            case EnginePowerMode.Curve:
-                availablePower = CarData.EnginePower * powerCurve.Evaluate(speedFactor);
-                accelerationAmount = availablePower * playerInput.AccelerationInputValue;
-                rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
-                break;
+                case EnginePowerMode.Lerp:
+                    float availablePower = Mathf.Lerp(CarData.EnginePower, 0, speedFactor);
+                    float accelerationAmount = availablePower * playerInput.AccelerationInputValue;
+                    rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
+                    break;
+
+                case EnginePowerMode.Curve:
+                    availablePower = CarData.EnginePower * powerCurve.Evaluate(speedFactor);
+                    accelerationAmount = availablePower * playerInput.AccelerationInputValue;
+                    rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
+                    break;
             }
         }
     }
@@ -149,14 +150,18 @@ public class CarWheel : MonoBehaviour
 
     void HandleTraction()
     {
-        float lateralVelocity = Vector3.Dot(transform.right, rb.GetPointVelocity(transform.position));
-        rb.AddForceAtPosition(-transform.right * lateralVelocity * CarData.TireGrip, transform.position);
-        Debug.DrawRay(transform.position, transform.right * lateralVelocity, Color.red);
+        if (!grounded) return;
+
+        float lateralVelocity = Vector3.Dot(transform.right, wheelVelocity);
+        float targetVelocityChange = -lateralVelocity * CarData.TireGrip;
+        float counterAcceleration = targetVelocityChange / Time.fixedDeltaTime;
+        rb.AddForceAtPosition(transform.right * counterAcceleration * wheelMass, transform.position);
     }
 
     void DebugRays()
     {
         Color suspensionDebugRayColor = grounded ? Color.green : Color.yellow;
         Debug.DrawRay(transform.position, -transform.up * springRestLength, suspensionDebugRayColor); // Suspension debug
+        Debug.DrawRay(transform.position, transform.right, Color.red); // Suspension debug
     }
 }
