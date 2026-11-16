@@ -18,6 +18,9 @@ public class CarWheel : MonoBehaviour
     [Tooltip("Does this wheel recieve engine torque")]
     [SerializeField] bool isMotorized;
 
+    [Header("Traction settings")]
+    [SerializeField] float tractionCorrectionTime = 2f;
+
     [Header("Components (set automatically")]
     private Rigidbody rb;
     private PlayerInputHandler playerInput;
@@ -147,7 +150,7 @@ public class CarWheel : MonoBehaviour
         }
         else
         {
-            currentTireGrip = Mathf.Lerp(currentTireGrip, CarData.TireGrip, Time.fixedDeltaTime * 2);
+            currentTireGrip = Mathf.Lerp(currentTireGrip, CarData.TireGrip, Time.fixedDeltaTime * tractionCorrectionTime);
         }
     }
 
