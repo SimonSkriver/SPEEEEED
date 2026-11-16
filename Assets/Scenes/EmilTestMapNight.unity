@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &83161910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9002949926407280447, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+  m_PrefabInstance: {fileID: 1132953624}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &173185456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4500988272330635623, guid: 58f890c1e4b6f434db0b24d535395665, type: 3}
@@ -390,11 +395,6 @@ BoxCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9049415047130425338, guid: 58f890c1e4b6f434db0b24d535395665, type: 3}
   m_PrefabInstance: {fileID: 1708345446}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &467055133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9002949926407280447, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
-  m_PrefabInstance: {fileID: 1901496119}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &538332573
 GameObject:
@@ -1158,6 +1158,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2377937593594433152, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2943461409817693202, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
       propertyPath: damperStrength
       value: 2500
@@ -1589,6 +1593,10 @@ PrefabInstance:
     - target: {fileID: 8263793743807346706, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
       propertyPath: powerCurve.m_Curve.Array.data[2].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002949926407280447, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2405,7 +2413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: racers.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: checkpoints.Array.size
@@ -2414,35 +2422,35 @@ PrefabInstance:
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: racers.Array.data[0].car
       value: 
-      objectReference: {fileID: 467055133}
+      objectReference: {fileID: 83161910}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[0]'
       value: 
-      objectReference: {fileID: 392548242}
+      objectReference: {fileID: 1856340400}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[1]'
       value: 
-      objectReference: {fileID: 685041010}
+      objectReference: {fileID: 392548242}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[2]'
       value: 
-      objectReference: {fileID: 977026325}
+      objectReference: {fileID: 685041010}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[3]'
       value: 
-      objectReference: {fileID: 2027322186}
+      objectReference: {fileID: 977026325}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[4]'
       value: 
-      objectReference: {fileID: 415557967}
+      objectReference: {fileID: 2027322186}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[5]'
       value: 
-      objectReference: {fileID: 538332577}
+      objectReference: {fileID: 415557967}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[6]'
       value: 
-      objectReference: {fileID: 1856340400}
+      objectReference: {fileID: 538332577}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2755,6 +2763,10 @@ PrefabInstance:
     - target: {fileID: 6373686153377423240, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002949926407280447, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
