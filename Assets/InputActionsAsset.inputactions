@@ -30,8 +30,6 @@
                     "name": "Steer",
                     "type": "Value",
                     "id": "d391d38a-af1e-4781-9f72-00218024c8f9",
-<<<<<<< HEAD
-=======
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -42,11 +40,20 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "10693283-2b3a-4082-84dd-8b84cef7b651",
->>>>>>> merge-before-main
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "Drift",
+                    "type": "Button",
+                    "id": "bd5231b0-ae22-4a3b-a615-98c87fd578b5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
                     "priority": 0
                 }
             ],
@@ -64,8 +71,6 @@
                 },
                 {
                     "name": "",
-<<<<<<< HEAD
-=======
                     "id": "f0322cb4-4c8d-4361-9393-2081fd7fba76",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -88,7 +93,6 @@
                 },
                 {
                     "name": "",
->>>>>>> merge-before-main
                     "id": "8e900f71-5871-4807-8fd4-75b3b72b3afc",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
@@ -100,10 +104,6 @@
                 },
                 {
                     "name": "",
-<<<<<<< HEAD
-                    "id": "1a39fcd5-faa2-4295-ad00-e6f020249734",
-                    "path": "<Gamepad>/leftStick",
-=======
                     "id": "74adefd2-4c4a-41a0-bb8e-e6929c297d93",
                     "path": "<Keyboard>/s",
                     "interactions": "",
@@ -139,15 +139,11 @@
                     "name": "negative",
                     "id": "a8d35562-9154-45e8-8ace-4bbd116e7643",
                     "path": "<Gamepad>/leftStick/left",
->>>>>>> merge-before-main
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Steer",
                     "isComposite": false,
-<<<<<<< HEAD
-                    "isPartOfComposite": false
-=======
                     "isPartOfComposite": true
                 },
                 {
@@ -226,7 +222,28 @@
                     "action": "Steer",
                     "isComposite": false,
                     "isPartOfComposite": true
->>>>>>> merge-before-main
+                },
+                {
+                    "name": "",
+                    "id": "0a507a6d-f0af-4067-b157-36117a1adbdd",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4421f9d0-dc36-49fc-8622-602317f38b31",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

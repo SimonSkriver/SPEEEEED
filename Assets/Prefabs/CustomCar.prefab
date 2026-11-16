@@ -48,11 +48,6 @@ MonoBehaviour:
   springRestLength: 1
   springStrength: 8500
   damperStrength: 1500
-<<<<<<< HEAD
-  isSteering: 0
-  isMotorized: 1
-  currentSpeed: 0
-=======
   wheelRadius: 0
   isSteering: 0
   isMotorized: 1
@@ -100,7 +95,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   grounded: 0
->>>>>>> merge-before-main
 --- !u!1 &2071963803509806906
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,11 +143,6 @@ MonoBehaviour:
   springRestLength: 1
   springStrength: 8500
   damperStrength: 1500
-<<<<<<< HEAD
-  isSteering: 1
-  isMotorized: 1
-  currentSpeed: 0
-=======
   wheelRadius: 0
   isSteering: 1
   isMotorized: 1
@@ -201,7 +190,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   grounded: 0
->>>>>>> merge-before-main
 --- !u!1 &3126622577053804458
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,11 +238,6 @@ MonoBehaviour:
   springRestLength: 1
   springStrength: 8500
   damperStrength: 1500
-<<<<<<< HEAD
-  isSteering: 1
-  isMotorized: 1
-  currentSpeed: 0
-=======
   wheelRadius: 0
   isSteering: 1
   isMotorized: 1
@@ -302,7 +285,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   grounded: 0
->>>>>>> merge-before-main
 --- !u!1 &3418904541866990425
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,11 +333,6 @@ MonoBehaviour:
   springRestLength: 1
   springStrength: 8500
   damperStrength: 1500
-<<<<<<< HEAD
-  isSteering: 0
-  isMotorized: 1
-  currentSpeed: 0
-=======
   wheelRadius: 0
   isSteering: 0
   isMotorized: 1
@@ -403,7 +380,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   grounded: 0
->>>>>>> merge-before-main
 --- !u!1 &7519353613238903959
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,11 +447,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<< HEAD
-  - {fileID: 2100000, guid: 7a00d13708dae4d478f40a1392cd5a40, type: 2}
-=======
   - {fileID: 2100000, guid: 67bcedc73ca397f4c8ac485d237af315, type: 2}
->>>>>>> merge-before-main
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -537,15 +509,9 @@ Rigidbody:
   m_GameObject: {fileID: 7519353613238903959}
   serializedVersion: 5
   m_Mass: 1000
-<<<<<<< HEAD
-  m_LinearDamping: 1
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-=======
   m_LinearDamping: 0.5
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: -0.3, z: 0}
->>>>>>> merge-before-main
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -554,11 +520,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-<<<<<<< HEAD
-  m_ImplicitCom: 1
-=======
   m_ImplicitCom: 0
->>>>>>> merge-before-main
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -577,15 +539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4752a420db6465c488cb2dceb2fd0aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
-<<<<<<< HEAD
-  accelerateValue: 0
-  brakeValue: 0
-  steerValue: {x: 0, y: 0}
-=======
   accelerateInputValue: 0
   brakeInputValue: 0
   steerInputValue: 0
->>>>>>> merge-before-main
 --- !u!114 &5128780869064053456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,13 +583,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 13a57738-b89c-4a5e-8838-3dd11a9d4d7c
     m_ActionName: UI/New action
-<<<<<<< HEAD
-=======
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 10693283-2b3a-4082-84dd-8b84cef7b651
     m_ActionName: Player/Look
->>>>>>> merge-before-main
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
