@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Art/Materials/BMW BASE.mat.meta
-guid: e635b7498563e164ca4f5c7e63e4ea3b
-========
 guid: 999984cf2518b18429859d87293a190a
->>>>>>>> merge-before-main:Assets/Art/Materials/CheckpointMat.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Art/Textures/Road006_1K-JPG_NormalGL.jpg.meta
-guid: ab4f653ca82d85540bc41a4b149ce67a
-========
 guid: 1bc14aa1aef3d7444a777cc7fd661bae
->>>>>>>> merge-before-main:Assets/Scenes/MAP_Tokhey_01/Lightmap-3_comp_dir.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -26,7 +22,7 @@ TextureImporter:
     normalMapFilter: 0
     flipGreenChannel: 0
   isReadable: 0
-  streamingMipmaps: 0
+  streamingMipmaps: 1
   streamingMipmapsPriority: 0
   vTOnly: 0
   ignoreMipmapLimit: 0
@@ -39,11 +35,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 1
-    aniso: 1
+    aniso: 3
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -58,7 +54,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 1
+  textureType: 12
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -76,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
