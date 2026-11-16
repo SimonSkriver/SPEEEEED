@@ -26,6 +26,7 @@ public class CarWheel : MonoBehaviour
     private PlayerInputHandler playerInput;
 
     [Header("Internal values (to be used within script)")]
+    private LayerMask playerLayer;
     private RaycastHit hit;
     private bool grounded;
     private float forwardSpeed;
@@ -38,6 +39,7 @@ public class CarWheel : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody>();
         playerInput = GetComponentInParent<PlayerInputHandler>();
+        playerLayer = LayerMask.GetMask("Player");
 
         if (CarData == null) Debug.LogWarning("No CarData set, no data is available");
         if (rb == null) Debug.LogWarning("No Rigidbody found, check parent");
@@ -47,7 +49,7 @@ public class CarWheel : MonoBehaviour
 
     void FixedUpdate()
     {
-        grounded = Physics.Raycast(transform.position, -transform.up, out hit, springRestLength);
+        grounded = Physics.Raycast(transform.position, -transform.up, out hit, springRestLength + wheelRadius, ~playerLayer);
         forwardSpeed = Vector3.Dot(rb.transform.forward, rb.linearVelocity);
         wheelVelocity = rb.GetPointVelocity(transform.position);
         speedFactor = Mathf.InverseLerp(0, CarData.TopSpeed, forwardSpeed);
@@ -66,7 +68,7 @@ public class CarWheel : MonoBehaviour
     {
         if (!grounded) return;
 
-        float offset = springRestLength - hit.distance; // Calculate offset
+        float offset = springRestLength - (hit.distance - wheelRadius); // Calculate offset
         float springForce = offset * springStrength; // Calculate spring force
         float springVelocity = Vector3.Dot(transform.up, wheelVelocity); // Calculate spring velocity
         float damperForce = springVelocity * -damperStrength; // Calculate damping amount
@@ -157,7 +159,7 @@ public class CarWheel : MonoBehaviour
     void DebugRays()
     {
         Color suspensionDebugRayColor = grounded ? Color.green : Color.yellow;
-        Debug.DrawRay(transform.position, -transform.up * springRestLength, suspensionDebugRayColor); // Suspension debug
+        Debug.DrawRay(transform.position, -transform.up * (springRestLength + wheelRadius), suspensionDebugRayColor); // Suspension debug
         Debug.DrawRay(transform.position, transform.right, Color.red); // Suspension debug
     }
 }
