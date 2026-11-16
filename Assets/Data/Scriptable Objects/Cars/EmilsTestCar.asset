@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EmilsTestCar
   m_EditorClassIdentifier: Assembly-CSharp::TestCarData
   EnginePower: 9000
-  TopSpeed: 70
+  TopSpeed: 100
   PowerCurve:
     serializedVersion: 2
     m_Curve:
@@ -56,9 +56,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  SteeringRange: 10
-  SteeringRangeAtTopSpeed: 3
-  TireGrip: 0.6
+  SteeringRange: 7
+  SteeringRangeAtTopSpeed: 1
+  TireGrip: 0.7
   FrontWheelDriftingTireGrip: 0.5
   RearWheelDriftingTireGrip: 0.2
   BrakeForce: 1000
