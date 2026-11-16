@@ -12,18 +12,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b12abbe9c4fe548a19f7990c0fd7cc, type: 3}
   m_Name: EmilsTestCar
   m_EditorClassIdentifier: Assembly-CSharp::TestCarData
-  EnginePower: 20000
-  TopSpeed: 100
+  EnginePower: 9000
+  TopSpeed: 70
   PowerCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.85
+      inSlope: 1.5023626
+      outSlope: 1.5023626
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0031101573
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7
+      value: 1
+      inSlope: 0.29376233
+      outSlope: -3.3333333
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.16141696
+      outWeight: 0.14412802
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  SteeringRange: 10
-  SteeringRangeAtTopSpeed: 5
-  TireGrip: 1
-  FrontWheelDriftingTireGrip: 0
-  RearWheelDriftingTireGrip: 0
-  BrakeForce: 5000
-  ReversingTopSpeed: 0
+  SteeringRange: 7
+  SteeringRangeAtTopSpeed: 4
+  TireGrip: 0.8
+  FrontWheelDriftingTireGrip: 0.35
+  RearWheelDriftingTireGrip: 0.3
+  BrakeForce: 1000
+  ReversingTopSpeed: 10
