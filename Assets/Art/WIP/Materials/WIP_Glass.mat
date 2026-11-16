@@ -133,6 +133,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.9
     - _GlossyReflections: 1
+    - _Is_wet: 0
     - _Metallic: 0
     - _Metalness_Value: 0
     - _Mode: 0
@@ -140,8 +141,10 @@ Material:
     - _Normal_Strength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Puddle_Size: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Rain_Intensity: 0.01
     - _ReceiveShadows: 1
     - _Roughness_Value: 0.05
     - _Smoothness: 0.95
@@ -153,6 +156,7 @@ Material:
     - _UVSec: 0
     - _UV_Rotation: 0
     - _Use_Texture_Map: 0
+    - _Wetness: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
