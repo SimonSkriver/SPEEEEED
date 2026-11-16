@@ -1,7 +1,10 @@
 using UnityEngine;
+using TMPro;
 
 public class CarSelect : MonoBehaviour
 {
+    [SerializeField] private TMP_Text label;
+    
     private int currentCarIndex;
 
     private void Awake()
@@ -14,6 +17,7 @@ public class CarSelect : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(i == index);
+            label.text = transform.GetChild(index).name;
         }
     }
 
