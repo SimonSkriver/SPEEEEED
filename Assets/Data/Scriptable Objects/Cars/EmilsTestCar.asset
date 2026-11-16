@@ -59,7 +59,7 @@ MonoBehaviour:
   SteeringRange: 7
   SteeringRangeAtTopSpeed: 4
   TireGrip: 0.8
-  FrontWheelDriftingTireGrip: 0.35
-  RearWheelDriftingTireGrip: 0.3
+  FrontWheelDriftingTireGrip: 0.2
+  RearWheelDriftingTireGrip: 0.1
   BrakeForce: 1000
   ReversingTopSpeed: 10

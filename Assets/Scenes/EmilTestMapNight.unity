@@ -610,6 +610,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1.0000001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &932972718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4596211133475918850, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+  m_PrefabInstance: {fileID: 1132953624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &932972720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932972718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarWheel
+  CarData: {fileID: 11400000, guid: ffaab594a22eff04c88f60e7e8d455fc, type: 2}
+  springRestLength: 0.5
+  springStrength: 8175
+  damperStrength: 3000
+  wheelRadius: 0
+  isSteering: 1
+  isMotorized: 1
+  tractionCorrectionTime: 2
 --- !u!1 &946312626
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +903,18 @@ PrefabInstance:
     - target: {fileID: 2377937593594433152, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850612433673864484, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850612433673864484, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850612433673864484, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2943461409817693202, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
       propertyPath: CarData
@@ -1383,11 +1420,78 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 3832803176826305720, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+    - {fileID: 7600000712399764740, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+    - {fileID: 8263793743807346706, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+    - {fileID: 2943461409817693202, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 915621553188661780, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4596211133475918850, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 932972720}
+    - targetCorrespondingSourceObject: {fileID: 606828294816294034, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1310158899}
+    - targetCorrespondingSourceObject: {fileID: 1212892322347217617, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1684319072}
+    - targetCorrespondingSourceObject: {fileID: 4312364415727347953, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1524129127}
   m_SourcePrefab: {fileID: 100100000, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+--- !u!1 &1310158897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 606828294816294034, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+  m_PrefabInstance: {fileID: 1132953624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310158899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310158897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarWheel
+  CarData: {fileID: 11400000, guid: ffaab594a22eff04c88f60e7e8d455fc, type: 2}
+  springRestLength: 0.5
+  springStrength: 8175
+  damperStrength: 3000
+  wheelRadius: 0
+  isSteering: 1
+  isMotorized: 1
+  tractionCorrectionTime: 2
+--- !u!1 &1524129125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4312364415727347953, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+  m_PrefabInstance: {fileID: 1132953624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1524129127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524129125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarWheel
+  CarData: {fileID: 11400000, guid: ffaab594a22eff04c88f60e7e8d455fc, type: 2}
+  springRestLength: 0.5
+  springStrength: 8175
+  damperStrength: 3000
+  wheelRadius: 0
+  isSteering: 0
+  isMotorized: 1
+  tractionCorrectionTime: 2
 --- !u!1 &1667203174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +1998,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3ca33efb9463ca04ba204f9255843c4d, type: 2}
+--- !u!1 &1684319070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1212892322347217617, guid: 48ac54cf58d05aa4b99eb43229a7e9a0, type: 3}
+  m_PrefabInstance: {fileID: 1132953624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1684319072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684319070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarWheel
+  CarData: {fileID: 11400000, guid: ffaab594a22eff04c88f60e7e8d455fc, type: 2}
+  springRestLength: 0.5
+  springStrength: 8175
+  damperStrength: 3000
+  wheelRadius: 0
+  isSteering: 0
+  isMotorized: 1
+  tractionCorrectionTime: 2
 --- !u!1 &1804509389
 GameObject:
   m_ObjectHideFlags: 0
