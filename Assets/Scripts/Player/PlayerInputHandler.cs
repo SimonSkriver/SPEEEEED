@@ -10,17 +10,19 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction accelerateAction;
     private InputAction brakeAction;
     private InputAction steerAction;
-    private InputAction lookAction;
+    private InputAction driftAction;
 
     [Header("Values (visible for debugging purposes)")]
     // Private fields so as not to be read or written from elsewhere (serialized for debugging purposes)
     [SerializeField] private float accelerateInputValue;
     [SerializeField] private float brakeInputValue;
     [SerializeField] private float steerInputValue;
+    [SerializeField] private bool driftIsHeld;
     // Public properties to get the value of the private fields from outside this class, without overriding them
     public float AccelerationInputValue => accelerateInputValue;
     public float BrakeInputValue => brakeInputValue;
     public float SteerInputValue => steerInputValue;
+    public bool DriftIsHeld => driftIsHeld;
 
 
     void Awake()
@@ -30,7 +32,7 @@ public class PlayerInputHandler : MonoBehaviour
         accelerateAction = playerInput.actions.FindAction("Accelerate");
         brakeAction = playerInput.actions.FindAction("Brake");
         steerAction = playerInput.actions.FindAction("Steer");
-        lookAction = playerInput.actions.FindAction("Look");
+        driftAction = playerInput.actions.FindAction("Drift");
     }
 
     void Update()
@@ -38,5 +40,6 @@ public class PlayerInputHandler : MonoBehaviour
         accelerateInputValue = accelerateAction.ReadValue<float>();
         brakeInputValue = brakeAction.ReadValue<float>();
         steerInputValue = steerAction.ReadValue<float>();
+        driftIsHeld = driftAction.IsPressed();
     }
 }

@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: EmilsTestCar
   m_EditorClassIdentifier: Assembly-CSharp::TestCarData
   EnginePower: 20000
-  SteeringRange: 5
   TopSpeed: 100
-  TireGrip: 1000
+  PowerCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  SteeringRange: 10
+  SteeringRangeAtTopSpeed: 5
+  TireGrip: 1
+  FrontWheelDriftingTireGrip: 0
+  RearWheelDriftingTireGrip: 0
+  BrakeForce: 5000
+  ReversingTopSpeed: 0
