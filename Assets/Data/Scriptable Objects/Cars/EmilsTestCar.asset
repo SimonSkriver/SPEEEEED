@@ -56,10 +56,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  SteeringRange: 7
-  SteeringRangeAtTopSpeed: 4
-  TireGrip: 0.8
-  FrontWheelDriftingTireGrip: 0.2
-  RearWheelDriftingTireGrip: 0.1
+  SteeringRange: 10
+  SteeringRangeAtTopSpeed: 3
+  TireGrip: 0.6
+  FrontWheelDriftingTireGrip: 0.5
+  RearWheelDriftingTireGrip: 0.2
   BrakeForce: 1000
   ReversingTopSpeed: 10
