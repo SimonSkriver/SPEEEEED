@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Simon_Test.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/START_TitleScreen_01.unity
+    guid: 7ff71ca7f7cb4be41b9eb4cb9315b499
+  - enabled: 1
+    path: Assets/Scenes/LOBBY_ParkingGarage_01.unity
+    guid: 739db1827aa40704e9da4101733d7455
+  - enabled: 1
+    path: Assets/Scenes/MAP_Tokhey_01.unity
+    guid: 43c7b48ea11d6224aaa0466d9b0b6b47
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 43f54eaed68129047aa168c3102cf346, type: 3}
   m_UseUCBPForAssetBundles: 0
