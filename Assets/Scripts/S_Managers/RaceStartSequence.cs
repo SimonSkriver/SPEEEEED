@@ -16,6 +16,8 @@ public class RaceStartSequence : MonoBehaviour
 
     [Header("Intro camera")]
     [SerializeField] private CinemachineCamera introCamera;
+    [Tooltip("The full-screen Camera (with a CinemachineBrain on the intro's channel) that renders the intro. Turned off when the intro ends so it doesn't cover the split screen.")]
+    [SerializeField] private Camera introScreenCamera;
     [SerializeField] private Transform cameraStart;
     [SerializeField] private Transform cameraEnd;
     [SerializeField] private float introDuration = 4f;
@@ -117,6 +119,10 @@ public class RaceStartSequence : MonoBehaviour
         }
 
         introCamera.gameObject.SetActive(false); // The players' cameras take over
+        if (introScreenCamera != null)
+        {
+            introScreenCamera.gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator RunCountdown()
