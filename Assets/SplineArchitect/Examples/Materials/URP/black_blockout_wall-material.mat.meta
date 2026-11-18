@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0e7aea0bf767eb842bebaedc0407cb74
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Examples/Materials/URP/black_blockout_wall-material.mat
+  uploadId: 1042822

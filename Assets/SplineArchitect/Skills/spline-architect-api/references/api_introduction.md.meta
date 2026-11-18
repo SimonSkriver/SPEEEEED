@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 47e55633382d274418fbf99dbc4c3656
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-api/references/api_introduction.md
+  uploadId: 1042822

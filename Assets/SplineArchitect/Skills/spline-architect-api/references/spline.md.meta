@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5196d85d5ca166240a6675f2ab4fed9b
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-api/references/spline.md
+  uploadId: 1042822
