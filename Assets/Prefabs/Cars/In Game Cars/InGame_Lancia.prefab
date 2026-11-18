@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6192318591275548583}
   - component: {fileID: 9118914073253196319}
   m_Layer: 6
-  m_Name: FL_Wheel
+  m_Name: FL_WHEEL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,8 +401,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.94, y: 1, z: 4}
-  m_Center: {x: 0, y: 0.65, z: 0}
+  m_Size: {x: 1.94, y: 1.0458639, z: 4}
+  m_Center: {x: 0, y: 0.70732975, z: 0}
 --- !u!114 &4344245841387569736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 599179228748969242}
   - component: {fileID: 3970535164549479145}
   m_Layer: 6
-  m_Name: BR_Wheel
+  m_Name: BR_WHEEL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 6148708983403773020}
   - component: {fileID: 8738818542723006959}
   m_Layer: 6
-  m_Name: FR_Wheel
+  m_Name: FR_WHEEL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 4215480255021629422}
   - component: {fileID: 3974929638123622950}
   m_Layer: 6
-  m_Name: BL_Wheel
+  m_Name: BL_WHEEL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
