@@ -28,6 +28,12 @@ public class RaceManager : MonoBehaviour
 
     private void Start()
     {
+        // The start sequence places the cars, registers them and starts the race after the countdown
+        if (FindFirstObjectByType<RaceStartSequence>() != null)
+        {
+            return;
+        }
+
         GameObject testCar = GameObject.FindGameObjectWithTag("Player1");
         if (testCar != null)
         {
@@ -70,7 +76,6 @@ public class RaceManager : MonoBehaviour
 
         if (racers.Count == 0 || checkpoints == null || checkpoints.Length < 2)
         {
-            Debug.LogWarning("RaceManager: race not started - needs at least 1 racer and 2 checkpoints.");
             return;
         }
 
@@ -79,7 +84,6 @@ public class RaceManager : MonoBehaviour
             if (checkpoints[i] == null || !checkpoints[i].enabled ||
                 !checkpoints[i].gameObject.activeInHierarchy || !checkpoints[i].isTrigger)
             {
-                Debug.LogWarning($"RaceManager: race not started - checkpoint at index {i} is missing, disabled, inactive or not a trigger.");
                 return;
             }
 
@@ -87,7 +91,6 @@ public class RaceManager : MonoBehaviour
             {
                 if (checkpoints[i] == checkpoints[j])
                 {
-                    Debug.LogWarning($"RaceManager: race not started - checkpoint index {i} is a duplicate of index {j}.");
                     return;
                 }
             }
@@ -97,7 +100,6 @@ public class RaceManager : MonoBehaviour
         {
             if (racer.car == null)
             {
-                Debug.LogWarning("RaceManager: race not started - a racer has no car assigned.");
                 return;
             }
 
