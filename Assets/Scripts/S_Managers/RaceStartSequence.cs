@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // Before the race: puts the cars on the grid, moves a camera from A to B, counts down, then starts the race.
 public class RaceStartSequence : MonoBehaviour
@@ -13,6 +14,9 @@ public class RaceStartSequence : MonoBehaviour
     [SerializeField] private Transform[] gridSlots;
     [Tooltip("The cars the players chose. If empty, the cars tagged Player1/Player2 in the scene are moved to the slots.")]
     [SerializeField] private GameObject[] carPrefabs;
+
+    [Tooltip("Two players: on = Player 1 on top and Player 2 below. Off = Player 1 left and Player 2 right.")]
+    [SerializeField] private bool splitScreenTopBottom = false;
 
     [Header("Intro camera")]
     [SerializeField] private CinemachineCamera introCamera;
@@ -31,6 +35,7 @@ public class RaceStartSequence : MonoBehaviour
     private IEnumerator Start()
     {
         PlaceCars();
+        ArrangeSplitScreen();
         SetCarsDrivable(false);
 
         yield return PlayIntroCamera();
@@ -66,6 +71,29 @@ public class RaceStartSequence : MonoBehaviour
         foreach (GameObject car in cars)
         {
             raceManager.RegisterRacer(car);
+        }
+    }
+
+    // PlayerInputManager orders the screens by join order, so set the viewports from the car order instead
+    private void ArrangeSplitScreen()
+    {
+        if (cars.Count != 2)
+        {
+            return;
+        }
+
+        Camera first = cars[0].GetComponentInChildren<PlayerInput>().camera;
+        Camera second = cars[1].GetComponentInChildren<PlayerInput>().camera;
+
+        if (splitScreenTopBottom)
+        {
+            first.rect = new Rect(0f, 0.5f, 1f, 0.5f);
+            second.rect = new Rect(0f, 0f, 1f, 0.5f);
+        }
+        else
+        {
+            first.rect = new Rect(0f, 0f, 0.5f, 1f);
+            second.rect = new Rect(0.5f, 0f, 0.5f, 1f);
         }
     }
 
