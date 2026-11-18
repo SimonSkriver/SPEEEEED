@@ -40,7 +40,7 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "10693283-2b3a-4082-84dd-8b84cef7b651",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true,
@@ -244,6 +244,39 @@
                     "action": "Drift",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Right Stick",
+                    "id": "3fe68467-240f-4a38-b920-d14a9ff5581b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "487271a8-f72f-4eff-b9bf-10d363500568",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "44b3e8b6-e788-4ca0-90c0-7e698cc77f16",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

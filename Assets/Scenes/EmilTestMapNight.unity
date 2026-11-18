@@ -2458,7 +2458,7 @@ MonoBehaviour:
       Driver:
         AccelTime: 0
         DecelTime: 0
-  PlayerIndex: -1
+  PlayerIndex: 1
   AutoEnableInputs: 1
 --- !u!114 &1144806699
 MonoBehaviour:
@@ -2500,7 +2500,7 @@ MonoBehaviour:
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 1.09, z: 0}
-  Damping: {x: 0.1, y: 0.1}
+  Damping: {x: 0.3, y: 0.2}
   Lookahead:
     Enabled: 0
     Time: 0
@@ -2521,9 +2521,9 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 1
-    PositionDamping: {x: 0, y: 0.15, z: 0.15}
+    PositionDamping: {x: 0, y: 0, z: 0.1}
     AngularDampingMode: 0
-    RotationDamping: {x: 0, y: 0, z: 0}
+    RotationDamping: {x: 0, y: 0.4, z: 0}
     QuaternionDamping: 1
   OrbitStyle: 1
   Radius: 5
@@ -4861,9 +4861,9 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 1
-    PositionDamping: {x: 0, y: 0.15, z: 0.15}
+    PositionDamping: {x: 0, y: 0, z: 0.1}
     AngularDampingMode: 0
-    RotationDamping: {x: 0, y: 0, z: 0}
+    RotationDamping: {x: 0, y: 0.4, z: 0}
     QuaternionDamping: 1
   OrbitStyle: 1
   Radius: 5
@@ -5182,7 +5182,7 @@ MonoBehaviour:
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 1.09, z: 0}
-  Damping: {x: 0.1, y: 0.1}
+  Damping: {x: 0.3, y: 0.2}
   Lookahead:
     Enabled: 0
     Time: 0
