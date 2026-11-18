@@ -82,7 +82,7 @@ public class CarWheel : MonoBehaviour
         {
             float currentSteeringRange = Mathf.Lerp(CarData.SteeringRange, CarData.SteeringRangeAtTopSpeed, speedFactor); // Lerp between max-min range based on speed
             float wheelAngle = playerInput.SteerInputValue * currentSteeringRange; // Calculate wheel angle based on user input and speed
-            Quaternion targetRotation = Quaternion.Euler(0, wheelAngle, 0); // Calcalate rotation based on wheelAngle
+            Quaternion targetRotation = Quaternion.Euler(0f, wheelAngle, 0f); // Calcalate rotation based on wheelAngle
             transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.fixedDeltaTime * 10f); // Lerp between current
         }
     }
