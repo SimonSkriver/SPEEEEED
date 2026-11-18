@@ -3,9 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Car", menuName = "Car")]
 public class CarData : ScriptableObject
 {
-    [Header("Prefab")]
-    public GameObject CarPrefab;
-
     [Header("Driving")]
     public float EnginePower;
     public float TopSpeed;

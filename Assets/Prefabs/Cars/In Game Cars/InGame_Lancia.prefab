@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2199485576223228772}
   - component: {fileID: 6192318591275548583}
   - component: {fileID: 9118914073253196319}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FL_Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 1720460129571845350}
   serializedVersion: 2
   m_LocalRotation: {x: 0.10911679, y: 0.000000018336692, z: -0.0000000020128599, w: 0.994029}
-  m_LocalPosition: {x: 0, y: 3.35, z: -4.14}
+  m_LocalPosition: {x: 0, y: 2.0099998, z: -4.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3184770079720305345}
   - component: {fileID: 7359144905089810655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BR_RAY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
-  CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
+  CarData: {fileID: 11400000, guid: dd67d57dbc39c5d4483759d572ee520d, type: 2}
   springRestLength: 0.502
   springStrength: 8175
   damperStrength: 3000
@@ -323,13 +323,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8615508227750365554}
-  - component: {fileID: 3907341066194761681}
   - component: {fileID: 2182430809795123296}
-  - component: {fileID: 6321358810272605249}
-  - component: {fileID: 4783958171500265320}
-  m_Layer: 0
+  - component: {fileID: 3907341066194761681}
+  - component: {fileID: 4344245841387569736}
+  m_Layer: 6
   m_Name: InGame_Lancia
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,27 +355,6 @@ Transform:
   - {fileID: 8091509017200870854}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3907341066194761681
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3477495134259949777}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.94, y: 1, z: 4}
-  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!54 &2182430809795123296
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -388,7 +366,7 @@ Rigidbody:
   m_Mass: 1000
   m_LinearDamping: 0.5
   m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0.35, z: 0}
+  m_CenterOfMass: {x: 0, y: 0.3, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -404,7 +382,28 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6321358810272605249
+--- !u!65 &3907341066194761681
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477495134259949777}
+  m_Material: {fileID: 13400000, guid: daa82c2245d3976478b60d48ac746a8f, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.94, y: 1, z: 4}
+  m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!114 &4344245841387569736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -413,67 +412,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 3477495134259949777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4752a420db6465c488cb2dceb2fd0aed, type: 3}
+  m_Script: {fileID: 11500000, guid: 00623a4ce843acc49aabd75c7f7ebf10, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
-  accelerateInputValue: 0
-  brakeInputValue: 0
-  steerInputValue: 0
-  driftIsHeld: 0
---- !u!114 &4783958171500265320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3477495134259949777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 9010c83c7e635ab4ca0b97e71778d9dc, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f81b6697-064d-4532-b4db-33f0ca49bfd8
-    m_ActionName: 'Player/Accelerate[/DualShock4GamepadHID/rightTrigger]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 38a5a78c-f9d3-460c-879e-911ca634d4ea
-    m_ActionName: 'Player/Brake[/DualShock4GamepadHID/leftTrigger]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d391d38a-af1e-4781-9f72-00218024c8f9
-    m_ActionName: 'Player/Steer[/DualShock4GamepadHID/leftStick]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 13a57738-b89c-4a5e-8838-3dd11a9d4d7c
-    m_ActionName: UI/New action
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 10693283-2b3a-4082-84dd-8b84cef7b651
-    m_ActionName: Player/Look
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bd5231b0-ae22-4a3b-a615-98c87fd578b5
-    m_ActionName: 'Player/Drift[/DualShock4GamepadHID/rightShoulder,/Keyboard/shift]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::CarSFX
+  engineSFX: {fileID: 0}
+  gearshiftSFX: {fileID: 0}
+  TireSquealSFX: {fileID: 0}
+  powerCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  traction: 1
+  idleRPM: 800
+  maxRPM: 7000
+  shiftUpRPM: 6500
+  shiftDownRPM: 3500
+  shiftRate: 1
+  maxGears: 6
+  currentGear: 1
 --- !u!1 &3499448431880954876
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5601063794259995578}
   - component: {fileID: 7620379916130458095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FR_RAY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
-  CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
+  CarData: {fileID: 11400000, guid: dd67d57dbc39c5d4483759d572ee520d, type: 2}
   springRestLength: 0.502
   springStrength: 8175
   damperStrength: 3000
@@ -538,7 +496,7 @@ GameObject:
   - component: {fileID: 115143853264633261}
   - component: {fileID: 599179228748969242}
   - component: {fileID: 3970535164549479145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BR_Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +587,7 @@ GameObject:
   - component: {fileID: 1126659813431127874}
   - component: {fileID: 977355047927659481}
   - component: {fileID: 8721263724084869242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4846628457119877405}
   - component: {fileID: 9076143127850776312}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FL_RAY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
-  CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
+  CarData: {fileID: 11400000, guid: dd67d57dbc39c5d4483759d572ee520d, type: 2}
   springRestLength: 0.502
   springStrength: 8175
   damperStrength: 3000
@@ -778,7 +736,7 @@ GameObject:
   - component: {fileID: 4467428863149391312}
   - component: {fileID: 6148708983403773020}
   - component: {fileID: 8738818542723006959}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FR_Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +827,7 @@ GameObject:
   - component: {fileID: 2409452856636332986}
   - component: {fileID: 4215480255021629422}
   - component: {fileID: 3974929638123622950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BL_Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6331690976948013320}
   - component: {fileID: 114278829725686580}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BL_RAY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
-  CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
+  CarData: {fileID: 11400000, guid: dd67d57dbc39c5d4483759d572ee520d, type: 2}
   springRestLength: 0.502
   springStrength: 8175
   damperStrength: 3000
@@ -1016,7 +974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 210562108719251178, guid: d8b2e5f2247e5294d80df63465768c32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.35
+      value: 2.0099998
       objectReference: {fileID: 0}
     - target: {fileID: 210562108719251178, guid: d8b2e5f2247e5294d80df63465768c32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1053,7 +1011,7 @@ PrefabInstance:
     - target: {fileID: 5360716644949411732, guid: d8b2e5f2247e5294d80df63465768c32, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8615508227750365554}
     - target: {fileID: 5445644049294471850, guid: d8b2e5f2247e5294d80df63465768c32, type: 3}
       propertyPath: m_Name
       value: FreeLook Camera
