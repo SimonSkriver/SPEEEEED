@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9d4536fe7d4d1d540af1a24276fe5eee
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-api/references/spline_connector_utility.md
+  uploadId: 1042822

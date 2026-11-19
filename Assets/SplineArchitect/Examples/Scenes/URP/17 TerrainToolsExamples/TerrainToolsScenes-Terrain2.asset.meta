@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 791ba0021b1d7d1479594e893139d926
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 15600000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Examples/Scenes/URP/17 TerrainToolsExamples/TerrainToolsScenes-Terrain2.asset
+  uploadId: 1042822

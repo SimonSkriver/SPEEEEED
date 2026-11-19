@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 07300ed30c420bb48a39a7ddf0dfbd30
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Examples/LayerPalettes/grass_b-layerPalette.terrainlayer
+  uploadId: 1042822

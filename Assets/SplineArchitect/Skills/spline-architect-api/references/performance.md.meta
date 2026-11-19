@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ba471e79a5d09554d90624b8c2f069a3
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-api/references/performance.md
+  uploadId: 1042822

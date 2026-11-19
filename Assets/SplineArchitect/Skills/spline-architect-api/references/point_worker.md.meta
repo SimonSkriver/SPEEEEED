@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 63a0cfa7d802acd45928dd261a851361
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-api/references/point_worker.md
+  uploadId: 1042822

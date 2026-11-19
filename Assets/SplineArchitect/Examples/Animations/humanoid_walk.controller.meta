@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7fcc89ac30840ff43bf2423fd908c3d8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Examples/Animations/humanoid_walk.controller
+  uploadId: 1042822

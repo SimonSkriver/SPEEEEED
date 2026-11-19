@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8f174f8cdb111e746ac2d7b82367fc8d
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-api/references/api_enums_and_structs.md
+  uploadId: 1042822

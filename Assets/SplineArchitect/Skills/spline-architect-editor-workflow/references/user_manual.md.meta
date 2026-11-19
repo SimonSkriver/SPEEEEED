@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0f3b0a90db64f6d439be8ce3933091e6
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-editor-workflow/references/user_manual.md
+  uploadId: 1042822

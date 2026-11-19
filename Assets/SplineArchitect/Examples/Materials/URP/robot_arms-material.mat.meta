@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 766fd3ff04aab4745a764d33daac86fa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Examples/Materials/URP/robot_arms-material.mat
+  uploadId: 1042822
