@@ -285,7 +285,17 @@
             "id": "978e831c-7fe4-4d28-9083-2cdbad455014",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Menu Left",
+                    "type": "Button",
+                    "id": "a44cd96b-1dea-4026-acea-8e5d55155dc2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "Menu Right",
                     "type": "Button",
                     "id": "13a57738-b89c-4a5e-8838-3dd11a9d4d7c",
                     "expectedControlType": "",
@@ -299,11 +309,22 @@
                 {
                     "name": "",
                     "id": "25ad133f-dc2c-47b3-b2fa-4df6f967fa36",
-                    "path": "",
+                    "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "New action",
+                    "groups": ";Gamepad",
+                    "action": "Menu Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c8715c4-d05e-4323-a247-c32902693f40",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Menu Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -6,11 +6,15 @@ public class PlayerInputHandler : MonoBehaviour
     [Header("Components")]
     PlayerInput playerInput;
 
-    [Header("Actions")]
+    [Header("In Game Actions")]
     private InputAction accelerateAction;
     private InputAction brakeAction;
     private InputAction steerAction;
     private InputAction driftAction;
+
+    [Header("UI Action")]
+    private InputAction menuLeft;
+    private InputAction menuRight;
 
     [Header("Values (visible for debugging purposes)")]
     // Private fields so as not to be read or written from elsewhere (serialized for debugging purposes)
@@ -33,6 +37,11 @@ public class PlayerInputHandler : MonoBehaviour
         brakeAction = playerInput.actions.FindAction("Brake");
         steerAction = playerInput.actions.FindAction("Steer");
         driftAction = playerInput.actions.FindAction("Drift");
+
+        menuLeft = playerInput.actions.FindAction("MenuLeft");
+        menuRight = playerInput.actions.FindAction("MenuRight");
+        menuLeft.performed += ctx => OnLeftClick();
+        menuRight.performed += ctx => OnRightClick();
     }
 
     void Update()
@@ -41,5 +50,15 @@ public class PlayerInputHandler : MonoBehaviour
         brakeInputValue = brakeAction.ReadValue<float>();
         steerInputValue = steerAction.ReadValue<float>();
         driftIsHeld = driftAction.IsPressed();
+    }
+
+    public void OnLeftClick()
+    {
+
+    }
+
+    public void OnRightClick()
+    {
+
     }
 }

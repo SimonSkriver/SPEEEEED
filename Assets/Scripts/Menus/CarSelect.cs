@@ -4,7 +4,7 @@ using TMPro;
 public class CarSelect : MonoBehaviour
 {
     [SerializeField] private TMP_Text label;
-    
+
     private int currentCarIndex;
 
     private void Awake()
@@ -26,7 +26,7 @@ public class CarSelect : MonoBehaviour
         currentCarIndex += changeIncrement;
         if (currentCarIndex < 0)
         {
-            currentCarIndex = transform.childCount-1;
+            currentCarIndex = transform.childCount - 1;
         }
         else if (currentCarIndex >= transform.childCount)
         {
