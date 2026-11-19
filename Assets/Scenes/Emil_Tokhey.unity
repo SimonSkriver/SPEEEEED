@@ -1449,7 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2983636150441349518, guid: e65c7d262a1638e4985b13d4b32e321c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5
+      value: 2.62
       objectReference: {fileID: 0}
     - target: {fileID: 2983636150441349518, guid: e65c7d262a1638e4985b13d4b32e321c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1457,7 +1457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2983636150441349518, guid: e65c7d262a1638e4985b13d4b32e321c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 2983636150441349518, guid: e65c7d262a1638e4985b13d4b32e321c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2241,11 +2241,11 @@ PrefabInstance:
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[0]'
       value: 
-      objectReference: {fileID: 1100247618}
+      objectReference: {fileID: 633554058}
     - target: {fileID: 6885694068856258688, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: 'checkpoints.Array.data[1]'
       value: 
-      objectReference: {fileID: 633554058}
+      objectReference: {fileID: 1100247618}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
