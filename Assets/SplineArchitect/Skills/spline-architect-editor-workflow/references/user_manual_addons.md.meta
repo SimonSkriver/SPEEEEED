@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 42cc15e5a957e4244931a7ca04793b9c
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-editor-workflow/references/user_manual_addons.md
+  uploadId: 1042822

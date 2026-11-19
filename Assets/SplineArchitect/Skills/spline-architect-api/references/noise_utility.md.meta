@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 223b80732d6a8884f97968e2a2b5fee0
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-api/references/noise_utility.md
+  uploadId: 1042822

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7a55922829ac7e14bb997b811427aa53
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Skills/spline-architect-api/references/mesh_container.md
+  uploadId: 1042822

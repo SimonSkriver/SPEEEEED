@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4751baf6d3c367747b761d616d4abf50
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Examples/Materials/URP/tree_bark.mat
+  uploadId: 1042822

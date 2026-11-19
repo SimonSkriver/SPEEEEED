@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8b25e99361ac31d4e9ae83c46aee69ea
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 324111
+  packageName: Spline Architect
+  packageVersion: 2.12.0
+  assetPath: Assets/SplineArchitect/Examples/Materials/URP/robot_legs-material.mat
+  uploadId: 1042822

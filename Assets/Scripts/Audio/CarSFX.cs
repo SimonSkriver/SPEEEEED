@@ -51,16 +51,16 @@ public class CarSFX : MonoBehaviour
             //Shift rate can be used as an overall speed adjustement.
             //Should probalby be based on power curve or movement speed instead
             
-            currentRPM = Mathf.Lerp(currentRPM, throttleValue * maxRPM, Time.deltaTime * (shiftRate * Mathf.Pow(0.85f, currentGear - 1)));
+            currentRPM = Mathf.Lerp(currentRPM, throttleValue * maxRPM, Time.deltaTime * (shiftRate * Mathf.Pow(0.75f, currentGear - 1)));
         }
         else
         {
             //If no throttle, decrease rpm back to idle, going through the gears.
-            currentRPM = Mathf.Lerp(currentRPM, idleRPM, Time.deltaTime * (shiftRate * Mathf.Pow(0.85f, currentGear - 1)));
+            currentRPM = Mathf.Lerp(currentRPM, idleRPM, Time.deltaTime * (shiftRate * Mathf.Pow(0.50f, currentGear - 1)));
         }
 
         //Change pitch of SFX based on RPM. CurrentRPM divded by maxRPM to find correct ratio for lerp
-        engineAudioSource.pitch = Mathf.Lerp(0.25f, 1.5f, currentRPM / maxRPM);
+        engineAudioSource.pitch = Mathf.Lerp(0.25f, 1.25f, currentRPM / maxRPM);
     }
 
     private void HandleGearShifting()
@@ -81,7 +81,7 @@ public class CarSFX : MonoBehaviour
 
             currentGear--;
             //currentRPM = Mathf.Lerp(currentRPM, currentRPM + 1000f, Time.deltaTime * 5f);
-            currentRPM = Mathf.Max(idleRPM, currentRPM /*+ 2000f*/);
+            currentRPM = Mathf.Max(idleRPM, currentRPM + 500f);
         }
     }
 
