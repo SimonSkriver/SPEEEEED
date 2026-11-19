@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4500988272330635623}
-  - component: {fileID: 9066409494112145068}
+  - component: {fileID: 1806055588440619795}
   m_Layer: 0
   m_Name: RLRay
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5020616551836517695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9066409494112145068
+--- !u!114 &1806055588440619795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,60 +41,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 324246132035731833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51053279d8b4d074db44932008358d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
   springRestLength: 1
-  springStrength: 8500
-  damperStrength: 1500
+  springStrength: 8175
+  damperStrength: 3000
   wheelRadius: 0
   isSteering: 0
   isMotorized: 1
-  enginePowerMode: 0
-  powerCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.35
-      value: 1
-      inSlope: -0.010455098
-      outSlope: 0
-      tangentMode: 65
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.14412802
-    - serializedVersion: 3
-      time: 0.75
-      value: 1
-      inSlope: -0
-      outSlope: -0.00010704505
-      tangentMode: 5
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.4
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  grounded: 0
+  tractionCorrectionTime: 2
 --- !u!1 &2071963803509806906
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +61,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4149106423447841116}
-  - component: {fileID: 4356033661137862586}
+  - component: {fileID: 5732638395573560136}
   m_Layer: 0
   m_Name: FRRay
   m_TagString: Untagged
@@ -127,7 +84,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5020616551836517695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4356033661137862586
+--- !u!114 &5732638395573560136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,60 +93,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2071963803509806906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51053279d8b4d074db44932008358d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
   springRestLength: 1
-  springStrength: 8500
-  damperStrength: 1500
+  springStrength: 8175
+  damperStrength: 3000
   wheelRadius: 0
   isSteering: 1
   isMotorized: 1
-  enginePowerMode: 0
-  powerCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.35
-      value: 1
-      inSlope: -0.010455098
-      outSlope: 0
-      tangentMode: 65
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.14412802
-    - serializedVersion: 3
-      time: 0.75
-      value: 1
-      inSlope: -0
-      outSlope: -0.00010704505
-      tangentMode: 5
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.4
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  grounded: 0
+  tractionCorrectionTime: 2
 --- !u!1 &3126622577053804458
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4267326721812211182}
-  - component: {fileID: 7351035297708002234}
+  - component: {fileID: 3439048742714298677}
   m_Layer: 0
   m_Name: FLRay
   m_TagString: Untagged
@@ -222,7 +136,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5020616551836517695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7351035297708002234
+--- !u!114 &3439048742714298677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,60 +145,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3126622577053804458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51053279d8b4d074db44932008358d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
   springRestLength: 1
-  springStrength: 8500
-  damperStrength: 1500
+  springStrength: 8175
+  damperStrength: 3000
   wheelRadius: 0
   isSteering: 1
   isMotorized: 1
-  enginePowerMode: 0
-  powerCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.35
-      value: 1
-      inSlope: -0.010455098
-      outSlope: 0
-      tangentMode: 65
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.14412802
-    - serializedVersion: 3
-      time: 0.75
-      value: 1
-      inSlope: -0
-      outSlope: -0.00010704505
-      tangentMode: 5
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.4
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  grounded: 0
+  tractionCorrectionTime: 2
 --- !u!1 &3418904541866990425
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9049415047130425338}
-  - component: {fileID: 2421284210434985744}
+  - component: {fileID: 2112122851802354505}
   m_Layer: 0
   m_Name: RRRay
   m_TagString: Untagged
@@ -317,7 +188,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5020616551836517695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2421284210434985744
+--- !u!114 &2112122851802354505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,60 +197,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3418904541866990425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51053279d8b4d074db44932008358d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 41075d2b7a571c24da795ddf3d6c06c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: d1accd5c640516f43bbcafb21d8ff57a, type: 2}
   springRestLength: 1
-  springStrength: 8500
-  damperStrength: 1500
+  springStrength: 8175
+  damperStrength: 3000
   wheelRadius: 0
   isSteering: 0
   isMotorized: 1
-  enginePowerMode: 0
-  powerCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.35
-      value: 1
-      inSlope: -0.010455098
-      outSlope: 0
-      tangentMode: 65
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.14412802
-    - serializedVersion: 3
-      time: 0.75
-      value: 1
-      inSlope: -0
-      outSlope: -0.00010704505
-      tangentMode: 5
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.4
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  grounded: 0
+  tractionCorrectionTime: 2
 --- !u!1 &7519353613238903959
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +370,7 @@ MonoBehaviour:
   accelerateInputValue: 0
   brakeInputValue: 0
   steerInputValue: 0
+  driftIsHeld: 0
 --- !u!114 &5128780869064053456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +416,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 10693283-2b3a-4082-84dd-8b84cef7b651
     m_ActionName: Player/Look
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd5231b0-ae22-4a3b-a615-98c87fd578b5
+    m_ActionName: 'Player/Drift[/DualShock4GamepadHID/rightShoulder,/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
