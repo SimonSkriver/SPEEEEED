@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSource soundFXObject;
-    public AudioData AudioData;
+    //public AudioData AudioData;
 
     void Awake()
     {
@@ -15,13 +15,17 @@ public class AudioManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void PlaySFX(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySFX(AudioClip audioClip, Transform spawnTransform, float volume, float pitch)
     {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
+
+        DontDestroyOnLoad(audioSource);
 
         audioSource.clip = audioClip;
 
         audioSource.volume = volume;
+
+        audioSource.pitch = pitch;
 
         audioSource.Play();
 

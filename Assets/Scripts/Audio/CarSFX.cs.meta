@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: 00623a4ce843acc49aabd75c7f7ebf10
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioMixer: {fileID: -7767278299961821287, guid: 4aaef365cec501b40b28fed3455cd293, type: 2}
+  - engineSFX: {fileID: 8300000, guid: 9070a876630fccf40b04492288367f4c, type: 3}
+  - gearshiftSFX: {fileID: 8300000, guid: 4bae6eb086ed1b24ca68e2997368ee89, type: 3}
+  - TireSquealSFX: {fileID: 8300000, guid: 5790db5d1c173104fa5287e85fdd12e7, type: 3}
+  - SpeedRattleSFX: {fileID: 8300000, guid: b583ec13de7d6944c85922bc17d01705, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,6 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a563f69bf94e153438585a9546f08a81, type: 3}
   m_Name: AudioData
   m_EditorClassIdentifier: Assembly-CSharp::AudioData
-  ReadyUp: {fileID: 0}
-  ButtonHover: {fileID: 0}
-  ButtonClick: {fileID: 0}
