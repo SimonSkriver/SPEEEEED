@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: a8f48d05f92a96a4e9552b0bf1cb22fc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - carSelectClip: {fileID: 8300000, guid: 17ab2c14fc1d5bb44afae34c04fbf7cd, type: 3}
+  - carConfirmClip: {fileID: 8300000, guid: d6b382b35a56c914c8d1bfffa5e74d0d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
