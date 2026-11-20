@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260490653079853161}
   - component: {fileID: 6885694068856258688}
+  - component: {fileID: 3171752285330537149}
   m_Layer: 0
   m_Name: RaceManager
   m_TagString: Untagged
@@ -48,12 +49,33 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  racers:
-  - car: {fileID: 0}
-    laps: 0
-    position: 0
-    nextCheckpoint: 0
-  - car: {fileID: 0}
-    laps: 0
-    position: 0
-    nextCheckpoint: 0
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  racers: []
+--- !u!114 &3171752285330537149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774308907457159988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad74f3a8f0aa53e459a83ae7374e4e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RaceStartSequence
+  raceManager: {fileID: 6885694068856258688}
+  gridSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  carPrefabs: []
+  splitScreenTopBottom: 1
+  introCamera: {fileID: 0}
+  introScreenCamera: {fileID: 0}
+  cameraStart: {fileID: 0}
+  cameraEnd: {fileID: 0}
+  introDuration: 5
+  countdownText: {fileID: 0}
+  countdownFrom: 3
