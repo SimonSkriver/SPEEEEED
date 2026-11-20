@@ -16,6 +16,7 @@ public class CarSFX : MonoBehaviour
     
     //External references
     private Rigidbody rb;
+    //private CarWheel carData;
     [SerializeField] private float traction = 1f; //Add current tire grip from car instead
     private float currentSpeed;
     private PlayerInputHandler playerInput;
@@ -37,6 +38,7 @@ public class CarSFX : MonoBehaviour
         //Get player input for throttle
         playerInput = GetComponent<PlayerInputHandler>();
         rb = GetComponentInParent<Rigidbody>();
+        //carData = GetComponentInChildren<CarWheel>();
 
         //Adds required audio sources
         HandleAudioSources();
@@ -47,6 +49,7 @@ public class CarSFX : MonoBehaviour
         throttleValue = playerInput.AccelerationInputValue;
         breakValue = playerInput.BrakeInputValue;
         currentSpeed = rb.linearVelocity.magnitude;
+        //traction = carData.CarData.TireGrip;
 
         HandleGearShifting();
         HandleEngineSound();
@@ -69,7 +72,7 @@ public class CarSFX : MonoBehaviour
         else
         {
             //If no throttle, decrease rpm back to idle, going through the gears.
-            currentRPM = Mathf.Lerp(currentRPM, idleRPM, Time.deltaTime * (shiftRate * Mathf.Pow(0.50f, currentGear - 1)));
+            currentRPM = Mathf.Lerp(currentRPM, idleRPM, Time.deltaTime * (shiftRate * Mathf.Pow(0.80f, currentGear - 1)));
         }
 
         //Change pitch of SFX based on RPM. CurrentRPM divded by maxRPM to find correct ratio for lerp
@@ -101,7 +104,8 @@ public class CarSFX : MonoBehaviour
     private void HandleTireSqueal()
     {
         //Tires be squealing. Inverse relationship between volume and traction, clamped from 0-1. Traction of 0 = loud squeal, and 1 = no squeal
-        tireSquealAudioSource.volume = 1f - Mathf.Clamp01(traction);
+        traction = breakValue;
+        tireSquealAudioSource.volume = 0f + Mathf.Clamp01(traction);
     }
 
     private void HandleSpeedRattle()
