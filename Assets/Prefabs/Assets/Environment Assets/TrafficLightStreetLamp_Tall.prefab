@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5363113821766264802
+--- !u!1 &4438873213859611018
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4969310506615769002}
-  - component: {fileID: 7198139633903281397}
-  - component: {fileID: 7114998263336310931}
+  - component: {fileID: 5794008990936357383}
+  - component: {fileID: 6882864425752119249}
+  - component: {fileID: 7687051116807081501}
+  - component: {fileID: 2081731471239023546}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -18,36 +19,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4969310506615769002
+--- !u!4 &5794008990936357383
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363113821766264802}
+  m_GameObject: {fileID: 4438873213859611018}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.032181263, y: 9.538811, z: -6.5299873}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 9, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7021076437882835650}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!108 &7198139633903281397
+--- !u!108 &6882864425752119249
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363113821766264802}
+  m_GameObject: {fileID: 4438873213859611018}
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 167.39
-  m_Range: 11.004808
-  m_SpotAngle: 56.7604
-  m_InnerSpotAngle: 40.710716
+  m_Intensity: 200
+  m_Range: 15
+  m_SpotAngle: 70
+  m_InnerSpotAngle: 25.824553
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
     m_Type: 0
@@ -83,7 +84,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -98,13 +99,13 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &7114998263336310931
+--- !u!114 &7687051116807081501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363113821766264802}
+  m_GameObject: {fileID: 4438873213859611018}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
@@ -127,6 +128,66 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &2081731471239023546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4438873213859611018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d01e298d8c99747a5e0bd13b65de9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SplineArchitect::SplineArchitect.SplineObject
+  cloningActive: 0
+  cloneUseFixedAmount: 0
+  keepPrefabLink: 1
+  cloneAmount: 0
+  cloneStartPadding: 0
+  cloneEndPadding: 0
+  cloneDistributionMode: 1
+  currentClones: []
+  originClones: []
+  randomizePrefabClones: 0
+  cloneRandomizeSeed: 0
+  randomizedPositonFrom: {x: 0, y: 0, z: 0}
+  randomizedPositonTo: {x: 0, y: 0, z: 0}
+  randomizedEulerFrom: {x: 0, y: 0, z: 0}
+  randomizedEulerTo: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleFrom: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleTo: {x: 0, y: 0, z: 0}
+  randomizedScaleFrom: 0
+  randomizedScaleTo: 0
+  randomizationStrength: 1
+  mirrorChance: 0
+  rotation180Chance: 0
+  constrainedScale: 1
+  localSplinePosition: {x: 0, y: 9, z: -6.5}
+  localSplineRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  componentMode: 0
+  meshMode: 0
+  snapSettings:
+    startSnapDistance: 0
+    endSnapDistance: 0
+    startSnapOffset: 0
+    endSnapOffset: 0
+    snapTargetPoint: 0
+    snapMode: 0
+  lockPosition: 0
+  rotationMode: 0
+  type: 1
+  normalType: 0
+  mirrorDeformation: 0
+  alignToEnd: 0
+  skipTangents: 0
+  meshContainers: []
+  splineParent: {fileID: 0}
+  soParent: {fileID: 5821621240707128029}
+  projectToSurface: 0
+  projectToSurfaceMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &5738991677378987211
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +200,7 @@ GameObject:
   - component: {fileID: 4965087823112430106}
   - component: {fileID: 4050187836642059430}
   - component: {fileID: 6104462533930607995}
+  - component: {fileID: 5821621240707128029}
   m_Layer: 0
   m_Name: TrafficLightStreetLamp_Tall
   m_TagString: Untagged
@@ -159,7 +221,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4969310506615769002}
+  - {fileID: 5794008990936357383}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4965087823112430106
@@ -242,3 +304,63 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2412131528149862072, guid: 6699a3050ddc0e640ac862d8c15fff89, type: 3}
+--- !u!114 &5821621240707128029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738991677378987211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d01e298d8c99747a5e0bd13b65de9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SplineArchitect::SplineArchitect.SplineObject
+  cloningActive: 0
+  cloneUseFixedAmount: 0
+  keepPrefabLink: 1
+  cloneAmount: 0
+  cloneStartPadding: 0
+  cloneEndPadding: 0
+  cloneDistributionMode: 0
+  currentClones: []
+  originClones: []
+  randomizePrefabClones: 0
+  cloneRandomizeSeed: 0
+  randomizedPositonFrom: {x: 0, y: 0, z: 0}
+  randomizedPositonTo: {x: 0, y: 0, z: 0}
+  randomizedEulerFrom: {x: 0, y: 0, z: 0}
+  randomizedEulerTo: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleFrom: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleTo: {x: 0, y: 0, z: 0}
+  randomizedScaleFrom: 0
+  randomizedScaleTo: 0
+  randomizationStrength: 1
+  mirrorChance: 0
+  rotation180Chance: 0
+  constrainedScale: 1
+  localSplinePosition: {x: 0, y: 0, z: 0}
+  localSplineRotation: {x: 0, y: 0, z: 0, w: 1}
+  componentMode: 0
+  meshMode: 0
+  snapSettings:
+    startSnapDistance: 0
+    endSnapDistance: 0
+    startSnapOffset: 0
+    endSnapOffset: 0
+    snapTargetPoint: 0
+    snapMode: 0
+  lockPosition: 0
+  rotationMode: 0
+  type: 2
+  normalType: 0
+  mirrorDeformation: 0
+  alignToEnd: 0
+  skipTangents: 0
+  meshContainers: []
+  splineParent: {fileID: 0}
+  soParent: {fileID: 0}
+  projectToSurface: 0
+  projectToSurfaceMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
