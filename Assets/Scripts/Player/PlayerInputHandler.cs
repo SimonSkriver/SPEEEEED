@@ -28,6 +28,8 @@ public class PlayerInputHandler : MonoBehaviour
     public float SteerInputValue => steerInputValue;
     public bool DriftIsHeld => driftIsHeld;
 
+    public event System.Action MenuLeftPressed;
+
 
     void Awake()
     {
@@ -38,10 +40,20 @@ public class PlayerInputHandler : MonoBehaviour
         steerAction = playerInput.actions.FindAction("Steer");
         driftAction = playerInput.actions.FindAction("Drift");
 
-        menuLeft = playerInput.actions.FindAction("MenuLeft");
-        menuRight = playerInput.actions.FindAction("MenuRight");
-        menuLeft.performed += ctx => OnLeftClick();
-        menuRight.performed += ctx => OnRightClick();
+        menuLeft = playerInput.actions.FindAction("Menu Left");
+        menuRight = playerInput.actions.FindAction("Menu Right");
+    }
+
+    void OnEnable()
+    {
+        menuLeft.performed += OnMenuLeft;
+        menuRight.performed += OnMenuRight;
+    }
+
+    void OnDisable()
+    {
+        menuLeft.performed -= OnMenuLeft;
+        menuRight.performed -= OnMenuRight;
     }
 
     void Update()
@@ -52,12 +64,12 @@ public class PlayerInputHandler : MonoBehaviour
         driftIsHeld = driftAction.IsPressed();
     }
 
-    public void OnLeftClick()
+    public void OnMenuLeft(InputAction.CallbackContext context)
     {
 
     }
 
-    public void OnRightClick()
+    public void OnMenuRight(InputAction.CallbackContext context)
     {
 
     }
