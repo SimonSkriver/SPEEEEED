@@ -305,7 +305,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "Select",
+                    "name": "Submit",
                     "type": "Button",
                     "id": "b79218e0-a2e5-41f3-a025-397da5752c61",
                     "expectedControlType": "",
@@ -399,7 +399,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Select",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -410,7 +410,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Select",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -421,7 +421,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Select",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

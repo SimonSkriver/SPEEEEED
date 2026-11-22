@@ -10,7 +10,7 @@ public class MultiplayerManager : MonoBehaviour
 
     List<PlayerInput> pendingJoinedPlayer = new List<PlayerInput>();
     private bool lobbyReady => LobbyManager.Instance != null;
-    private PlayerInputManager playerInputManager;
+    public PlayerInputManager playerInputManager;
 
     void Awake()
     {
@@ -48,13 +48,14 @@ public class MultiplayerManager : MonoBehaviour
         Debug.Log("New player joined with ID: " + playerInput.playerIndex);
         PlayerInfo joinedPlayerInfo = playerInput.GetComponent<PlayerInfo>();
         AllPlayers.Add(joinedPlayerInfo);
-        if (LobbyManager.Instance != null) LobbyManager.Instance.AssignPlayerToCarPanel(joinedPlayerInfo);
-        else Debug.LogWarning("Lobby Manager instance not set");
+        LobbyManager.Instance.AssignPlayerToCarPanel(joinedPlayerInfo);
+        LobbyManager.Instance.UpdateUIText(AllPlayers.Count == playerInputManager.maxPlayerCount);
     }
 
     public void OnPlayerLeft(PlayerInput playerInput)
     {
         AllPlayers.Remove(playerInput.GetComponent<PlayerInfo>());
+        LobbyManager.Instance.UpdateUIText(AllPlayers.Count == playerInputManager.maxPlayerCount);
         Debug.Log("Player left with ID " + playerInput.playerIndex);
     }
 }

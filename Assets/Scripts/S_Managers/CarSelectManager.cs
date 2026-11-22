@@ -1,39 +1,56 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class CarSelectManager : MonoBehaviour
 {
-    [HideInInspector] public PlayerInputHandler player;
+    [HideInInspector] public PlayerInputHandler playerInput;
+    private PlayerInfo playerInfo;
 
     [SerializeField] private TMP_Text label;
+    [SerializeField] private GameObject[] arrowUIButtons;
 
     private int currentCarIndex = 0;
     private List<GameObject> cars = new List<GameObject>();
+    private int listIndex;
+    private string defaultLabelText;
 
     void Awake()
     {
+        defaultLabelText = label.text;
         for (int i = 0; i < transform.childCount; i++)
         {
             cars.Add(transform.GetChild(i).gameObject);
         }
-        label.text = null;
+        foreach (var arrow in arrowUIButtons) arrow.SetActive(false);
     }
 
     public void Bind(PlayerInputHandler playerInputHandler)
     {
+        // Get player info and components
+        playerInput = playerInputHandler;
+        playerInfo = playerInputHandler.GetComponent<PlayerInfo>();
+
+        //Update visuals
         SelectCar(0);
-        player = playerInputHandler;
-        player.MenuLeftPressed += Previous;
-        player.MenuRightPressed += Next;
+        foreach (var arrow in arrowUIButtons) arrow.SetActive(true);
+
+        // Hook up input to methods
+        playerInput.MenuLeftPressed += PreviousCar;
+        playerInput.MenuRightPressed += NextCar;
+        playerInput.SubmitPressed += Submit;
+        playerInput.BackPressed += Back;
     }
 
     void OnDisable()
     {
-        if (player == null) return;
+        if (playerInput == null) return;
 
-        player.MenuLeftPressed -= Previous;
-        player.MenuRightPressed -= Next;
+        playerInput.MenuLeftPressed -= PreviousCar;
+        playerInput.MenuRightPressed -= NextCar;
+        playerInput.SubmitPressed -= Submit;
+        playerInput.BackPressed -= Back;
     }
 
     void SelectCar(int index)
@@ -45,8 +62,10 @@ public class CarSelectManager : MonoBehaviour
         }
     }
 
-    void Next()
+    public void NextCar()
     {
+        if (playerInfo.ready == true) return;
+
         currentCarIndex += 1;
         if (currentCarIndex >= transform.childCount)
         {
@@ -55,8 +74,10 @@ public class CarSelectManager : MonoBehaviour
         SelectCar(currentCarIndex);
     }
 
-    void Previous()
+    public void PreviousCar()
     {
+        if (playerInfo.ready == true) return;
+
         currentCarIndex -= 1;
 
         if (currentCarIndex < 0)
@@ -64,5 +85,32 @@ public class CarSelectManager : MonoBehaviour
             currentCarIndex = transform.childCount - 1;
         }
         SelectCar(currentCarIndex);
+    }
+
+    void Submit()
+    {
+        if (playerInfo.ready == false)
+        {
+            if (playerInfo.CarPrefab == null) playerInfo.CarPrefab = transform.GetChild(currentCarIndex).gameObject;
+            playerInfo.ready = true;
+        }
+    }
+
+    void Back()
+    {
+        if (playerInfo.ready == true)
+        {
+            playerInfo.ready = false;
+            playerInfo.CarPrefab = null;
+        }
+        else // If the player presses back while not ready, the player quits
+        {
+            foreach (var car in cars) car.SetActive(false);
+            foreach (var arrow in arrowUIButtons) arrow.SetActive(false);
+            label.text = defaultLabelText;
+            playerInfo.ready = false;
+            MultiplayerManager.Instance.OnPlayerLeft(playerInput.GetComponent<PlayerInput>());
+            Destroy(playerInfo.gameObject);
+        }
     }
 }

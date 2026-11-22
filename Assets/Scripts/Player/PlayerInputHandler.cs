@@ -13,8 +13,10 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction driftAction;
 
     [Header("UI Action")]
-    private InputAction menuLeft;
-    private InputAction menuRight;
+    private InputAction menuLeftAction;
+    private InputAction menuRightAction;
+    private InputAction submitAction;
+    private InputAction backAction;
 
     [Header("Values (visible for debugging purposes)")]
     // Private fields so as not to be read or written from elsewhere (serialized for debugging purposes)
@@ -30,7 +32,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public event System.Action MenuLeftPressed;
     public event System.Action MenuRightPressed;
-
+    public event System.Action SubmitPressed;
+    public event System.Action BackPressed;
 
     void Awake()
     {
@@ -41,20 +44,26 @@ public class PlayerInputHandler : MonoBehaviour
         steerAction = playerInput.actions.FindAction("Steer");
         driftAction = playerInput.actions.FindAction("Drift");
 
-        menuLeft = playerInput.actions.FindAction("Menu Left");
-        menuRight = playerInput.actions.FindAction("Menu Right");
+        menuLeftAction = playerInput.actions.FindAction("Menu Left");
+        menuRightAction = playerInput.actions.FindAction("Menu Right");
+        submitAction = playerInput.actions.FindAction("Submit");
+        backAction = playerInput.actions.FindAction("Back");
     }
 
     void OnEnable()
     {
-        menuLeft.performed += OnMenuLeft;
-        menuRight.performed += OnMenuRight;
+        menuLeftAction.performed += OnMenuLeft;
+        menuRightAction.performed += OnMenuRight;
+        submitAction.performed += OnSubmit;
+        backAction.performed += OnBack;
     }
 
     void OnDisable()
     {
-        menuLeft.performed -= OnMenuLeft;
-        menuRight.performed -= OnMenuRight;
+        menuLeftAction.performed -= OnMenuLeft;
+        menuRightAction.performed -= OnMenuRight;
+        submitAction.performed -= OnSubmit;
+        backAction.performed -= OnBack;
     }
 
     void Update()
@@ -67,4 +76,6 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnMenuLeft(InputAction.CallbackContext context) => MenuLeftPressed?.Invoke();
     public void OnMenuRight(InputAction.CallbackContext context) => MenuRightPressed?.Invoke();
+    public void OnSubmit(InputAction.CallbackContext context) => SubmitPressed?.Invoke();
+    public void OnBack(InputAction.CallbackContext context) => BackPressed?.Invoke();
 }
