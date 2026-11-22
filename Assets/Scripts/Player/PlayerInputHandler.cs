@@ -29,6 +29,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool DriftIsHeld => driftIsHeld;
 
     public event System.Action MenuLeftPressed;
+    public event System.Action MenuRightPressed;
 
 
     void Awake()
@@ -64,13 +65,6 @@ public class PlayerInputHandler : MonoBehaviour
         driftIsHeld = driftAction.IsPressed();
     }
 
-    public void OnMenuLeft(InputAction.CallbackContext context)
-    {
-
-    }
-
-    public void OnMenuRight(InputAction.CallbackContext context)
-    {
-
-    }
+    public void OnMenuLeft(InputAction.CallbackContext context) => MenuLeftPressed?.Invoke();
+    public void OnMenuRight(InputAction.CallbackContext context) => MenuRightPressed?.Invoke();
 }

@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class LobbyManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static LobbyManager Instance;
+
+    [SerializeField] CarSelectManager[] carSelectors;
+
+    void Awake()
     {
-        
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AssignPlayerToCarPanel(PlayerInfo player)
     {
-        
+        var panel = carSelectors[player.PlayerID];
+        print("Assigning player " + player.PlayerID + " to panel number " + System.Array.IndexOf(carSelectors, panel));
+        panel.Bind(player.GetComponent<PlayerInputHandler>());
     }
 }

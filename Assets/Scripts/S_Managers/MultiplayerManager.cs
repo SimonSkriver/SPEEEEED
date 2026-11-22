@@ -7,8 +7,10 @@ public class MultiplayerManager : MonoBehaviour
     public static MultiplayerManager Instance;
 
     public List<PlayerInfo> AllPlayers = new List<PlayerInfo>();
-    [Header("Components (set automatically, visible for debugging purposes)")]
-    [SerializeField] private PlayerInputManager playerInputManager;
+
+    List<PlayerInput> pendingJoinedPlayer = new List<PlayerInput>();
+    private bool lobbyReady => LobbyManager.Instance != null;
+    private PlayerInputManager playerInputManager;
 
     void Awake()
     {
@@ -17,16 +19,40 @@ public class MultiplayerManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         playerInputManager = GetComponent<PlayerInputManager>();
-        AllPlayers.Add(FindAnyObjectByType<PlayerInfo>()); // Find Player1 who's persistent from Main Menu scene
+    }
+
+    void Start()
+    {
+        if (lobbyReady)
+        {
+            foreach (var player in pendingJoinedPlayer)
+            {
+                ProcessPlayerJoin(player);
+            }
+            pendingJoinedPlayer.Clear();
+        }
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
-        AllPlayers.Add(playerInput.GetComponent<PlayerInfo>());
-        Debug.Log("New player joined with ID: " + playerInput.playerIndex);
+        if (!lobbyReady) // If LobbyManager Instance hasn't been set yet, add the player to a list and handle in Start() when Instance has been set
+        {
+            pendingJoinedPlayer.Add(playerInput);
+            return;
+        }
+        ProcessPlayerJoin(playerInput);
     }
 
-    public void OnPlayerLef(PlayerInput playerInput)
+    void ProcessPlayerJoin(PlayerInput playerInput)
+    {
+        Debug.Log("New player joined with ID: " + playerInput.playerIndex);
+        PlayerInfo joinedPlayerInfo = playerInput.GetComponent<PlayerInfo>();
+        AllPlayers.Add(joinedPlayerInfo);
+        if (LobbyManager.Instance != null) LobbyManager.Instance.AssignPlayerToCarPanel(joinedPlayerInfo);
+        else Debug.LogWarning("Lobby Manager instance not set");
+    }
+
+    public void OnPlayerLeft(PlayerInput playerInput)
     {
         AllPlayers.Remove(playerInput.GetComponent<PlayerInfo>());
         Debug.Log("Player left with ID " + playerInput.playerIndex);

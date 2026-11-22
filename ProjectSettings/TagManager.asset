@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Player1
   - Player2
+  - Anchor1
+  - Anchor2
+  - Anchor3
+  - Anchor4
   layers:
   - Default
   - TransparentFX
