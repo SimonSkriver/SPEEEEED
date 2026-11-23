@@ -93,6 +93,7 @@ public class CarSelectManager : MonoBehaviour
         {
             if (playerInfo.CarPrefab == null) playerInfo.CarPrefab = transform.GetChild(currentCarIndex).gameObject;
             playerInfo.ready = true;
+            LobbyManager.Instance.UpdateReadyPlayerList(playerInfo.PlayerID);
         }
     }
 
@@ -102,6 +103,7 @@ public class CarSelectManager : MonoBehaviour
         {
             playerInfo.ready = false;
             playerInfo.CarPrefab = null;
+            LobbyManager.Instance.UpdateReadyPlayerList(playerInfo.PlayerID);
         }
         else // If the player presses back while not ready, the player quits
         {

@@ -46,10 +46,10 @@ public class MultiplayerManager : MonoBehaviour
     void ProcessPlayerJoin(PlayerInput playerInput)
     {
         Debug.Log("New player joined with ID: " + playerInput.playerIndex);
-        PlayerInfo joinedPlayerInfo = playerInput.GetComponent<PlayerInfo>();
-        AllPlayers.Add(joinedPlayerInfo);
-        LobbyManager.Instance.AssignPlayerToCarPanel(joinedPlayerInfo);
-        LobbyManager.Instance.UpdateUIText(AllPlayers.Count == playerInputManager.maxPlayerCount);
+        PlayerInfo playerInfo = playerInput.GetComponent<PlayerInfo>();
+        AllPlayers.Add(playerInfo);
+        LobbyManager.Instance.AssignPlayerToCarPanel(playerInfo);
+        LobbyManager.Instance.UpdateUIText(AllPlayers.Count != playerInputManager.maxPlayerCount);
     }
 
     public void OnPlayerLeft(PlayerInput playerInput)
