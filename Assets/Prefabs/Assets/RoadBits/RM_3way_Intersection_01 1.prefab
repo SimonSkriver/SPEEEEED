@@ -479,6 +479,7 @@ GameObject:
   - component: {fileID: 1119344936323031229}
   - component: {fileID: 2837154608517257719}
   - component: {fileID: 1619645725244374371}
+  - component: {fileID: 6419958192805082992}
   m_Layer: 0
   m_Name: TriPrism
   m_TagString: Untagged
@@ -558,6 +559,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6419958192805082992
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160128038952285062}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: f28a731dd8a683c44be63a2611abdcce, type: 3}
 --- !u!1 &9111400915289959572
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,40 +13,31 @@ MonoBehaviour:
   m_Name: Miata
   m_EditorClassIdentifier: Assembly-CSharp::TestCarData
   EnginePower: 20000
-  TopSpeed: 100
+  TopSpeed: 75
   PowerCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.4
-      inSlope: 0
-      outSlope: 0
+      value: 0.3
+      inSlope: 0.042269845
+      outSlope: 0.042269845
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.22530867
     - serializedVersion: 3
-      time: 0.6
-      value: 0.85
-      inSlope: 1.5023626
-      outSlope: 1.5023626
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.0031101573
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.7
-      value: 1
-      inSlope: 0.29376233
-      outSlope: -2
+      time: 0.9
+      value: 0.8
+      inSlope: 1.5639118
+      outSlope: -7.999998
       tangentMode: 65
       weightedMode: 0
-      inWeight: 0.16141696
+      inWeight: 0.0586419
       outWeight: 0.14412802
     - serializedVersion: 3
       time: 1
-      value: 0.4
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -56,10 +47,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  SteeringRange: 7
-  SteeringRangeAtTopSpeed: 1
+  SteeringRange: 10
+  SteeringRangeAtTopSpeed: 2
   TireGrip: 0.7
   FrontWheelDriftingTireGrip: 0.4
   RearWheelDriftingTireGrip: 0.2
-  BrakeForce: 1000
-  ReversingTopSpeed: 5
+  BrakeForce: 2000
+  ReversingTopSpeed: 20
