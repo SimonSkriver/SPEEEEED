@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RaceManager : MonoBehaviour
 {
@@ -14,6 +18,8 @@ public class RaceManager : MonoBehaviour
         [HideInInspector] public float lapStartTime;
         [HideInInspector] public bool lapTimerStarted;
         public string lapTime = "00:00:00";
+        [HideInInspector] public bool finished;
+        [HideInInspector] public int finishPlace;
     }
 
     private const int LapsToFinish = 1;
@@ -22,12 +28,28 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private Collider[] checkpoints;
     [SerializeField] private List<Racer> racers = new List<Racer>();
 
+    [Header("Race over screen")]
+    [Tooltip("The overlay canvas shown when everyone has finished. It is hidden at the start of the scene.")]
+    [SerializeField] private GameObject raceOverCanvas;
+    [Tooltip("The button that is selected when the canvas opens, so a controller can navigate it.")]
+    [SerializeField] private Button firstSelectedButton;
+    [SerializeField] private int mainMenuSceneIndex = 0;
+    [SerializeField] private int carSelectSceneIndex = 1;
+
+    private int finishedCount;
+    private readonly List<PlayerInput> lockedInputs = new List<PlayerInput>();
+
     public IReadOnlyList<Racer> Racers => racers;
     public GameObject Winner { get; private set; }
     public bool RaceStarted { get; private set; }
 
     private void Start()
     {
+        if (raceOverCanvas != null)
+        {
+            raceOverCanvas.SetActive(false);
+        }
+
         // The start sequence places the cars, registers them and starts the race after the countdown
         if (FindFirstObjectByType<RaceStartSequence>() != null)
         {
@@ -107,8 +129,11 @@ public class RaceManager : MonoBehaviour
             racer.nextCheckpoint = 0;
             racer.lapTimerStarted = false;
             racer.lapTime = FormatTime(0f);
+            racer.finished = false;
+            racer.finishPlace = 0;
         }
 
+        finishedCount = 0;
         RaceStarted = true;
     }
 
@@ -129,6 +154,8 @@ public class RaceManager : MonoBehaviour
                 RaceStarted = false;
                 return;
             }
+
+            if (racer.finished) continue;
 
             if (racer.lapTimerStarted)
             {
@@ -159,13 +186,21 @@ public class RaceManager : MonoBehaviour
             racer.lapTime = FormatTime(Time.time - racer.lapStartTime);
             Debug.Log($"<color=green>LAP 1 COMPLETED: {racer.car.name} - Final Time: {racer.lapTime}</color>");
 
-            Winner = racer.car;
-            RaceStarted = false;
-            break;
+            racer.finished = true;
+            racer.finishPlace = ++finishedCount;
+            if (Winner == null)
+            {
+                Winner = racer.car;
+            }
+
+            LockCar(racer.car);
         }
 
         racers.Sort((a, b) =>
         {
+            if (a.finished != b.finished) return a.finished ? -1 : 1;
+            if (a.finished) return a.finishPlace.CompareTo(b.finishPlace);
+
             int result = b.laps.CompareTo(a.laps);
             if (result != 0) return result;
             result = b.nextCheckpoint.CompareTo(a.nextCheckpoint);
@@ -179,5 +214,65 @@ public class RaceManager : MonoBehaviour
         {
             racers[i].position = i + 1;
         }
+
+        if (finishedCount == racers.Count)
+        {
+            RaceStarted = false;
+            ShowRaceOverScreen();
+        }
+    }
+
+    private void LockCar(GameObject car)
+    {
+        PlayerInputHandler handler = car.GetComponentInChildren<PlayerInputHandler>();
+        PlayerInput input = handler != null ? handler.GetComponent<PlayerInput>() : null;
+        if (input == null)
+        {
+            return;
+        }
+
+        input.DeactivateInput();
+        lockedInputs.Add(input);
+    }
+    
+    private void UnlockCars()
+    {
+        foreach (PlayerInput input in lockedInputs)
+        {
+            if (input != null)
+            {
+                input.ActivateInput();
+            }
+        }
+
+        lockedInputs.Clear();
+    }
+
+    private void ShowRaceOverScreen()
+    {
+        if (raceOverCanvas == null)
+        {
+            return;
+        }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        raceOverCanvas.SetActive(true);
+
+        if (EventSystem.current != null && firstSelectedButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(firstSelectedButton.gameObject);
+        }
+    }
+
+    // Hook these up to the buttons' OnClick in the Inspector
+    public void RestartRace() => LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void LoadCarSelect() => LoadScene(carSelectSceneIndex);
+    public void LoadMainMenu() => LoadScene(mainMenuSceneIndex);
+
+    private void LoadScene(int buildIndex)
+    {
+        UnlockCars();
+        SceneManager.LoadScene(buildIndex);
     }
 }

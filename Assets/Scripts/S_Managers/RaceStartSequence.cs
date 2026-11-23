@@ -12,10 +12,10 @@ public class RaceStartSequence : MonoBehaviour
 
     [Header("Cars")]
     [SerializeField] private Transform[] gridSlots;
-    [Tooltip("The cars the players chose. If empty, the cars tagged Player1/Player2 in the scene are moved to the slots.")]
+    [Tooltip("The cars the players chose. If empty, the cars tagged Player1 to Player4 in the scene are moved to the slots.")]
     [SerializeField] private GameObject[] carPrefabs;
 
-    [Tooltip("Two players: on = Player 1 on top and Player 2 below. Off = Player 1 left and Player 2 right.")]
+    [Tooltip("Only for two players: on = Player 1 on top and Player 2 below. Off = Player 1 left and Player 2 right. Three or four players use quadrants.")]
     [SerializeField] private bool splitScreenTopBottom = false;
 
     [Header("Intro camera")]
@@ -29,6 +29,8 @@ public class RaceStartSequence : MonoBehaviour
     [Header("Countdown")]
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private int countdownFrom = 3;
+    [Tooltip("Seconds to wait after the intro ends before the countdown starts.")]
+    [SerializeField] private float delayBeforeCountdown = 1.5f;
 
     private readonly List<GameObject> cars = new List<GameObject>();
 
@@ -39,6 +41,7 @@ public class RaceStartSequence : MonoBehaviour
         SetCarsDrivable(false);
 
         yield return PlayIntroCamera();
+        yield return new WaitForSeconds(delayBeforeCountdown);
         yield return RunCountdown();
 
         SetCarsDrivable(true);
@@ -62,6 +65,8 @@ public class RaceStartSequence : MonoBehaviour
         {
             AddSceneCar("Player1");
             AddSceneCar("Player2");
+            AddSceneCar("Player3");
+            AddSceneCar("Player4");
             for (int i = 0; i < cars.Count && i < gridSlots.Length; i++)
             {
                 MoveCar(cars[i], gridSlots[i]);
@@ -74,32 +79,49 @@ public class RaceStartSequence : MonoBehaviour
         }
     }
 
-    // PlayerInputManager orders the screens by join order, so set the viewports from the car order instead
     private void ArrangeSplitScreen()
     {
-        if (cars.Count != 2)
+        if (cars.Count < 2)
         {
             return;
         }
 
-        Camera first = cars[0].GetComponentInChildren<PlayerInput>().camera;
-        Camera second = cars[1].GetComponentInChildren<PlayerInput>().camera;
+        for (int i = 0; i < cars.Count; i++)
+        {
+            cars[i].GetComponentInChildren<PlayerInput>().camera.rect = GetViewport(i, cars.Count);
+        }
+    }
 
-        if (splitScreenTopBottom)
+    // Two players split the screen in half; three or four use quadrants (Player 1 top left, 2 top right, 3 bottom left, 4 bottom right)
+    private Rect GetViewport(int index, int playerCount)
+    {
+        if (playerCount == 2)
         {
-            first.rect = new Rect(0f, 0.5f, 1f, 0.5f);
-            second.rect = new Rect(0f, 0f, 1f, 0.5f);
+            if (splitScreenTopBottom)
+            {
+                return index == 0 ? new Rect(0f, 0.5f, 1f, 0.5f) : new Rect(0f, 0f, 1f, 0.5f);
+            }
+
+            return index == 0 ? new Rect(0f, 0f, 0.5f, 1f) : new Rect(0.5f, 0f, 0.5f, 1f);
         }
-        else
-        {
-            first.rect = new Rect(0f, 0f, 0.5f, 1f);
-            second.rect = new Rect(0.5f, 0f, 0.5f, 1f);
-        }
+
+        float x = index % 2 == 0 ? 0f : 0.5f;
+        float y = index < 2 ? 0.5f : 0f;
+        return new Rect(x, y, 0.5f, 0.5f);
     }
 
     private void AddSceneCar(string carTag)
     {
-        GameObject car = GameObject.FindGameObjectWithTag(carTag);
+        GameObject car;
+        try
+        {
+            car = GameObject.FindGameObjectWithTag(carTag);
+        }
+        catch (UnityException) // The tag doesn't exist in the project
+        {
+            return;
+        }
+
         if (car == null)
         {
             return;
@@ -108,7 +130,6 @@ public class RaceStartSequence : MonoBehaviour
         cars.Add(car);
     }
 
-    // Teleport through the Rigidbody too, otherwise physics and interpolation can put the car back
     private static void MoveCar(GameObject car, Transform slot)
     {
         car.transform.SetPositionAndRotation(slot.position, slot.rotation);
@@ -126,7 +147,6 @@ public class RaceStartSequence : MonoBehaviour
         Debug.Log($"RaceStartSequence: moved {car.name} to {slot.name}", car);
     }
 
-    // Disabling the input handler stops the car from receiving throttle, brake and steering
     private void SetCarsDrivable(bool drivable)
     {
         foreach (GameObject car in cars)
@@ -146,7 +166,7 @@ public class RaceStartSequence : MonoBehaviour
             yield return null;
         }
 
-        introCamera.gameObject.SetActive(false); // The players' cameras take over
+        introCamera.gameObject.SetActive(false); 
         if (introScreenCamera != null)
         {
             introScreenCamera.gameObject.SetActive(false);
