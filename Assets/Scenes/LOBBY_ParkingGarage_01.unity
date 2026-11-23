@@ -358,8 +358,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339768408}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.025106767, y: 0, z: 0, w: 0.99968475}
-  m_LocalPosition: {x: 0, y: 3.34, z: -3.37}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 5.99, y: 1.99, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -992,6 +992,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lancia 037
       objectReference: {fileID: 0}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: inGameCars.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3477495134259949777, guid: c6bf7bcb099528340be72b0087340e7b, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3659454009697577228, guid: 2bac59f1cc82e91458a39578d111beb4, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5692042723980216609, guid: 0d596f8f8c2d1f0459f8cf1008df806e, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1105683958654385709, guid: 31fc73aabd8a0c84c9d7de8509ccf056, type: 3}
     - target: {fileID: 8137710488095887409, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.500002
@@ -1261,6 +1281,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lancia 037
       objectReference: {fileID: 0}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: inGameCars.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3477495134259949777, guid: c6bf7bcb099528340be72b0087340e7b, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3659454009697577228, guid: 2bac59f1cc82e91458a39578d111beb4, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5692042723980216609, guid: 0d596f8f8c2d1f0459f8cf1008df806e, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1105683958654385709, guid: 31fc73aabd8a0c84c9d7de8509ccf056, type: 3}
     - target: {fileID: 8137710488095887409, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5
@@ -1479,6 +1519,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lancia 037
       objectReference: {fileID: 0}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: inGameCars.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3477495134259949777, guid: c6bf7bcb099528340be72b0087340e7b, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3659454009697577228, guid: 2bac59f1cc82e91458a39578d111beb4, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5692042723980216609, guid: 0d596f8f8c2d1f0459f8cf1008df806e, type: 3}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: 'inGameCars.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1105683958654385709, guid: 31fc73aabd8a0c84c9d7de8509ccf056, type: 3}
     - target: {fileID: 8137710488095887409, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -1544,29 +1604,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 788206489741574430, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
-      propertyPath: m_Name
-      value: Mazda MX5
-      objectReference: {fileID: 0}
     - target: {fileID: 926405928719240088, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_Name
       value: Player 1 Anchor
       objectReference: {fileID: 0}
-    - target: {fileID: 1963231659824126114, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
-      propertyPath: m_Name
-      value: Pedo Van
-      objectReference: {fileID: 0}
     - target: {fileID: 2711942239096247599, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_text
       value: PLAYER 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2820352543298265723, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
-      propertyPath: m_Name
-      value: Lancia 037
-      objectReference: {fileID: 0}
-    - target: {fileID: 2820352543298265723, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8137710488095887409, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_LocalPosition.x
