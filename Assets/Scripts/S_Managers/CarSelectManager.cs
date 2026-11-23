@@ -10,10 +10,10 @@ public class CarSelectManager : MonoBehaviour
 
     [SerializeField] private TMP_Text label;
     [SerializeField] private GameObject[] arrowUIButtons;
+    [SerializeField] private GameObject[] inGameCars;
 
     private int currentCarIndex = 0;
     private List<GameObject> cars = new List<GameObject>();
-    private int listIndex;
     private string defaultLabelText;
 
     void Awake()
@@ -33,7 +33,7 @@ public class CarSelectManager : MonoBehaviour
         playerInfo = playerInputHandler.GetComponent<PlayerInfo>();
 
         //Update visuals
-        SelectCar(0);
+        ShowCar(0);
         foreach (var arrow in arrowUIButtons) arrow.SetActive(true);
 
         // Hook up input to methods
@@ -53,7 +53,7 @@ public class CarSelectManager : MonoBehaviour
         playerInput.BackPressed -= Back;
     }
 
-    void SelectCar(int index)
+    void ShowCar(int index)
     {
         for (int i = 0; i < cars.Count; i++)
         {
@@ -71,7 +71,7 @@ public class CarSelectManager : MonoBehaviour
         {
             currentCarIndex = 0;
         }
-        SelectCar(currentCarIndex);
+        ShowCar(currentCarIndex);
     }
 
     public void PreviousCar()
@@ -84,16 +84,17 @@ public class CarSelectManager : MonoBehaviour
         {
             currentCarIndex = transform.childCount - 1;
         }
-        SelectCar(currentCarIndex);
+        ShowCar(currentCarIndex);
     }
 
     void Submit()
     {
         if (playerInfo.ready == false)
         {
-            if (playerInfo.CarPrefab == null) playerInfo.CarPrefab = transform.GetChild(currentCarIndex).gameObject;
+            if (playerInfo.ChosenCar == null) playerInfo.ChosenCar = inGameCars[currentCarIndex];
             playerInfo.ready = true;
             LobbyManager.Instance.UpdateReadyPlayerList(playerInfo.PlayerID);
+            foreach (var arrow in arrowUIButtons) arrow.SetActive(false);
         }
     }
 
@@ -102,8 +103,9 @@ public class CarSelectManager : MonoBehaviour
         if (playerInfo.ready == true)
         {
             playerInfo.ready = false;
-            playerInfo.CarPrefab = null;
+            playerInfo.ChosenCar = null;
             LobbyManager.Instance.UpdateReadyPlayerList(playerInfo.PlayerID);
+            foreach (var arrow in arrowUIButtons) arrow.SetActive(true);
         }
         else // If the player presses back while not ready, the player quits
         {

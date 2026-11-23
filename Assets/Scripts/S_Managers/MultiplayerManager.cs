@@ -7,10 +7,11 @@ public class MultiplayerManager : MonoBehaviour
     public static MultiplayerManager Instance;
 
     public List<PlayerInfo> AllPlayers = new List<PlayerInfo>();
-
-    List<PlayerInput> pendingJoinedPlayer = new List<PlayerInput>();
-    private bool lobbyReady => LobbyManager.Instance != null;
+    public PlayerInfo playerOne;
     public PlayerInputManager playerInputManager;
+
+    private List<PlayerInput> pendingJoinedPlayer = new List<PlayerInput>();
+    private bool lobbyReady => LobbyManager.Instance != null;
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class MultiplayerManager : MonoBehaviour
             }
             pendingJoinedPlayer.Clear();
         }
+        GetPlayerOne();
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
@@ -57,5 +59,10 @@ public class MultiplayerManager : MonoBehaviour
         AllPlayers.Remove(playerInput.GetComponent<PlayerInfo>());
         LobbyManager.Instance.UpdateUIText(AllPlayers.Count == playerInputManager.maxPlayerCount);
         Debug.Log("Player left with ID " + playerInput.playerIndex);
+    }
+
+    public PlayerInfo GetPlayerOne()
+    {
+        return AllPlayers[0];
     }
 }

@@ -10,15 +10,19 @@ public class LobbyManager : MonoBehaviour
     [SerializeField] CarSelectManager[] carSelectors;
     [SerializeField] CinemachineCamera carSelectCam;
     [SerializeField] CinemachineCamera mapSelectCam;
-    [SerializeField] GameObject continueButton;
     [SerializeField] GameObject joinText;
+
     public List<int> ReadyPlayers = new List<int>();
-    bool allPlayersReady => ReadyPlayers.Count == MultiplayerManager.Instance.AllPlayers.Count;
+
+    private bool allPlayersReady => ReadyPlayers.Count == MultiplayerManager.Instance.AllPlayers.Count;
+    private MapSelectManager mapSelectManager;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        mapSelectManager = GetComponent<MapSelectManager>();
     }
 
     public void AssignPlayerToCarPanel(PlayerInfo player)
@@ -40,9 +44,9 @@ public class LobbyManager : MonoBehaviour
 
         if (allPlayersReady)
         {
-            Continue(); 
+            Continue();
             Debug.Log("Continue");
-        } 
+        }
         else Return();
     }
 
@@ -50,6 +54,7 @@ public class LobbyManager : MonoBehaviour
     {
         mapSelectCam.enabled = true;
         carSelectCam.enabled = false;
+        mapSelectManager.enabled = true;
         MultiplayerManager.Instance.playerInputManager.DisableJoining();
         foreach (var player in MultiplayerManager.Instance.AllPlayers) // Disable input for everyone but player 1
         {
@@ -59,11 +64,12 @@ public class LobbyManager : MonoBehaviour
             }
         }
     }
-    
+
     public void Return()
     {
         carSelectCam.enabled = true;
         mapSelectCam.enabled = false;
+        mapSelectManager.enabled = false;
         MultiplayerManager.Instance.playerInputManager.EnableJoining();
         foreach (var player in MultiplayerManager.Instance.AllPlayers) // Disable input for everyone but player 1
         {

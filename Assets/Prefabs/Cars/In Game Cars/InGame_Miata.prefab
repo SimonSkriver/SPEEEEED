@@ -420,8 +420,6 @@ GameObject:
   - component: {fileID: 5258657516806986076}
   - component: {fileID: 1295439636324398854}
   - component: {fileID: 5475532118800708201}
-  - component: {fileID: 5978935932787119187}
-  - component: {fileID: 3761393357540496193}
   m_Layer: 6
   m_Name: InGame_Miata
   m_TagString: Untagged
@@ -499,76 +497,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5978935932787119187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3659454009697577228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4752a420db6465c488cb2dceb2fd0aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
-  accelerateInputValue: 0
-  brakeInputValue: 0
-  steerInputValue: 0
-  driftIsHeld: 0
---- !u!114 &3761393357540496193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3659454009697577228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 9010c83c7e635ab4ca0b97e71778d9dc, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f81b6697-064d-4532-b4db-33f0ca49bfd8
-    m_ActionName: 'Player/Accelerate[/DualShock4GamepadHID/rightTrigger]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 38a5a78c-f9d3-460c-879e-911ca634d4ea
-    m_ActionName: 'Player/Brake[/DualShock4GamepadHID/leftTrigger]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d391d38a-af1e-4781-9f72-00218024c8f9
-    m_ActionName: 'Player/Steer[/DualShock4GamepadHID/leftStick]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 13a57738-b89c-4a5e-8838-3dd11a9d4d7c
-    m_ActionName: UI/New action
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 10693283-2b3a-4082-84dd-8b84cef7b651
-    m_ActionName: Player/Look
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bd5231b0-ae22-4a3b-a615-98c87fd578b5
-    m_ActionName: 'Player/Drift[/DualShock4GamepadHID/rightShoulder,/Keyboard/shift]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 4269318489260619501}
 --- !u!1 &4258121753811987221
 GameObject:
   m_ObjectHideFlags: 0
