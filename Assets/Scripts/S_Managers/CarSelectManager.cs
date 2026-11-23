@@ -94,6 +94,7 @@ public class CarSelectManager : MonoBehaviour
             if (playerInfo.ChosenCar == null) playerInfo.ChosenCar = inGameCars[currentCarIndex];
             playerInfo.ready = true;
             LobbyManager.Instance.UpdateReadyPlayerList(playerInfo.PlayerID);
+            foreach (var arrow in arrowUIButtons) arrow.SetActive(false);
         }
     }
 
@@ -104,6 +105,7 @@ public class CarSelectManager : MonoBehaviour
             playerInfo.ready = false;
             playerInfo.ChosenCar = null;
             LobbyManager.Instance.UpdateReadyPlayerList(playerInfo.PlayerID);
+            foreach (var arrow in arrowUIButtons) arrow.SetActive(true);
         }
         else // If the player presses back while not ready, the player quits
         {
