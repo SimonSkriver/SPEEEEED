@@ -38,7 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-
+        
         accelerateAction = playerInput.actions.FindAction("Accelerate");
         brakeAction = playerInput.actions.FindAction("Brake");
         steerAction = playerInput.actions.FindAction("Steer");
