@@ -30,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5445644049294471850}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1091168, y: -0.0000003770567, z: 0.000000036122003, w: 0.994029}
+  m_LocalRotation: {x: 0.1091184, y: 0, z: 0, w: 0.9940288}
   m_LocalPosition: {x: 23.832077, y: 3.8916667, z: 14.259169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.529, y: 0, z: 0}
 --- !u!114 &5360716644949411732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,9 +95,9 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 1
-    PositionDamping: {x: 0.2, y: 0.2, z: 0.2}
+    PositionDamping: {x: 0, y: 0, z: 0.1}
     AngularDampingMode: 0
-    RotationDamping: {x: 0, y: 0, z: 0}
+    RotationDamping: {x: 0, y: 1, z: 0}
     QuaternionDamping: 1
   OrbitStyle: 1
   Radius: 5
@@ -106,8 +106,8 @@ MonoBehaviour:
       Radius: 0
       Height: 0
     Center:
-      Radius: 4.14
-      Height: 2.01
+      Radius: 4.28
+      Height: 2.59
     Bottom:
       Radius: 0
       Height: 0
@@ -165,8 +165,8 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 1.09, z: 0}
-  Damping: {x: 0.1, y: 0.5}
+  TargetOffset: {x: 0, y: 1.76, z: 0}
+  Damping: {x: 0, y: 0}
   Lookahead:
     Enabled: 0
     Time: 0
