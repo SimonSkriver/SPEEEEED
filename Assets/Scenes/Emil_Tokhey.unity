@@ -2412,6 +2412,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 686414339}
     - target: {fileID: 3171752285330537149, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
+      propertyPath: introDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171752285330537149, guid: 3dd30d77300610b43b61a611d26fa9a5, type: 3}
       propertyPath: introScreenCamera
       value: 
       objectReference: {fileID: 686414337}
