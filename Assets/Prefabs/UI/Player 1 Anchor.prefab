@@ -190,6 +190,11 @@ MonoBehaviour:
   arrowUIButtons:
   - {fileID: 5101133971829745575}
   - {fileID: 5279148701118344222}
+  inGameCars:
+  - {fileID: 3477495134259949777, guid: c6bf7bcb099528340be72b0087340e7b, type: 3}
+  - {fileID: 3659454009697577228, guid: 2bac59f1cc82e91458a39578d111beb4, type: 3}
+  - {fileID: 5692042723980216609, guid: 0d596f8f8c2d1f0459f8cf1008df806e, type: 3}
+  - {fileID: 1105683958654385709, guid: 31fc73aabd8a0c84c9d7de8509ccf056, type: 3}
 --- !u!1 &189985113810820171
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4204692523776519623, guid: 1129aa079b74e6842bf03de18f101932, type: 3}
       propertyPath: m_Name
-      value: White Van
+      value: Pedo Van
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -811,7 +816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4697045725477991578, guid: 8403810293ecf9842978c8a603424c75, type: 3}
       propertyPath: m_Name
-      value: Mazda Miata MX5 1995
+      value: Mazda MX5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -873,7 +878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8213964550943295403, guid: c00b5d0c824600847bfd3d1860255905, type: 3}
       propertyPath: m_Name
-      value: Lancia_037
+      value: Lancia 037
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

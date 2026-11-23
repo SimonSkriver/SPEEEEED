@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2634763555158701208}
   - component: {fileID: 1764980806165505932}
+  - component: {fileID: 383043394512829879}
   m_Layer: 0
   m_Name: LobbyManager 1
   m_TagString: Untagged
@@ -49,3 +50,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  carSelectCam: {fileID: 0}
+  mapSelectCam: {fileID: 0}
+  joinText: {fileID: 0}
+  ReadyPlayers: 
+--- !u!114 &383043394512829879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061271336478456026}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5598bd772aa71438080680cddcff74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapSelectManager
+  mapHover: {fileID: 0}

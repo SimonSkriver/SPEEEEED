@@ -326,8 +326,6 @@ GameObject:
   - component: {fileID: 2182430809795123296}
   - component: {fileID: 3907341066194761681}
   - component: {fileID: 4344245841387569736}
-  - component: {fileID: 7117600832169217134}
-  - component: {fileID: 7647424356061359725}
   m_Layer: 6
   m_Name: InGame_Lancia
   m_TagString: Untagged
@@ -436,52 +434,6 @@ MonoBehaviour:
   shiftRate: 1
   maxGears: 6
   currentGear: 1
---- !u!114 &7117600832169217134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3477495134259949777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4752a420db6465c488cb2dceb2fd0aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
-  accelerateInputValue: 0
-  brakeInputValue: 0
-  steerInputValue: 0
-  driftIsHeld: 0
---- !u!114 &7647424356061359725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3477495134259949777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 9010c83c7e635ab4ca0b97e71778d9dc, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 1026795737763680621}
 --- !u!1 &3499448431880954876
 GameObject:
   m_ObjectHideFlags: 0

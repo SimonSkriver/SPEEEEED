@@ -5,7 +5,7 @@ public class PlayerInfo : MonoBehaviour
 {
     public int PlayerID => GetComponent<PlayerInput>().playerIndex;
     public bool ready;
-    public GameObject CarPrefab;
+    public GameObject ChosenCar;
 
     void Awake()
     {
