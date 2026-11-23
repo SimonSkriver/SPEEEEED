@@ -1,20 +1,30 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CarSFX : MonoBehaviour
 {
+    //Audio stuff
+    [SerializeField] AudioMixerGroup audioMixer;
     private AudioSource engineAudioSource;
     private AudioSource tireSquealAudioSource;
+    private AudioSource speedRattleAudioSource;
     [SerializeField] private AudioClip engineSFX;
     [SerializeField] private AudioClip gearshiftSFX;
     [SerializeField] private AudioClip TireSquealSFX;
+    [SerializeField] private AudioClip SpeedRattleSFX;
     [SerializeField] private AnimationCurve powerCurve;
+    
+    //External references
+    private Rigidbody rb;
+    //private CarWheel carData;
     [SerializeField] private float traction = 1f; //Add current tire grip from car instead
-
+    private float currentSpeed;
     private PlayerInputHandler playerInput;
-    private float throttleValue;
-    private float currentSpeed; //Not currently used, but could be useful for syncing sound with movement speed
-    private float currentRPM = 0f;
 
+    //Properties
+    private float throttleValue;
+    private float breakValue;
+    private float currentRPM = 0f;
     [SerializeField] private float idleRPM = 800f;
     [SerializeField] private float maxRPM = 7000f;
     [SerializeField] private float shiftUpRPM = 6500f;
@@ -27,6 +37,8 @@ public class CarSFX : MonoBehaviour
     {
         //Get player input for throttle
         playerInput = GetComponent<PlayerInputHandler>();
+        rb = GetComponentInParent<Rigidbody>();
+        //carData = GetComponentInChildren<CarWheel>();
 
         //Adds required audio sources
         HandleAudioSources();
@@ -35,10 +47,14 @@ public class CarSFX : MonoBehaviour
     void Update()
     {
         throttleValue = playerInput.AccelerationInputValue;
-        //currentSpeed = add how fast car be goin;
+        breakValue = playerInput.BrakeInputValue;
+        currentSpeed = rb.linearVelocity.magnitude;
+        //traction = carData.CarData.TireGrip;
+
         HandleGearShifting();
         HandleEngineSound();
         HandleTireSqueal();
+        HandleSpeedRattle();
     }
     
     private void HandleEngineSound()
@@ -56,7 +72,7 @@ public class CarSFX : MonoBehaviour
         else
         {
             //If no throttle, decrease rpm back to idle, going through the gears.
-            currentRPM = Mathf.Lerp(currentRPM, idleRPM, Time.deltaTime * (shiftRate * Mathf.Pow(0.50f, currentGear - 1)));
+            currentRPM = Mathf.Lerp(currentRPM, idleRPM, Time.deltaTime * (shiftRate * Mathf.Pow(0.80f, currentGear - 1)));
         }
 
         //Change pitch of SFX based on RPM. CurrentRPM divded by maxRPM to find correct ratio for lerp
@@ -88,7 +104,13 @@ public class CarSFX : MonoBehaviour
     private void HandleTireSqueal()
     {
         //Tires be squealing. Inverse relationship between volume and traction, clamped from 0-1. Traction of 0 = loud squeal, and 1 = no squeal
-        tireSquealAudioSource.volume = 1f - Mathf.Clamp01(traction);
+        traction = breakValue;
+        tireSquealAudioSource.volume = 0f + Mathf.Clamp01(traction);
+    }
+
+    private void HandleSpeedRattle()
+    {
+        speedRattleAudioSource.volume = Mathf.Clamp01(currentSpeed);
     }
 
     private void HandleAudioSources()
@@ -97,18 +119,28 @@ public class CarSFX : MonoBehaviour
 
         //Create and configure audio source for engine SFX
         engineAudioSource = gameObject.AddComponent<AudioSource>();
+        engineAudioSource.outputAudioMixerGroup = audioMixer;
         engineAudioSource.clip = engineSFX;
         engineAudioSource.loop = true;
-        engineAudioSource.spatialBlend = 1f;
+        //engineAudioSource.spatialBlend = 1f;
         engineAudioSource.Play();
 
         //Create and configure audio source for tire squeal SFX
         tireSquealAudioSource = gameObject.AddComponent<AudioSource>();
+        tireSquealAudioSource.outputAudioMixerGroup = audioMixer;
         tireSquealAudioSource.clip = TireSquealSFX;
         tireSquealAudioSource.loop = true;
-        engineAudioSource.spatialBlend = 1f;
-        tireSquealAudioSource.spatialBlend = 1f;
+        //tireSquealAudioSource.spatialBlend = 1f;
         tireSquealAudioSource.volume = 0f;
         tireSquealAudioSource.Play();
+
+        //Create and configure audio source for speed rattles SFX
+        speedRattleAudioSource = gameObject.AddComponent<AudioSource>();
+        speedRattleAudioSource.outputAudioMixerGroup = audioMixer;
+        speedRattleAudioSource.clip = SpeedRattleSFX;
+        speedRattleAudioSource.loop = true;
+        //speedRattleAudioSource.spatialBlend = 1f;
+        speedRattleAudioSource.volume = 0f;
+        speedRattleAudioSource.Play();
     }
 }
