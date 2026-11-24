@@ -74,6 +74,13 @@ public class PlayerInputHandler : MonoBehaviour
         driftIsHeld = driftAction.IsPressed();
     }
 
+    // Race cars are children of the player that owns the handler; the scene's test cars keep it on themselves or a child
+    public static PlayerInputHandler FromCar(GameObject car)
+    {
+        PlayerInputHandler handler = car.GetComponentInParent<PlayerInputHandler>();
+        return handler != null ? handler : car.GetComponentInChildren<PlayerInputHandler>();
+    }
+
     public void OnMenuLeft(InputAction.CallbackContext context) => MenuLeftPressed?.Invoke();
     public void OnMenuRight(InputAction.CallbackContext context) => MenuRightPressed?.Invoke();
     public void OnSubmit(InputAction.CallbackContext context) => SubmitPressed?.Invoke();

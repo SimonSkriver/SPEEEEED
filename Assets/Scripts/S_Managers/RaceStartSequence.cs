@@ -12,8 +12,6 @@ public class RaceStartSequence : MonoBehaviour
 
     [Header("Cars")]
     [SerializeField] private Transform[] gridSlots;
-    [Tooltip("The cars the players chose. If empty, the cars tagged Player1 to Player4 in the scene are moved to the slots.")]
-    [SerializeField] private GameObject[] carPrefabs;
 
     [Tooltip("Only for two players: on = Player 1 on top and Player 2 below. Off = Player 1 left and Player 2 right. Three or four players use quadrants.")]
     [SerializeField] private bool splitScreenTopBottom = false;
@@ -54,28 +52,38 @@ public class RaceStartSequence : MonoBehaviour
 
     private void PlaceCars()
     {
-        if (carPrefabs.Length > 0)
+        AddPlayerCars();
+
+        for (int i = 0; i < cars.Count && i < gridSlots.Length; i++)
         {
-            for (int i = 0; i < carPrefabs.Length && i < gridSlots.Length; i++)
-            {
-                cars.Add(Instantiate(carPrefabs[i], gridSlots[i].position, gridSlots[i].rotation));
-            }
-        }
-        else
-        {
-            AddSceneCar("Player1");
-            AddSceneCar("Player2");
-            AddSceneCar("Player3");
-            AddSceneCar("Player4");
-            for (int i = 0; i < cars.Count && i < gridSlots.Length; i++)
-            {
-                MoveCar(cars[i], gridSlots[i]);
-            }
+            cars[i].SetActive(true);
+            MoveCar(cars[i], gridSlots[i]);
         }
 
         foreach (GameObject car in cars)
         {
             raceManager.RegisterRacer(car);
+        }
+    }
+
+    // The cars the players chose live under their PlayerInfo, in player order
+    private void AddPlayerCars()
+    {
+        if (MultiplayerManager.Instance == null)
+        {
+            return;
+        }
+
+        List<PlayerInfo> players = new List<PlayerInfo>(MultiplayerManager.Instance.AllPlayers);
+        players.Sort((a, b) => a.PlayerID.CompareTo(b.PlayerID));
+
+        foreach (PlayerInfo player in players)
+        {
+            player.SpawnRaceCar();
+            if (player.RaceCar != null)
+            {
+                cars.Add(player.RaceCar);
+            }
         }
     }
 
@@ -88,7 +96,19 @@ public class RaceStartSequence : MonoBehaviour
 
         for (int i = 0; i < cars.Count; i++)
         {
-            cars[i].GetComponentInChildren<PlayerInput>().camera.rect = GetViewport(i, cars.Count);
+            PlayerInput input = PlayerInputHandler.FromCar(cars[i]).GetComponent<PlayerInput>();
+            if (input.camera == null)
+            {
+                input.camera = cars[i].GetComponentInChildren<Camera>();
+            }
+
+            input.camera.rect = GetViewport(i, cars.Count);
+
+            AudioListener listener = cars[i].GetComponentInChildren<AudioListener>();
+            if (listener != null)
+            {
+                listener.enabled = i == 0; // Only one listener may be active
+            }
         }
     }
 
@@ -108,26 +128,6 @@ public class RaceStartSequence : MonoBehaviour
         float x = index % 2 == 0 ? 0f : 0.5f;
         float y = index < 2 ? 0.5f : 0f;
         return new Rect(x, y, 0.5f, 0.5f);
-    }
-
-    private void AddSceneCar(string carTag)
-    {
-        GameObject car;
-        try
-        {
-            car = GameObject.FindGameObjectWithTag(carTag);
-        }
-        catch (UnityException) // The tag doesn't exist in the project
-        {
-            return;
-        }
-
-        if (car == null)
-        {
-            return;
-        }
-
-        cars.Add(car);
     }
 
     private static void MoveCar(GameObject car, Transform slot)
@@ -151,7 +151,7 @@ public class RaceStartSequence : MonoBehaviour
     {
         foreach (GameObject car in cars)
         {
-            car.GetComponentInChildren<PlayerInputHandler>().enabled = drivable;
+            PlayerInputHandler.FromCar(car).enabled = drivable;
         }
     }
 

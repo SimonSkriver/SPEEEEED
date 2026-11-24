@@ -49,26 +49,6 @@ public class RaceManager : MonoBehaviour
         {
             raceOverCanvas.SetActive(false);
         }
-
-        // The start sequence places the cars, registers them and starts the race after the countdown
-        if (FindFirstObjectByType<RaceStartSequence>() != null)
-        {
-            return;
-        }
-
-        GameObject testCar = GameObject.FindGameObjectWithTag("Player1");
-        if (testCar != null)
-        {
-            RegisterRacer(testCar);
-        }
-
-        GameObject testCar2 = GameObject.FindGameObjectWithTag("Player2");
-        if (testCar2 != null)
-        {
-            RegisterRacer(testCar2);
-        }
-
-        StartRace();
     }
 
     public void RegisterRacer(GameObject car)
@@ -224,7 +204,7 @@ public class RaceManager : MonoBehaviour
 
     private void LockCar(GameObject car)
     {
-        PlayerInputHandler handler = car.GetComponentInChildren<PlayerInputHandler>();
+        PlayerInputHandler handler = PlayerInputHandler.FromCar(car);
         PlayerInput input = handler != null ? handler.GetComponent<PlayerInput>() : null;
         if (input == null)
         {
@@ -267,8 +247,28 @@ public class RaceManager : MonoBehaviour
 
     // Hook these up to the buttons' OnClick in the Inspector
     public void RestartRace() => LoadScene(SceneManager.GetActiveScene().buildIndex);
-    public void LoadCarSelect() => LoadScene(carSelectSceneIndex);
-    public void LoadMainMenu() => LoadScene(mainMenuSceneIndex);
+
+    public void LoadCarSelect()
+    {
+        DestroyRaceCars();
+        LoadScene(carSelectSceneIndex);
+    }
+
+    public void LoadMainMenu()
+    {
+        DestroyRaceCars();
+        LoadScene(mainMenuSceneIndex);
+    }
+
+    private static void DestroyRaceCars()
+    {
+        if (MultiplayerManager.Instance == null) return;
+
+        foreach (PlayerInfo player in MultiplayerManager.Instance.AllPlayers)
+        {
+            player.DestroyRaceCar();
+        }
+    }
 
     private void LoadScene(int buildIndex)
     {
