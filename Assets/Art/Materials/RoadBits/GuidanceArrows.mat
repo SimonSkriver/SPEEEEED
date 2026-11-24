@@ -107,7 +107,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission_Color: {r: 0.4392158, g: 6.249893, b: 11.984313, a: 1}
+    - _Emission_Color: {r: 10.252853, g: 11.984314, b: 0.50196105, a: 1}
     - _UV_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _UV_Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

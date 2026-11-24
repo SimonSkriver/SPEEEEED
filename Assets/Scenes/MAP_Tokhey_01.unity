@@ -802374,7 +802374,7 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 2
+  m_Mode: 0
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
   m_Resolution: 128
@@ -802396,7 +802396,7 @@ ReflectionProbe:
   m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
   m_Importance: 1
-  m_CustomBakedTexture: {fileID: 8900000, guid: 5bc485ab4dfab7749a27576b83b992f7, type: 3}
+  m_CustomBakedTexture: {fileID: 8900000, guid: 0071d51ba2c97d24aaf19ba730ab70c2, type: 3}
 --- !u!4 &1886330732
 Transform:
   m_ObjectHideFlags: 0
@@ -918975,6 +918975,10 @@ PrefabInstance:
     - target: {fileID: 1519776181495632814, guid: d627f6178d85bc94aba0905ecbea7189, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465248051394122565, guid: d627f6178d85bc94aba0905ecbea7189, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8932264877725433597, guid: d627f6178d85bc94aba0905ecbea7189, type: 3}
       propertyPath: m_Name
