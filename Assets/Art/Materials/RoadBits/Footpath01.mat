@@ -88,7 +88,7 @@ Material:
     - _Is_wet: 1
     - _Metalness_Value: 0
     - _Noise_Scale: 0
-    - _Normal_Strength: 1
+    - _Normal_Strength: 0.25
     - _Puddle_Size: 0.15
     - _QueueControl: 0
     - _QueueOffset: 0

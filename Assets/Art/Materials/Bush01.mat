@@ -137,9 +137,9 @@ Material:
     - _Puddle_Size: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rain_Intensity: 0
+    - _Rain_Intensity: 0.2
     - _ReceiveShadows: 1
-    - _Roughness_Value: 0.8
+    - _Roughness_Value: 0.75
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
