@@ -12,10 +12,8 @@ public class RaceStartSequence : MonoBehaviour
 
     [Header("Cars")]
     [SerializeField] private Transform[] gridSlots;
-    [Tooltip("The cars the players chose. If empty, the cars tagged Player1/Player2 in the scene are moved to the slots.")]
-    [SerializeField] private GameObject[] carPrefabs;
 
-    [Tooltip("Two players: on = Player 1 on top and Player 2 below. Off = Player 1 left and Player 2 right.")]
+    [Tooltip("Only for two players: on = Player 1 on top and Player 2 below. Off = Player 1 left and Player 2 right. Three or four players use quadrants.")]
     [SerializeField] private bool splitScreenTopBottom = false;
 
     [Header("Intro camera")]
@@ -29,6 +27,8 @@ public class RaceStartSequence : MonoBehaviour
     [Header("Countdown")]
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private int countdownFrom = 3;
+    [Tooltip("Seconds to wait after the intro ends before the countdown starts.")]
+    [SerializeField] private float delayBeforeCountdown = 1.5f;
 
     private readonly List<GameObject> cars = new List<GameObject>();
 
@@ -39,6 +39,7 @@ public class RaceStartSequence : MonoBehaviour
         SetCarsDrivable(false);
 
         yield return PlayIntroCamera();
+        yield return new WaitForSeconds(delayBeforeCountdown);
         yield return RunCountdown();
 
         SetCarsDrivable(true);
@@ -51,21 +52,12 @@ public class RaceStartSequence : MonoBehaviour
 
     private void PlaceCars()
     {
-        if (carPrefabs.Length > 0)
+        AddPlayerCars();
+
+        for (int i = 0; i < cars.Count && i < gridSlots.Length; i++)
         {
-            for (int i = 0; i < carPrefabs.Length && i < gridSlots.Length; i++)
-            {
-                cars.Add(Instantiate(carPrefabs[i], gridSlots[i].position, gridSlots[i].rotation));
-            }
-        }
-        else
-        {
-            AddSceneCar("Player1");
-            AddSceneCar("Player2");
-            for (int i = 0; i < cars.Count && i < gridSlots.Length; i++)
-            {
-                MoveCar(cars[i], gridSlots[i]);
-            }
+            cars[i].SetActive(true);
+            MoveCar(cars[i], gridSlots[i]);
         }
 
         foreach (GameObject car in cars)
@@ -74,41 +66,70 @@ public class RaceStartSequence : MonoBehaviour
         }
     }
 
-    // PlayerInputManager orders the screens by join order, so set the viewports from the car order instead
+    // The cars the players chose live under their PlayerInfo, in player order
+    private void AddPlayerCars()
+    {
+        if (MultiplayerManager.Instance == null)
+        {
+            return;
+        }
+
+        List<PlayerInfo> players = new List<PlayerInfo>(MultiplayerManager.Instance.AllPlayers);
+        players.Sort((a, b) => a.PlayerID.CompareTo(b.PlayerID));
+
+        foreach (PlayerInfo player in players)
+        {
+            player.SpawnRaceCar();
+            if (player.RaceCar != null)
+            {
+                cars.Add(player.RaceCar);
+            }
+        }
+    }
+
     private void ArrangeSplitScreen()
     {
-        if (cars.Count != 2)
+        if (cars.Count < 2)
         {
             return;
         }
 
-        Camera first = cars[0].GetComponentInChildren<PlayerInput>().camera;
-        Camera second = cars[1].GetComponentInChildren<PlayerInput>().camera;
+        for (int i = 0; i < cars.Count; i++)
+        {
+            PlayerInput input = PlayerInputHandler.FromCar(cars[i]).GetComponent<PlayerInput>();
+            if (input.camera == null)
+            {
+                input.camera = cars[i].GetComponentInChildren<Camera>();
+            }
 
-        if (splitScreenTopBottom)
-        {
-            first.rect = new Rect(0f, 0.5f, 1f, 0.5f);
-            second.rect = new Rect(0f, 0f, 1f, 0.5f);
-        }
-        else
-        {
-            first.rect = new Rect(0f, 0f, 0.5f, 1f);
-            second.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+            input.camera.rect = GetViewport(i, cars.Count);
+
+            AudioListener listener = cars[i].GetComponentInChildren<AudioListener>();
+            if (listener != null)
+            {
+                listener.enabled = i == 0; // Only one listener may be active
+            }
         }
     }
 
-    private void AddSceneCar(string carTag)
+    // Two players split the screen in half; three or four use quadrants (Player 1 top left, 2 top right, 3 bottom left, 4 bottom right)
+    private Rect GetViewport(int index, int playerCount)
     {
-        GameObject car = GameObject.FindGameObjectWithTag(carTag);
-        if (car == null)
+        if (playerCount == 2)
         {
-            return;
+            if (splitScreenTopBottom)
+            {
+                return index == 0 ? new Rect(0f, 0.5f, 1f, 0.5f) : new Rect(0f, 0f, 1f, 0.5f);
+            }
+
+            return index == 0 ? new Rect(0f, 0f, 0.5f, 1f) : new Rect(0.5f, 0f, 0.5f, 1f);
         }
 
-        cars.Add(car);
+        float x = index % 2 == 0 ? 0f : 0.5f;
+        float y = index < 2 ? 0.5f : 0f;
+        return new Rect(x, y, 0.5f, 0.5f);
     }
 
-    // Teleport through the Rigidbody too, otherwise physics and interpolation can put the car back
     private static void MoveCar(GameObject car, Transform slot)
     {
         car.transform.SetPositionAndRotation(slot.position, slot.rotation);
@@ -126,12 +147,11 @@ public class RaceStartSequence : MonoBehaviour
         Debug.Log($"RaceStartSequence: moved {car.name} to {slot.name}", car);
     }
 
-    // Disabling the input handler stops the car from receiving throttle, brake and steering
     private void SetCarsDrivable(bool drivable)
     {
         foreach (GameObject car in cars)
         {
-            car.GetComponentInChildren<PlayerInputHandler>().enabled = drivable;
+            PlayerInputHandler.FromCar(car).enabled = drivable;
         }
     }
 
@@ -146,7 +166,7 @@ public class RaceStartSequence : MonoBehaviour
             yield return null;
         }
 
-        introCamera.gameObject.SetActive(false); // The players' cameras take over
+        introCamera.gameObject.SetActive(false); 
         if (introScreenCamera != null)
         {
             introScreenCamera.gameObject.SetActive(false);

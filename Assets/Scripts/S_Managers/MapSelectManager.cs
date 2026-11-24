@@ -65,6 +65,11 @@ public class MapSelectManager : MonoBehaviour
 
     void SelectMap()
     {
+        foreach (var player in MultiplayerManager.Instance.AllPlayers)
+        {
+            player.GetComponent<PlayerInput>().ActivateInput(); // Everyone but player 1 was deactivated for map select
+            player.SpawnRaceCar();
+        }
         SceneLoadManager.Instance.LoadScene(2);
     }
 }
