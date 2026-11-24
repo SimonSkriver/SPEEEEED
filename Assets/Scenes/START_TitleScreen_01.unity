@@ -12433,7 +12433,7 @@ PrefabInstance:
     - target: {fileID: 5948736849738527118, guid: 9fa2da3ffba62374aa7c4b0fc94947d0, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 14d2ce26c9a4aa340a797e621fd21c22, type: 3}
+      objectReference: {fileID: 8300000, guid: 01059dc19b0e27d458d23243020a8e04, type: 3}
     - target: {fileID: 7900198351540443143, guid: 9fa2da3ffba62374aa7c4b0fc94947d0, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -72082,7 +72082,7 @@ Transform:
   m_GameObject: {fileID: 5871056056462098892}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13011743, y: 0.6950565, z: -0.6950051, w: 0.13013019}
-  m_LocalPosition: {x: -11.839995, y: 3.55, z: 1.0134668}
+  m_LocalPosition: {x: -10.88, y: 3.2, z: 1.0134668}
   m_LocalScale: {x: 1.7159997, y: 1.716, z: 1.716}
   m_ConstrainProportionsScale: 0
   m_Children:
