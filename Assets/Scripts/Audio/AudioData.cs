@@ -3,5 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AudioData", menuName = "Scriptable Objects/AudioData")]
 public class AudioData : ScriptableObject
 {
-    public AudioData audioClip01;
+    public AudioClip Back;
+    public AudioClip Click;
+    public AudioClip Confirm;
+    public AudioClip SceneChange;
+    public AudioClip PlayerJoinPing;
 }
