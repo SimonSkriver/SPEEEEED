@@ -1181,6 +1181,10 @@ PrefabInstance:
       propertyPath: PlayerIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7661807713996864982, guid: d8b2e5f2247e5294d80df63465768c32, type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[0].Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

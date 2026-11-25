@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,6 +27,23 @@ public class PlayerInfo : MonoBehaviour
         RaceCar.SetActive(false);
         RaceCar.transform.SetParent(transform, false);
         Destroy(holder);
+        AssignCameraChannel();
+    }
+
+
+    void AssignCameraChannel()
+    {
+        OutputChannels channel = (OutputChannels)((int)OutputChannels.Channel01 << PlayerID); // Player 1 = Channel01, Player 2 = Channel02, ...
+
+        foreach (CinemachineBrain brain in RaceCar.GetComponentsInChildren<CinemachineBrain>(true))
+        {
+            brain.ChannelMask = channel;
+        }
+
+        foreach (CinemachineVirtualCameraBase cam in RaceCar.GetComponentsInChildren<CinemachineVirtualCameraBase>(true))
+        {
+            cam.OutputChannel = channel;
+        }
     }
 
     public void DestroyRaceCar()
