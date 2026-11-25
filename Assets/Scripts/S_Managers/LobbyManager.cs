@@ -68,6 +68,7 @@ public class LobbyManager : MonoBehaviour
         carSelectCam.enabled = false;
         mapSelectManager.enabled = true;
         MultiplayerManager.Instance.playerInputManager.DisableJoining();
+        UpdateUIText(false);
         foreach (var player in MultiplayerManager.Instance.AllPlayers) // Disable input for everyone but player 1
         {
             if (player.PlayerID != 0)
@@ -83,6 +84,7 @@ public class LobbyManager : MonoBehaviour
         mapSelectCam.enabled = false;
         mapSelectManager.enabled = false;
         MultiplayerManager.Instance.playerInputManager.EnableJoining();
+        if (MultiplayerManager.Instance.AllPlayers.Count != MultiplayerManager.Instance.playerInputManager.maxPlayerCount) UpdateUIText(true);
         foreach (var player in MultiplayerManager.Instance.AllPlayers) // Disable input for everyone but player 1
         {
             player.GetComponent<PlayerInput>().ActivateInput();

@@ -300,9 +300,11 @@ GameObject:
   - component: {fileID: 7636597280504971136}
   - component: {fileID: 2356215728083587500}
   - component: {fileID: -4591536828969869959}
+  - component: {fileID: 8864962967553622824}
+  - component: {fileID: 2614765478080421210}
   m_Layer: 6
   m_Name: InGame_PedoVan
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,6 +323,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6572123563814845940}
+  - {fileID: 4120821617392108762}
   - {fileID: 7216663020090796951}
   - {fileID: 2021265645166988757}
   - {fileID: 2465993968912774216}
@@ -408,6 +411,31 @@ MonoBehaviour:
   shiftRate: 1
   maxGears: 6
   currentGear: 1
+--- !u!114 &8864962967553622824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105683958654385709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3005c8a8f0ae05a40a9f10f37fd3bcbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarBrakeLights
+  brakeLights: {fileID: 5454322924130918664}
+--- !u!114 &2614765478080421210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105683958654385709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374c229411e351f4eb65d5e9bf6cb590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarInCaseOfEmergency
 --- !u!1 &1224033438067641206
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +988,101 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &774194793441469970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7619395204222627874}
+    m_Modifications:
+    - target: {fileID: 1848594668661952976, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.761
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848594668661952976, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.781
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848594668661952976, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.313
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688207479570351898, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_Name
+      value: Lights_Brake
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688207479570351898, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8861956007383564924, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.761
+      objectReference: {fileID: 0}
+    - target: {fileID: 8861956007383564924, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.781
+      objectReference: {fileID: 0}
+    - target: {fileID: 8861956007383564924, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.313
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+--- !u!4 &4120821617392108762 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3715020531836216008, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+  m_PrefabInstance: {fileID: 774194793441469970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5454322924130918664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4688207479570351898, guid: d71bc8c9d63bf6346bd671e5332abd54, type: 3}
+  m_PrefabInstance: {fileID: 774194793441469970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2437861172064146920
 PrefabInstance:
   m_ObjectHideFlags: 0
