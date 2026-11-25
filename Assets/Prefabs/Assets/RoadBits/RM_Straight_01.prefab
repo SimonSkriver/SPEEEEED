@@ -499,8 +499,76 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2419654781022717120, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4524037944401372622}
   m_SourcePrefab: {fileID: 100100000, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+--- !u!1 &1333891553632626978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2419654781022717120, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+  m_PrefabInstance: {fileID: 3681332574896385506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4524037944401372622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333891553632626978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d01e298d8c99747a5e0bd13b65de9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SplineArchitect::SplineArchitect.SplineObject
+  cloningActive: 0
+  cloneUseFixedAmount: 0
+  keepPrefabLink: 1
+  cloneAmount: 0
+  cloneStartPadding: 0
+  cloneEndPadding: 0
+  cloneDistributionMode: 1
+  currentClones: []
+  originClones: []
+  randomizePrefabClones: 0
+  cloneRandomizeSeed: 0
+  randomizedPositonFrom: {x: 0, y: 0, z: 0}
+  randomizedPositonTo: {x: 0, y: 0, z: 0}
+  randomizedEulerFrom: {x: 0, y: 0, z: 0}
+  randomizedEulerTo: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleFrom: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleTo: {x: 0, y: 0, z: 0}
+  randomizedScaleFrom: 0
+  randomizedScaleTo: 0
+  randomizationStrength: 1
+  mirrorChance: 0
+  rotation180Chance: 0
+  constrainedScale: 1
+  localSplinePosition: {x: 19.14, y: -0.25, z: -4.5}
+  localSplineRotation: {x: 0, y: 0, z: -0.205521, w: 0.9786527}
+  componentMode: 0
+  meshMode: 0
+  snapSettings:
+    startSnapDistance: 0
+    endSnapDistance: 0
+    startSnapOffset: 0
+    endSnapOffset: 0
+    snapTargetPoint: 0
+    snapMode: 0
+  lockPosition: 0
+  rotationMode: 0
+  type: 0
+  normalType: 0
+  mirrorDeformation: 0
+  alignToEnd: 0
+  skipTangents: 0
+  meshContainers: []
+  splineParent: {fileID: 0}
+  soParent: {fileID: 0}
+  projectToSurface: 0
+  projectToSurfaceMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!4 &4532671197551176655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1004848111436908077, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
@@ -779,13 +847,81 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2419654781022717120, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3949787935263419577}
   m_SourcePrefab: {fileID: 100100000, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
 --- !u!4 &4786579803381211185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1004848111436908077, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
   m_PrefabInstance: {fileID: 5736645774292543004}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7928868361786401500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2419654781022717120, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+  m_PrefabInstance: {fileID: 5736645774292543004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3949787935263419577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928868361786401500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d01e298d8c99747a5e0bd13b65de9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SplineArchitect::SplineArchitect.SplineObject
+  cloningActive: 0
+  cloneUseFixedAmount: 0
+  keepPrefabLink: 1
+  cloneAmount: 0
+  cloneStartPadding: 0
+  cloneEndPadding: 0
+  cloneDistributionMode: 1
+  currentClones: []
+  originClones: []
+  randomizePrefabClones: 0
+  cloneRandomizeSeed: 0
+  randomizedPositonFrom: {x: 0, y: 0, z: 0}
+  randomizedPositonTo: {x: 0, y: 0, z: 0}
+  randomizedEulerFrom: {x: 0, y: 0, z: 0}
+  randomizedEulerTo: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleFrom: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleTo: {x: 0, y: 0, z: 0}
+  randomizedScaleFrom: 0
+  randomizedScaleTo: 0
+  randomizationStrength: 1
+  mirrorChance: 0
+  rotation180Chance: 0
+  constrainedScale: 1
+  localSplinePosition: {x: -19.15, y: -0.25, z: 4.5}
+  localSplineRotation: {x: -0.205521, y: 0.9786527, z: 0.000017918494, w: -0.00008532453}
+  componentMode: 0
+  meshMode: 0
+  snapSettings:
+    startSnapDistance: 0
+    endSnapDistance: 0
+    startSnapOffset: 0
+    endSnapOffset: 0
+    snapTargetPoint: 0
+    snapMode: 0
+  lockPosition: 0
+  rotationMode: 0
+  type: 0
+  normalType: 0
+  mirrorDeformation: 0
+  alignToEnd: 0
+  skipTangents: 0
+  meshContainers: []
+  splineParent: {fileID: 0}
+  soParent: {fileID: 0}
+  projectToSurface: 0
+  projectToSurfaceMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &6784816531688278157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1009,8 +1145,76 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2419654781022717120, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5944060451171508337}
   m_SourcePrefab: {fileID: 100100000, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+--- !u!1 &5262934966213236759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2419654781022717120, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+  m_PrefabInstance: {fileID: 7538432330469219543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5944060451171508337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262934966213236759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d01e298d8c99747a5e0bd13b65de9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SplineArchitect::SplineArchitect.SplineObject
+  cloningActive: 0
+  cloneUseFixedAmount: 0
+  keepPrefabLink: 1
+  cloneAmount: 0
+  cloneStartPadding: 0
+  cloneEndPadding: 0
+  cloneDistributionMode: 1
+  currentClones: []
+  originClones: []
+  randomizePrefabClones: 0
+  cloneRandomizeSeed: 0
+  randomizedPositonFrom: {x: 0, y: 0, z: 0}
+  randomizedPositonTo: {x: 0, y: 0, z: 0}
+  randomizedEulerFrom: {x: 0, y: 0, z: 0}
+  randomizedEulerTo: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleFrom: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleTo: {x: 0, y: 0, z: 0}
+  randomizedScaleFrom: 0
+  randomizedScaleTo: 0
+  randomizationStrength: 1
+  mirrorChance: 0
+  rotation180Chance: 0
+  constrainedScale: 1
+  localSplinePosition: {x: 19.14, y: -0.25, z: 4.5}
+  localSplineRotation: {x: 0, y: 0, z: -0.205521, w: 0.9786527}
+  componentMode: 0
+  meshMode: 0
+  snapSettings:
+    startSnapDistance: 0
+    endSnapDistance: 0
+    startSnapOffset: 0
+    endSnapOffset: 0
+    snapTargetPoint: 0
+    snapMode: 0
+  lockPosition: 0
+  rotationMode: 0
+  type: 0
+  normalType: 0
+  mirrorDeformation: 0
+  alignToEnd: 0
+  skipTangents: 0
+  meshContainers: []
+  splineParent: {fileID: 0}
+  soParent: {fileID: 0}
+  projectToSurface: 0
+  projectToSurfaceMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!4 &7308238608402176762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1004848111436908077, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
@@ -1157,8 +1361,76 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2419654781022717120, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9036377826069318452}
   m_SourcePrefab: {fileID: 100100000, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+--- !u!1 &5542211719262132249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2419654781022717120, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
+  m_PrefabInstance: {fileID: 7889658959656590553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9036377826069318452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5542211719262132249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d01e298d8c99747a5e0bd13b65de9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SplineArchitect::SplineArchitect.SplineObject
+  cloningActive: 0
+  cloneUseFixedAmount: 0
+  keepPrefabLink: 1
+  cloneAmount: 0
+  cloneStartPadding: 0
+  cloneEndPadding: 0
+  cloneDistributionMode: 1
+  currentClones: []
+  originClones: []
+  randomizePrefabClones: 0
+  cloneRandomizeSeed: 0
+  randomizedPositonFrom: {x: 0, y: 0, z: 0}
+  randomizedPositonTo: {x: 0, y: 0, z: 0}
+  randomizedEulerFrom: {x: 0, y: 0, z: 0}
+  randomizedEulerTo: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleFrom: {x: 0, y: 0, z: 0}
+  randomizedXYZScaleTo: {x: 0, y: 0, z: 0}
+  randomizedScaleFrom: 0
+  randomizedScaleTo: 0
+  randomizationStrength: 1
+  mirrorChance: 0
+  rotation180Chance: 0
+  constrainedScale: 1
+  localSplinePosition: {x: -19.15, y: -0.25, z: -4.5}
+  localSplineRotation: {x: -0.205521, y: 0.9786527, z: 0.000017918494, w: -0.00008532453}
+  componentMode: 0
+  meshMode: 0
+  snapSettings:
+    startSnapDistance: 0
+    endSnapDistance: 0
+    startSnapOffset: 0
+    endSnapOffset: 0
+    snapTargetPoint: 0
+    snapMode: 0
+  lockPosition: 0
+  rotationMode: 0
+  type: 0
+  normalType: 0
+  mirrorDeformation: 0
+  alignToEnd: 0
+  skipTangents: 0
+  meshContainers: []
+  splineParent: {fileID: 0}
+  soParent: {fileID: 0}
+  projectToSurface: 0
+  projectToSurfaceMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!4 &6957009248670997236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1004848111436908077, guid: 04412e623b04d334fbed94d6d32f5553, type: 3}
