@@ -36,7 +36,7 @@ public class CarSFX : MonoBehaviour
     void Awake()
     {
         //Get player input for throttle
-        playerInput = GetComponent<PlayerInputHandler>();
+        playerInput = GetComponentInParent<PlayerInputHandler>();
         rb = GetComponentInParent<Rigidbody>();
         //carData = GetComponentInChildren<CarWheel>();
 
