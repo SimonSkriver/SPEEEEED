@@ -123,7 +123,7 @@ public class CarSFX : MonoBehaviour
         engineAudioSource.clip = engineSFX;
         engineAudioSource.loop = true;
         //engineAudioSource.spatialBlend = 1f;
-        engineAudioSource.Play();
+        engineAudioSource.PlayDelayed(Random.Range(0f, 1f));
 
         //Create and configure audio source for tire squeal SFX
         tireSquealAudioSource = gameObject.AddComponent<AudioSource>();
@@ -132,7 +132,7 @@ public class CarSFX : MonoBehaviour
         tireSquealAudioSource.loop = true;
         //tireSquealAudioSource.spatialBlend = 1f;
         tireSquealAudioSource.volume = 0f;
-        tireSquealAudioSource.Play();
+        tireSquealAudioSource.PlayDelayed(Random.Range(0f, 1f));
 
         //Create and configure audio source for speed rattles SFX
         speedRattleAudioSource = gameObject.AddComponent<AudioSource>();
@@ -141,6 +141,6 @@ public class CarSFX : MonoBehaviour
         speedRattleAudioSource.loop = true;
         //speedRattleAudioSource.spatialBlend = 1f;
         speedRattleAudioSource.volume = 0f;
-        speedRattleAudioSource.Play();
+        speedRattleAudioSource.PlayDelayed(Random.Range(0f, 2f));
     }
 }
