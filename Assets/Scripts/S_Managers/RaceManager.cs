@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -40,6 +40,7 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private int carSelectSceneIndex = 1;
 
     private int finishedCount;
+    private InputActionAsset menuActions;
 
     public IReadOnlyList<Racer> Racers => racers;
     public GameObject Winner { get; private set; }
@@ -227,10 +228,25 @@ public class RaceManager : MonoBehaviour
         Cursor.visible = true;
         raceOverCanvas.SetActive(true);
 
+        // Like the map select, only player one uses the menu: the EventSystem would otherwise react to every player's device
+        if (MultiplayerManager.Instance != null && MultiplayerManager.Instance.AllPlayers.Count > 0 &&
+            EventSystem.current != null && EventSystem.current.TryGetComponent(out InputSystemUIInputModule uiModule) &&
+            uiModule.actionsAsset != null)
+        {
+            menuActions = uiModule.actionsAsset;
+            menuActions.devices = MultiplayerManager.Instance.GetPlayerOne().GetComponent<PlayerInput>().devices;
+        }
+
         if (EventSystem.current != null && firstSelectedButton != null)
         {
             EventSystem.current.SetSelectedGameObject(firstSelectedButton.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        // The actions asset outlives the scene, so give the devices back
+        if (menuActions != null) menuActions.devices = null;
     }
 
     // Hook these up to the buttons' OnClick in the Inspector
