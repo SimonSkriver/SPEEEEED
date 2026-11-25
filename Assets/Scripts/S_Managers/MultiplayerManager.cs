@@ -59,17 +59,21 @@ public class MultiplayerManager : MonoBehaviour
         AllPlayers.Add(playerInfo);
         LobbyManager.Instance.AssignPlayerToCarPanel(playerInfo);
         LobbyManager.Instance.UpdateUIText(AllPlayers.Count != playerInputManager.maxPlayerCount);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.PlayerJoinPing, transform, 1f, 1f);
     }
 
     public void OnPlayerLeft(PlayerInput playerInput)
     {
         AllPlayers.Remove(playerInput.GetComponent<PlayerInfo>());
         if (lobbyReady) LobbyManager.Instance.UpdateUIText(AllPlayers.Count == playerInputManager.maxPlayerCount); // No lobby UI outside the lobby scene
+        LobbyManager.Instance.UpdateUIText(AllPlayers.Count == playerInputManager.maxPlayerCount);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Back, transform, 1f, 1f);
         Debug.Log("Player left with ID " + playerInput.playerIndex);
     }
 
     public PlayerInfo GetPlayerOne()
     {
-        return AllPlayers[0];
+        if (AllPlayers == null) return null;
+        else return AllPlayers[0];
     }
 }

@@ -11,6 +11,7 @@ public class CarSelectManager : MonoBehaviour
     [SerializeField] private TMP_Text label;
     [SerializeField] private GameObject[] arrowUIButtons;
     [SerializeField] private GameObject[] inGameCars;
+    [SerializeField] private Transform cameraTransform;
 
     private int currentCarIndex = 0;
     private List<GameObject> cars = new List<GameObject>();
@@ -72,6 +73,7 @@ public class CarSelectManager : MonoBehaviour
             currentCarIndex = 0;
         }
         ShowCar(currentCarIndex);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Click, AudioManager.Instance.transform, 1f, Random.Range(0.8f, 1.2f));
     }
 
     public void PreviousCar()
@@ -85,6 +87,7 @@ public class CarSelectManager : MonoBehaviour
             currentCarIndex = transform.childCount - 1;
         }
         ShowCar(currentCarIndex);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Click, AudioManager.Instance.transform, 1f, Random.Range(0.8f, 1.2f));
     }
 
     void Submit()
@@ -95,6 +98,7 @@ public class CarSelectManager : MonoBehaviour
             playerInfo.ready = true;
             LobbyManager.Instance.UpdateReadyPlayerList(playerInfo.PlayerID);
             foreach (var arrow in arrowUIButtons) arrow.SetActive(false);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Confirm, AudioManager.Instance.transform, 0.7f, 1f);
         }
     }
 
@@ -106,6 +110,7 @@ public class CarSelectManager : MonoBehaviour
             playerInfo.ChosenCar = null;
             LobbyManager.Instance.UpdateReadyPlayerList(playerInfo.PlayerID);
             foreach (var arrow in arrowUIButtons) arrow.SetActive(true);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Back, AudioManager.Instance.transform, 1f, 1f);
         }
         else // If the player presses back while not ready, the player quits
         {

@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSource soundFXObject;
-    //public AudioData AudioData;
+    public AudioData AudioData;
 
     void Awake()
     {

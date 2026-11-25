@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class MapSelectManager : MonoBehaviour
 {
@@ -43,6 +42,7 @@ public class MapSelectManager : MonoBehaviour
             currentMapIndex = 0;
         }
         ShowMap(currentMapIndex);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Click, AudioManager.Instance.transform, 1f, Random.Range(0.8f, 1.2f));
     }
 
     void PreviousMap()
@@ -53,6 +53,7 @@ public class MapSelectManager : MonoBehaviour
             currentMapIndex = mapHover.transform.childCount - 1;
         }
         ShowMap(currentMapIndex);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Click, AudioManager.Instance.transform, 1f, Random.Range(0.8f, 1.2f));
     }
 
     void ShowMap(int mapIndex)
@@ -70,6 +71,7 @@ public class MapSelectManager : MonoBehaviour
             player.GetComponent<PlayerInput>().ActivateInput(); // Everyone but player 1 was deactivated for map select
             player.SpawnRaceCar();
         }
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.SceneChange, AudioManager.Instance.transform, 1f, 1f);
         SceneLoadManager.Instance.LoadScene(2);
     }
 }

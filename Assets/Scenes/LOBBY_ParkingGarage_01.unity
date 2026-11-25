@@ -702,6 +702,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5948736849738527118, guid: 9fa2da3ffba62374aa7c4b0fc94947d0, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948736849738527118, guid: 9fa2da3ffba62374aa7c4b0fc94947d0, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 841d03c11721e8f4bbe7f3e79a23d9f8, type: 3}
@@ -3660,7 +3664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
     Enabled: 0
-    m_Value: 0
+    m_Value: 4
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -3782,9 +3786,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mazda MX5
       objectReference: {fileID: 0}
+    - target: {fileID: 788206489741574430, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 926405928719240088, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_Name
       value: Player 4 Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963231659824126114, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652120459114518168, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2711942239096247599, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_text
@@ -3793,6 +3809,10 @@ PrefabInstance:
     - target: {fileID: 2820352543298265723, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_Name
       value: Lancia 037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2820352543298265723, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: inGameCars.Array.size
@@ -5205,9 +5225,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Mazda MX5 '
       objectReference: {fileID: 0}
+    - target: {fileID: 788206489741574430, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 926405928719240088, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_Name
       value: Player 3 Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963231659824126114, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652120459114518168, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2711942239096247599, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_text
@@ -5216,6 +5248,10 @@ PrefabInstance:
     - target: {fileID: 2820352543298265723, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_Name
       value: Lancia 037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2820352543298265723, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: inGameCars.Array.size
@@ -5686,9 +5722,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1645845894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -123}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 122}
   m_SizeDelta: {x: 1198.2319, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2080525535
@@ -5881,9 +5917,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mazda MX5
       objectReference: {fileID: 0}
+    - target: {fileID: 788206489741574430, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 926405928719240088, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_Name
       value: Player 2 Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963231659824126114, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652120459114518168, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2711942239096247599, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_text
@@ -5892,6 +5940,10 @@ PrefabInstance:
     - target: {fileID: 2820352543298265723, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_Name
       value: Lancia 037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2820352543298265723, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: inGameCars.Array.size
@@ -6048,6 +6100,10 @@ PrefabInstance:
       propertyPath: m_text
       value: PLAYER 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3793884747586044258, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 339768413}
     - target: {fileID: 8137710488095887409, guid: 2b92811a055d7ee4aa414242d02c4628, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -6454,9 +6510,9 @@ SceneRoots:
   - {fileID: 622023484}
   - {fileID: 1712883206}
   - {fileID: 342668876645570162}
-  - {fileID: 289055938}
   - {fileID: 729311480}
   - {fileID: 1931092985}
   - {fileID: 454206044}
   - {fileID: 672335399}
   - {fileID: 4847852667022259270}
+  - {fileID: 289055938}
