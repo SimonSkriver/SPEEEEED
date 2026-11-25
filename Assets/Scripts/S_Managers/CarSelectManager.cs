@@ -73,7 +73,7 @@ public class CarSelectManager : MonoBehaviour
             currentCarIndex = 0;
         }
         ShowCar(currentCarIndex);
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Click, AudioManager.Instance.transform, 1f, Random.Range(0.8f, 1.2f));
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.CarSelect, AudioManager.Instance.transform, 1f, Random.Range(0.8f, 1.2f));
     }
 
     public void PreviousCar()
@@ -87,7 +87,7 @@ public class CarSelectManager : MonoBehaviour
             currentCarIndex = transform.childCount - 1;
         }
         ShowCar(currentCarIndex);
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.Click, AudioManager.Instance.transform, 1f, Random.Range(0.8f, 1.2f));
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.AudioData.CarSelect, AudioManager.Instance.transform, 1f, Random.Range(0.8f, 1.2f));
     }
 
     void Submit()

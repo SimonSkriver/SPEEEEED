@@ -5,6 +5,7 @@ public class AudioData : ScriptableObject
 {
     public AudioClip Back;
     public AudioClip Click;
+    public AudioClip CarSelect;
     public AudioClip Confirm;
     public AudioClip SceneChange;
     public AudioClip PlayerJoinPing;

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioData
   Back: {fileID: 8300000, guid: 281083ffcabbb1f4a870675153f3f6c0, type: 3}
   Click: {fileID: 8300000, guid: 131b8de9dfe642f4aabe3190c1eb5d23, type: 3}
+  CarSelect: {fileID: 8300000, guid: 17ab2c14fc1d5bb44afae34c04fbf7cd, type: 3}
   Confirm: {fileID: 8300000, guid: d6b382b35a56c914c8d1bfffa5e74d0d, type: 3}
   SceneChange: {fileID: 8300000, guid: 9af2c09610bdbd245bd011014d6c1da9, type: 3}
   PlayerJoinPing: {fileID: 8300000, guid: 29f6335ca80c7a942b4613f51dd15605, type: 3}
