@@ -7,8 +7,13 @@ public class SceneLoadManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        // The newest copy wins: scene buttons reference the copy in their own scene, so it must be the one that stays alive
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance.gameObject);
+        }
+
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

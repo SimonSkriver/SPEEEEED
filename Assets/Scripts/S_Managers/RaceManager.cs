@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -37,7 +40,6 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private int carSelectSceneIndex = 1;
 
     private int finishedCount;
-    private readonly List<PlayerInput> lockedInputs = new List<PlayerInput>();
 
     public IReadOnlyList<Racer> Racers => racers;
     public GameObject Winner { get; private set; }
@@ -212,20 +214,6 @@ public class RaceManager : MonoBehaviour
         }
 
         input.DeactivateInput();
-        lockedInputs.Add(input);
-    }
-    
-    private void UnlockCars()
-    {
-        foreach (PlayerInput input in lockedInputs)
-        {
-            if (input != null)
-            {
-                input.ActivateInput();
-            }
-        }
-
-        lockedInputs.Clear();
     }
 
     private void ShowRaceOverScreen()
@@ -246,33 +234,45 @@ public class RaceManager : MonoBehaviour
     }
 
     // Hook these up to the buttons' OnClick in the Inspector
-    public void RestartRace() => LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-    public void LoadCarSelect()
+    // Keeps the players and gives each a fresh car; the race scene then sets up the grid like a normal start
+    public void RestartRace()
     {
-        DestroyRaceCars();
-        LoadScene(carSelectSceneIndex);
+        if (MultiplayerManager.Instance != null)
+        {
+            foreach (PlayerInfo player in MultiplayerManager.Instance.AllPlayers)
+            {
+                player.DestroyRaceCar();
+                player.SpawnRaceCar();
+                player.GetComponent<PlayerInput>().ActivateInput(); // LockCar deactivated it when they finished
+            }
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void LoadMainMenu()
+    public void LoadCarSelect() => LoadScene(carSelectSceneIndex);
+
+    public void LoadMainMenu() => LoadScene(mainMenuSceneIndex);
+
+    // Leaving the race for a menu scene: remove the players and the multiplayer manager so the next scene starts fresh
+    private static void LoadScene(int buildIndex)
     {
-        DestroyRaceCars();
-        LoadScene(mainMenuSceneIndex);
+        ReleasePlayers();
+        SceneManager.LoadScene(buildIndex);
     }
 
-    private static void DestroyRaceCars()
+    private static void ReleasePlayers()
     {
         if (MultiplayerManager.Instance == null) return;
 
-        foreach (PlayerInfo player in MultiplayerManager.Instance.AllPlayers)
+        // Destroying a player calls OnPlayerLeft, which edits AllPlayers, so loop over a copy
+        foreach (PlayerInfo player in MultiplayerManager.Instance.AllPlayers.ToArray())
         {
             player.DestroyRaceCar();
+            Destroy(player.gameObject);
         }
-    }
 
-    private void LoadScene(int buildIndex)
-    {
-        UnlockCars();
-        SceneManager.LoadScene(buildIndex);
+        MultiplayerManager.Instance.AllPlayers.Clear();
+        Destroy(MultiplayerManager.Instance.gameObject);
     }
 }

@@ -13,16 +13,28 @@ public class LobbyManager : MonoBehaviour
     [SerializeField] GameObject joinText;
 
     public List<int> ReadyPlayers = new List<int>();
-
-    private bool allPlayersReady => ReadyPlayers.Count == MultiplayerManager.Instance.AllPlayers.Count;
     private MapSelectManager mapSelectManager;
+
+    private bool allPlayersReady
+    {
+        get
+        {
+            if (MultiplayerManager.Instance == null) return false;
+            return ReadyPlayers.Count == MultiplayerManager.Instance.AllPlayers.Count;
+        }
+    }
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-
-        mapSelectManager = GetComponent<MapSelectManager>();
+        if (Instance == null)
+        {
+            Instance = this;
+            mapSelectManager = GetComponent<MapSelectManager>();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void AssignPlayerToCarPanel(PlayerInfo player)

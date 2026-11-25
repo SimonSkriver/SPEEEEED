@@ -142,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: 9df822674e6e45148acf5b0a8ef1d22b, type: 2}
   springRestLength: 0.5
-  springStrength: 9500
-  damperStrength: 8000
+  springStrength: 8000
+  damperStrength: 1000
   wheelRadius: 0.304448
   isSteering: 0
   isMotorized: 1
@@ -468,8 +468,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8, y: 1.025233, z: 4.04}
-  m_Center: {x: 0, y: 0.5, z: 0.7}
+  m_Size: {x: 1.8, y: 0.7928059, z: 4.04}
+  m_Center: {x: 0, y: 0.61621356, z: 0}
 --- !u!54 &5475532118800708201
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -729,8 +729,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: 9df822674e6e45148acf5b0a8ef1d22b, type: 2}
   springRestLength: 0.5
-  springStrength: 9500
-  damperStrength: 8000
+  springStrength: 8000
+  damperStrength: 1000
   wheelRadius: 0.304448
   isSteering: 0
   isMotorized: 1
@@ -964,8 +964,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: 9df822674e6e45148acf5b0a8ef1d22b, type: 2}
   springRestLength: 0.5
-  springStrength: 9500
-  damperStrength: 8000
+  springStrength: 8000
+  damperStrength: 1000
   wheelRadius: 0.304448
   isSteering: 1
   isMotorized: 1
@@ -1017,8 +1017,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarWheel
   CarData: {fileID: 11400000, guid: 9df822674e6e45148acf5b0a8ef1d22b, type: 2}
   springRestLength: 0.5
-  springStrength: 9500
-  damperStrength: 8000
+  springStrength: 8000
+  damperStrength: 1000
   wheelRadius: 0.304448
   isSteering: 1
   isMotorized: 1

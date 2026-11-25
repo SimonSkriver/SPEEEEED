@@ -64,6 +64,15 @@ public class CarWheel : MonoBehaviour
         DebugRays();
     }
 
+    // Drive, brake and grip forces are applied level with the center of mass. The ray origins sit above it, so applying them there
+    // would tip the car forward (nose dives when accelerating) and sideways (body roll), no matter how stiff the springs are
+    Vector3 ForcePoint()
+    {
+        Vector3 centerOfMass = rb.worldCenterOfMass;
+        Vector3 offsetFromCenter = Vector3.ProjectOnPlane(transform.position - centerOfMass, rb.transform.up);
+        return centerOfMass + offsetFromCenter;
+    }
+
     void HandleSuspension()
     {
         if (!grounded) return;
@@ -97,7 +106,7 @@ public class CarWheel : MonoBehaviour
         {
             float availablePower = CarData.EnginePower * CarData.PowerCurve.Evaluate(speedFactor);
             float accelerationAmount = availablePower * playerInput.AccelerationInputValue;
-            rb.AddForceAtPosition(transform.forward * accelerationAmount, transform.position);
+            rb.AddForceAtPosition(transform.forward * accelerationAmount, ForcePoint());
         }
     }
 
@@ -119,7 +128,7 @@ public class CarWheel : MonoBehaviour
     void Brake()
     {
         float brakeAmount = playerInput.BrakeInputValue * CarData.BrakeForce;
-        rb.AddForceAtPosition(-rb.transform.forward * brakeAmount, transform.position);
+        rb.AddForceAtPosition(-rb.transform.forward * brakeAmount, ForcePoint());
     }
 
     void Reverse()
@@ -129,7 +138,7 @@ public class CarWheel : MonoBehaviour
         if (isMotorized)
         {
             float reverseAmount = CarData.EnginePower * playerInput.BrakeInputValue;
-            rb.AddForceAtPosition(-transform.forward * reverseAmount, transform.position);
+            rb.AddForceAtPosition(-transform.forward * reverseAmount, ForcePoint());
         }
     }
 
@@ -140,7 +149,7 @@ public class CarWheel : MonoBehaviour
         float lateralVelocity = Vector3.Dot(transform.right, wheelVelocity);
         float targetVelocityChange = -lateralVelocity * currentTireGrip;
         float counterAcceleration = targetVelocityChange / Time.fixedDeltaTime;
-        rb.AddForceAtPosition(transform.right * counterAcceleration * wheelMass, transform.position);
+        rb.AddForceAtPosition(transform.right * counterAcceleration * wheelMass, ForcePoint());
     }
 
     void HandleDrifting()

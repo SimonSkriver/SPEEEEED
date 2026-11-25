@@ -18,8 +18,14 @@ public class PlayerInfo : MonoBehaviour
     {
         if (RaceCar != null || ChosenCar == null) return;
 
-        RaceCar = Instantiate(ChosenCar, transform);
+        // The wheels look for our PlayerInputHandler in Awake, so the car is created under an inactive holder.
+        // Its Awake then only runs once it is parented to us and activated.
+        GameObject holder = new GameObject("RaceCarHolder");
+        holder.SetActive(false);
+        RaceCar = Instantiate(ChosenCar, holder.transform);
         RaceCar.SetActive(false);
+        RaceCar.transform.SetParent(transform, false);
+        Destroy(holder);
     }
 
     public void DestroyRaceCar()

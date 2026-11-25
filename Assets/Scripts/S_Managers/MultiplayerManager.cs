@@ -15,9 +15,16 @@ public class MultiplayerManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         playerInputManager = GetComponent<PlayerInputManager>();
     }
@@ -57,7 +64,7 @@ public class MultiplayerManager : MonoBehaviour
     public void OnPlayerLeft(PlayerInput playerInput)
     {
         AllPlayers.Remove(playerInput.GetComponent<PlayerInfo>());
-        LobbyManager.Instance.UpdateUIText(AllPlayers.Count == playerInputManager.maxPlayerCount);
+        if (lobbyReady) LobbyManager.Instance.UpdateUIText(AllPlayers.Count == playerInputManager.maxPlayerCount); // No lobby UI outside the lobby scene
         Debug.Log("Player left with ID " + playerInput.playerIndex);
     }
 

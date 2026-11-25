@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b12abbe9c4fe548a19f7990c0fd7cc, type: 3}
   m_Name: Lancia
   m_EditorClassIdentifier: Assembly-CSharp::TestCarData
-  EnginePower: 20000
+  EnginePower: 10000
   TopSpeed: 70
   PowerCurve:
     serializedVersion: 2
@@ -20,24 +20,33 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0.3
-      inSlope: 0.042269845
-      outSlope: 0.042269845
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.22530867
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.9
-      value: 0.8
-      inSlope: 1.5639118
-      outSlope: -7.999998
+      time: 0.5
+      value: 1
+      inSlope: -0.010455098
+      outSlope: 0
       tangentMode: 65
       weightedMode: 0
-      inWeight: 0.0586419
+      inWeight: 0.33333334
       outWeight: 0.14412802
     - serializedVersion: 3
+      time: 0.95
+      value: 1
+      inSlope: -0
+      outSlope: -0.00010704505
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
-      value: 0
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0

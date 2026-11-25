@@ -151,7 +151,14 @@ public class RaceStartSequence : MonoBehaviour
     {
         foreach (GameObject car in cars)
         {
-            PlayerInputHandler.FromCar(car).enabled = drivable;
+            PlayerInputHandler handler = PlayerInputHandler.FromCar(car);
+            handler.enabled = drivable;
+
+            if (drivable)
+            {
+                // Driving inputs live in the "Player" map; the players come from the lobby on the "UI" map
+                handler.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+            }
         }
     }
 
