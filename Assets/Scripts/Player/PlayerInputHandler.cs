@@ -11,6 +11,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction brakeAction;
     private InputAction steerAction;
     private InputAction driftAction;
+    private InputAction inCaseOfEmergencyAction;
 
     [Header("UI Action")]
     private InputAction menuLeftAction;
@@ -30,6 +31,7 @@ public class PlayerInputHandler : MonoBehaviour
     public float SteerInputValue => steerInputValue;
     public bool DriftIsHeld => driftIsHeld;
 
+    public event System.Action InCaseOfEmergencyPressed;
     public event System.Action MenuLeftPressed;
     public event System.Action MenuRightPressed;
     public event System.Action SubmitPressed;
@@ -38,12 +40,15 @@ public class PlayerInputHandler : MonoBehaviour
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        
+
+        // IN-GAME ACTIONS
         accelerateAction = playerInput.actions.FindAction("Accelerate");
         brakeAction = playerInput.actions.FindAction("Brake");
         steerAction = playerInput.actions.FindAction("Steer");
         driftAction = playerInput.actions.FindAction("Drift");
+        inCaseOfEmergencyAction = playerInput.actions.FindAction("InCaseOfEmergency");
 
+        // UI ACTIONS
         menuLeftAction = playerInput.actions.FindAction("Menu Left");
         menuRightAction = playerInput.actions.FindAction("Menu Right");
         submitAction = playerInput.actions.FindAction("Submit");
@@ -52,6 +57,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     void OnEnable()
     {
+        inCaseOfEmergencyAction.performed += OnInCaseOfEmergency;
+
         menuLeftAction.performed += OnMenuLeft;
         menuRightAction.performed += OnMenuRight;
         submitAction.performed += OnSubmit;
@@ -60,6 +67,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     void OnDisable()
     {
+        inCaseOfEmergencyAction.performed -= OnInCaseOfEmergency;
+
         menuLeftAction.performed -= OnMenuLeft;
         menuRightAction.performed -= OnMenuRight;
         submitAction.performed -= OnSubmit;
@@ -80,6 +89,8 @@ public class PlayerInputHandler : MonoBehaviour
         PlayerInputHandler handler = car.GetComponentInParent<PlayerInputHandler>();
         return handler != null ? handler : car.GetComponentInChildren<PlayerInputHandler>();
     }
+
+    public void OnInCaseOfEmergency(InputAction.CallbackContext context) => InCaseOfEmergencyPressed?.Invoke();
 
     public void OnMenuLeft(InputAction.CallbackContext context) => MenuLeftPressed?.Invoke();
     public void OnMenuRight(InputAction.CallbackContext context) => MenuRightPressed?.Invoke();
