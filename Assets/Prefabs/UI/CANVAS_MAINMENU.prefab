@@ -2538,7 +2538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: All Audio
+  m_text: Master Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 116ac12c3c695374fa1535948a6ece2a, type: 2}
   m_sharedMaterial: {fileID: 1275699604201524389, guid: 116ac12c3c695374fa1535948a6ece2a, type: 2}
@@ -2675,7 +2675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sound Effects
+  m_text: Sound Effects Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 116ac12c3c695374fa1535948a6ece2a, type: 2}
   m_sharedMaterial: {fileID: 1275699604201524389, guid: 116ac12c3c695374fa1535948a6ece2a, type: 2}
@@ -3090,7 +3090,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music
+  m_text: Music Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 116ac12c3c695374fa1535948a6ece2a, type: 2}
   m_sharedMaterial: {fileID: 1275699604201524389, guid: 116ac12c3c695374fa1535948a6ece2a, type: 2}
