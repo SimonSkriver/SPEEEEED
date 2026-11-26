@@ -44,6 +44,11 @@ public class PlayerInfo : MonoBehaviour
         {
             cam.OutputChannel = channel;
         }
+
+        foreach (CinemachineInputAxisController axis in RaceCar.GetComponentsInChildren<CinemachineInputAxisController>(true))
+        {
+            axis.PlayerIndex = GetComponent<PlayerInput>().user.index;
+        }
     }
 
     public void DestroyRaceCar()

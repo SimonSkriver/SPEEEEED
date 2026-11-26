@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
+
     [SerializeField] private float recenterSpeed = 5f;
 
     private CinemachineOrbitalFollow orbitalFollow;

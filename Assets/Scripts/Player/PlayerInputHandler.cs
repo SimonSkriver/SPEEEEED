@@ -12,6 +12,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction steerAction;
     private InputAction driftAction;
     private InputAction inCaseOfEmergencyAction;
+    private InputAction lookAction;
 
     [Header("UI Action")]
     private InputAction menuLeftAction;
@@ -25,11 +26,13 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private float brakeInputValue;
     [SerializeField] private float steerInputValue;
     [SerializeField] private bool driftIsHeld;
+    [SerializeField] private float lookInputValue;
     // Public properties to get the value of the private fields from outside this class, without overriding them
     public float AccelerationInputValue => accelerateInputValue;
     public float BrakeInputValue => brakeInputValue;
     public float SteerInputValue => steerInputValue;
     public bool DriftIsHeld => driftIsHeld;
+    public float LookInputValue => lookInputValue;
 
     public event System.Action InCaseOfEmergencyPressed;
     public event System.Action MenuLeftPressed;
@@ -47,6 +50,7 @@ public class PlayerInputHandler : MonoBehaviour
         steerAction = playerInput.actions.FindAction("Steer");
         driftAction = playerInput.actions.FindAction("Drift");
         inCaseOfEmergencyAction = playerInput.actions.FindAction("InCaseOfEmergency");
+        lookAction = playerInput.actions.FindAction("Look");
 
         // UI ACTIONS
         menuLeftAction = playerInput.actions.FindAction("Menu Left");
@@ -81,6 +85,7 @@ public class PlayerInputHandler : MonoBehaviour
         brakeInputValue = brakeAction.ReadValue<float>();
         steerInputValue = steerAction.ReadValue<float>();
         driftIsHeld = driftAction.IsPressed();
+        lookInputValue = lookAction.ReadValue<float>();
     }
 
     // Race cars are children of the player that owns the handler; the scene's test cars keep it on themselves or a child

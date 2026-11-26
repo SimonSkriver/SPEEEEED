@@ -245,12 +245,9 @@ public class RaceManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        // The actions asset outlives the scene, so give the devices back
         if (menuActions != null) menuActions.devices = null;
     }
 
-    // Hook these up to the buttons' OnClick in the Inspector
-    // Keeps the players and gives each a fresh car; the race scene then sets up the grid like a normal start
     public void RestartRace()
     {
         if (MultiplayerManager.Instance != null)
@@ -259,7 +256,7 @@ public class RaceManager : MonoBehaviour
             {
                 player.DestroyRaceCar();
                 player.SpawnRaceCar();
-                player.GetComponent<PlayerInput>().ActivateInput(); // LockCar deactivated it when they finished
+                player.GetComponent<PlayerInput>().ActivateInput();
             }
         }
 
@@ -270,7 +267,6 @@ public class RaceManager : MonoBehaviour
 
     public void LoadMainMenu() => LoadScene(mainMenuSceneIndex);
 
-    // Leaving the race for a menu scene: remove the players and the multiplayer manager so the next scene starts fresh
     private static void LoadScene(int buildIndex)
     {
         ReleasePlayers();
@@ -281,7 +277,6 @@ public class RaceManager : MonoBehaviour
     {
         if (MultiplayerManager.Instance == null) return;
 
-        // Destroying a player calls OnPlayerLeft, which edits AllPlayers, so loop over a copy
         foreach (PlayerInfo player in MultiplayerManager.Instance.AllPlayers.ToArray())
         {
             player.DestroyRaceCar();
